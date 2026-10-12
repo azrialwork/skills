@@ -21,13 +21,13 @@ jobs:
 
       - name: create-skill validate.py on every skill
         run: |
-          for s in create-skill oss-standards no-slop; do
+          for s in create-skill oss-standards no-slop git-workflow; do
             python3 create-skill/scripts/validate.py "$s"
           done
 
       - name: no-slop slop-scan on every SKILL.md
         run: |
-          for s in create-skill oss-standards no-slop; do
+          for s in create-skill oss-standards no-slop git-workflow; do
             ./no-slop/scripts/slop-scan.sh "$s/SKILL.md"
           done
 

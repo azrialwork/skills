@@ -73,6 +73,9 @@ Read a reference only when its topic is in scope. Do not preload all of them.
   docs this skill calls for, run them through no-slop (DURING while
   writing, AFTER for review) so the prose is human-grade, not just
   standards-compliant.
+- **git-workflow:** the release process (branching model, tagging,
+  changelog automation) lives there. Apply both when setting up how a
+  project ships.
 - **create-skill:** if the engagement produces a reusable workflow worth
   keeping, use create-skill to package it as a proper skill.
 
