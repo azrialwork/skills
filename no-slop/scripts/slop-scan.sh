@@ -65,6 +65,12 @@ case "$lower" in
         hit 5 "sycophancy/throat-clearing opener: $first" ;;
 esac
 
+# --- 2b. hard gate: em dash (H-02) -------------------------------------------
+emdash_lines=$(LC_ALL=C grep -n "$(printf '\342\200\224')" "$file" | cut -d: -f1 | tr '\n' ',' | sed 's/,$//' || true)
+if [ -n "$emdash_lines" ]; then
+    hit 50 "HARD FAIL (H-02): em dash character on lines $emdash_lines"
+fi
+
 # --- 3. verdict --------------------------------------------------------------
 printf '%s\n' '---'
 printf 'slop score: %d (threshold %d)\n' "$score" "$threshold"

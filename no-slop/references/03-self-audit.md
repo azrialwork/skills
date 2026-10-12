@@ -1,51 +1,61 @@
 <!--
   03-self-audit.md -- Reference for no-slop.
 
-  Post-generation audit for what the scanner cannot see. Walk this
-  checklist after slop-scan.sh passes.
+  Post-generation audit: the Delivery Gate plus the liveliness check.
+  Walk this after slop-scan.sh passes. Covers what heuristics cannot see.
 -->
 
-# Self-audit checklist
+# Self-audit and Delivery Gate
 
-Run the scanner first (`scripts/slop-scan.sh`). Then walk this list --
-it covers what heuristics cannot see.
+Run the scanner first (`scripts/slop-scan.sh`). Then walk this audit.
+Nothing ships until every block passes.
 
-## Deletion test
+## Block 1 -- Hard Gate (absolute)
 
-For each paragraph, delete it mentally. If the piece loses nothing,
-delete it for real. Do this for sentences too. Slop hides in text
-that survives on fluency alone.
+Any H-rule violation is a FAIL. Fix it, no exceptions:
 
-## Specificity test
+- [ ] H-01: every number, name, date, and quote has a real source
+       (or no numbers appear at all).
+- [ ] H-02: no em dash (`—`) anywhere in the text.
+- [ ] H-03: no sycophancy opener, no throat-clearing.
+- [ ] H-04: every cited source was actually read or opened.
 
-Highlight every factual claim. For each one, ask:
-- Is there a number, name, date, or example attached?
-- Can I point to where I got it (file, tool output, URL)?
-- Did I invent any part of it to sound concrete?
+## Block 2 -- Purpose-Gate (reason required)
 
-Any "no" is a rewrite or a cut.
+For each P-technique used (bullets, bold, hedges, intensifiers,
+metaphors):
 
-## Originality test
+- [ ] I can state what it serves (clarity, structure, honesty).
+- [ ] "It looks good" / "it fills space" was not the reason.
+- [ ] Anything without a reason was cut.
 
-Could any model produce this from the same prompt without the specific
-context I was given? If yes, the text adds nothing -- find the angle
-only this context makes possible, or say less.
+## Block 3 -- Liveliness (alive, not just clean)
 
-## Confidence test
+Removing slop does not produce good text; it leaves a void. Liveliness
+must be added, not assumed. A sterile result is a failure to fix.
 
-Mark every statement that is uncertain, inferred, or unverified.
-If none are marked but the topic has genuine uncertainty, false
-confidence slipped in -- add the markers.
+- [ ] **Topic-swap test:** if the topic were swapped for another,
+      would this text read the same? If yes, it is generic -- rewrite
+      until only this topic could have produced it.
+- [ ] **Specific-context test:** does the text carry names, situations,
+      trade-offs, or constraints that only this context provides? If it
+      could have been written without the context given, it adds nothing.
+- [ ] **Voice test:** read it aloud. It should sound like a competent
+      human who knows the subject and respects the reader's time -- not
+      a press release, not a template.
 
-## Tone test
+## Block 4 -- Quality Locks and substance
 
-Read it aloud. Cut anything that sounds like a press release, a
-motivational poster, or agreement-for-agreement's-sake. The remaining
-text should sound like a competent human who knows the subject and
-respects the reader's time.
+- [ ] Q-01: deletion test -- every surviving paragraph earns its place.
+- [ ] Q-02: structure varies; no templated section shapes.
+- [ ] Q-03: ends when the content ends; no decorative conclusion.
+- [ ] Q-04: no emoji.
+- [ ] Q-05: every claim has specifics or was cut.
+- [ ] No invented specifics anywhere (re-verify H-01 after edits --
+      fixes often smuggle in new unverified claims).
 
 ## Sign-off
 
-Only ship when: scanner passes, every flagged passage was rewritten
-(not just de-worded), and this checklist has no open items. If an item
-cannot be satisfied honestly, say so in the text rather than faking it.
+Ship only when all four blocks pass. If a block cannot be satisfied
+honestly, say so in the text rather than faking it. A fix that adds
+new unverified claims restarts the audit at Block 1.
