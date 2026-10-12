@@ -1,0 +1,6 @@
+<!--
+  skills/.gitkeep -- Placeholder so the empty skills/ directory is tracked.
+
+  Delete this file once the first real skill folder lands here. Each skill is
+  a directory named exactly like its frontmatter `name`, containing SKILL.md.
+-->

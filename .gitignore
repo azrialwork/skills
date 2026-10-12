@@ -1,0 +1,9 @@
+<!--
+  .gitignore -- Files git should ignore in the skills repository.
+-->
+
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
