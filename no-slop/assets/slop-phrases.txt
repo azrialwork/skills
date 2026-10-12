@@ -1,0 +1,61 @@
+<!--
+  slop-phrases.txt -- Asset for no-slop.
+
+  Banned/cliche phrase list for scripts/slop-scan.sh. One
+  case-insensitive fixed-string pattern per line. Lines starting with
+  # are comments. Extend when new markers are found.
+-->
+
+# throat-clearing openers
+great question
+excellent question
+as an ai
+certainly!
+
+# empty intensifiers (flagged only when stacked; scanner counts density)
+very
+really
+truly
+incredibly
+extremely
+
+# cliche metaphors
+delve
+tapestry
+bustling
+vibrant
+testament to
+embark on
+
+# hollow transitions
+furthermore
+moreover
+in conclusion
+in summary
+overall,
+it's important to note
+it's worth noting
+in today's fast-paced
+in today's digital age
+
+# hype verbs
+revolutionize
+game-changer
+game changer
+cutting-edge
+cutting edge
+unlock the power
+seamless
+seamlessly
+
+# sycophancy
+you're absolutely right
+that's a fantastic point
+great point!
+
+# hedge-stack markers (density-checked by the scanner)
+might
+could
+may
+potentially
+possibly
