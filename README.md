@@ -13,12 +13,11 @@ OpenCode and other spec-compatible agents (Claude Code, Codex, Cursor, Gemini CL
 ## Layout
 
 ```
-skills/
-  <skill-name>/
-    SKILL.md        # required: YAML frontmatter (name, description) + instructions
-    scripts/        # optional: deterministic helper scripts
-    references/     # optional: docs loaded on demand
-    assets/         # optional: templates, images, data files
+<skill-name>/
+  SKILL.md        # required: YAML frontmatter (name, description) + instructions
+  scripts/        # optional: deterministic helper scripts
+  references/     # optional: docs loaded on demand
+  assets/         # optional: templates, images, data files
 ```
 
 Rules: one folder per skill; the folder name must equal the frontmatter `name`
@@ -26,12 +25,12 @@ Rules: one folder per skill; the folder name must equal the frontmatter `name`
 
 ## Use with OpenCode
 
-Point OpenCode at this repo's `skills/` directory in `opencode.json`:
+Point OpenCode at this repo in `opencode.json`:
 
 ```jsonc
 {
   "skills": {
-    "paths": ["~/workspace/azrial/code/skills/skills"]
+    "paths": ["~/workspace/azrial/code/skills"]
   }
 }
 ```
@@ -40,7 +39,7 @@ Restart OpenCode after adding or changing skills.
 
 ## Adding a new skill
 
-1. Create `skills/<skill-name>/SKILL.md` with frontmatter:
+1. Create `<skill-name>/SKILL.md` with frontmatter:
 
 ```markdown
 ---
