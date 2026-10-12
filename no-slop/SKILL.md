@@ -94,6 +94,15 @@ Read a reference only when its phase is active.
 - `assets/slop-phrases.txt` -- the banned/cliche phrase list, one
   case-insensitive pattern per line. Extend it when you find new markers.
 
+## Collaborating with other skills
+
+- **create-skill:** when a no-slop engagement produces a reusable
+  checklist or scanner worth keeping, use create-skill to package it
+  as a proper skill.
+- **oss-standards:** no-slop keeps prose human-grade; oss-standards
+  keeps the repo professional. When writing README.md, CHANGELOG.md,
+  or docs for an oss-standards engagement, run no-slop DURING.
+
 ## Guardrails
 
 - Never ship text that fails the Delivery Gate.

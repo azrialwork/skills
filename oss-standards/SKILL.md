@@ -67,6 +67,15 @@ Read a reference only when its topic is in scope. Do not preload all of them.
 - `assets/install-sh-skeleton.sh` -- minimal installer skeleton with the
   standard idioms (strict mode, checksum, progress bar, trap cleanup).
 
+## Collaborating with other skills
+
+- **no-slop:** when writing README.md, CHANGELOG.md, SECURITY.md, or any
+  docs this skill calls for, run them through no-slop (DURING while
+  writing, AFTER for review) so the prose is human-grade, not just
+  standards-compliant.
+- **create-skill:** if the engagement produces a reusable workflow worth
+  keeping, use create-skill to package it as a proper skill.
+
 ## Guardrails
 
 - Never weaken a security standard to simplify (no skipping checksums,

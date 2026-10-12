@@ -54,3 +54,12 @@ You help the user design, write, and validate professional Agent Skills.
   `opencode/autoinvoke`), `disable-model-invocation`, and name-regex enforcement.
 
 Details live in `references/` -- consult the relevant file instead of guessing.
+
+## Collaborating with other skills
+
+- **no-slop:** skill prose is user-facing content. Run new SKILL.md
+  text and reference docs through no-slop (DURING while writing, AFTER
+  for review) so the skill reads human-grade.
+- **oss-standards:** if the skill ships executable scripts or an
+  installer, apply oss-standards (strict mode, no bashisms, checksums)
+  to them before publishing.

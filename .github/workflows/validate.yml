@@ -1,0 +1,41 @@
+# CI validation for the skills collection.
+#
+# Dogfoods all three skills on every push/PR:
+#   create-skill  -> scripts/validate.py on every skill
+#   no-slop       -> scripts/slop-scan.sh on every SKILL.md
+#   oss-standards -> scripts/repo-audit.sh on this repo
+name: validate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: create-skill validate.py on every skill
+        run: |
+          for s in create-skill oss-standards no-slop; do
+            python3 create-skill/scripts/validate.py "$s"
+          done
+
+      - name: no-slop slop-scan on every SKILL.md
+        run: |
+          for s in create-skill oss-standards no-slop; do
+            ./no-slop/scripts/slop-scan.sh "$s/SKILL.md"
+          done
+
+      - name: oss-standards repo-audit on this repo
+        run: ./oss-standards/scripts/repo-audit.sh .
+
+      - name: POSIX syntax check on all shell scripts
+        run: |
+          for f in oss-standards/scripts/repo-audit.sh no-slop/scripts/slop-scan.sh; do
+            sh -n "$f"
+          done
