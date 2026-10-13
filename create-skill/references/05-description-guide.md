@@ -46,5 +46,5 @@ Good: "Drafts conventional-commit messages from staged diffs and validates
 - Name concrete artifacts (file types, tools, commands) the task involves.
 - Include negative triggers when the skill is easily confused with another
   ("Use for X, not for Y").
-- In V1 a missing description still loads the skill but hides it from the model
+- A missing description still loads the skill but hides it from the model
   -- always write one.

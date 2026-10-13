@@ -29,8 +29,8 @@ the agent calls the `skill` tool. See `06-progressive-disclosure.md`.
 Key distinctions:
 
 - **Skill vs command.** Skills are loaded *by* the agent (it infers relevance from
-  the description). Commands are shortcuts *for* the user (`/init`). In V1 every
-  skill is also auto-exposed as `/name`; in V2 that needs
+  the description). Commands are shortcuts *for* the user (`/init`). A skill can
+  additionally be exposed as a user-invoked `/name` command via
   `metadata: {"opencode/slash": "true"}`. See `07-invocation-permissions.md`.
 - **Skill vs MCP.** MCP gives the agent *tool access* to external systems. A
   skill provides the *judgment* for when to use those tools and what to do with

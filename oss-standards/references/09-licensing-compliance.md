@@ -22,11 +22,13 @@
 - Expressions: `Apache-2.0 OR MIT`,
   `GPL-2.0-only WITH Classpath-exception-2.0` (`AND` / `OR` / `WITH`).
 
-## FSFE REUSE 3.x (reuse.software)
+## FSFE REUSE 3.3 (reuse.software/spec-3.3)
 
 - Every file's licensing must be machine-readable: license texts in
   `LICENSES/<SPDX-ID>.txt`, per-file `SPDX-License-Identifier` headers
-  or `.license` sidecars, `REUSE.toml` for exceptions.
+  or `.license` sidecars, `REUSE.toml` for exceptions. (Since 3.3:
+  `REUSE.toml` itself needs no licensing header; `LICENSE`/`COPYING`
+  may carry a `-`/`-`suffix like `LICENSE-MIT`.)
 - Enforce with `reuse lint` in CI. Adopt when file count or corporate
   adoption makes per-file licensing matter (roadmap LATER).
 

@@ -130,3 +130,36 @@
 Read the passage aloud. If it sounds like a press release, a LinkedIn
 influencer, or a model completing a prompt -- it is slop. Rewrite it
 until it sounds like a competent human who knows the subject.
+
+## Empirical grounding (why these markers, and their limits)
+
+The marker list above is not folk wisdom. Kobak et al., "Delving into
+LLM-assisted writing in biomedical publications through excess
+vocabulary", *Science Advances* 11, eadt3813 (2025), analyzed 15M+
+PubMed abstracts (2010-2024) with an excess-word method: words whose
+frequency jumped abruptly after ChatGPT's release, beyond their
+pre-2023 trend. They estimate at least 13.5% of 2024 abstracts were
+processed with LLMs (up to 40% in some subcorpora), and the excess
+shifted from content nouns to style words -- verbs and adjectives like
+*delve, showcase, pivotal, underscore, meticulous, intricate*. A 2026
+follow-up confirmed the markers persisted into 2025 full texts.
+
+Limits you must respect (current as of 2026-10-13):
+
+- **Word lists decay.** The human baseline is drifting toward AI
+  vocabulary, so single-word tells weaken over time. Durable detection
+  rests on structure, stance, and specificity -- not banned-word lists.
+  The scanner is the floor for exactly this reason.
+- **Detectors are unreliable as verdicts.** OpenAI shut down its own AI
+  classifier in July 2023 citing low accuracy. Liang et al., "GPT
+  detectors are biased against non-native English writers", *Patterns*
+  4(7):100779 (2023), found seven widely-used detectors misclassified
+  an average of 61.2% of TOEFL essays by non-native writers as
+  AI-generated (97.8% flagged by at least one detector), versus ~5% on
+  native-speaker essays -- careful, constrained writing trips the same
+  statistical signals. Independent 2026 evaluations continue to show
+  large vendor-vs-independent accuracy gaps and near-zero reliability
+  against lightly humanized text.
+- **Never accuse on statistics alone.** This skill scores *your own
+  draft* against its rules. It is not a detector for other people's
+  writing, and its score is a rubric -- not proof of authorship.

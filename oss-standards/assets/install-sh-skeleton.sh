@@ -50,7 +50,7 @@ trap 'rm -rf "$tmpdir"' EXIT INT TERM
 tarball="$APP-$VERSION-$os-$arch.tar.gz"
 url="$BASE_URL/$tarball"
 info "=> downloading $tarball"
-curl --proto '=https' --tlsv1.2 -fSL --progress-bar \
+curl --proto '=https' --tlsv1.2 -fSL --retry 3 --progress-bar \
     "$url" -o "$tmpdir/$tarball" ||
     error "download failed: $url"
 info "=> verifying checksum"

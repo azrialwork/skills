@@ -50,7 +50,7 @@
 20. **Reproducible builds** (pinned toolchain + `SOURCE_DATE_EPOCH`).
 21. **CODE_OF_CONDUCT.md** (Contributor Covenant 3.0) when a community
     exists.
-22. **REUSE 3.x compliance** when per-file licensing matters.
+22. **REUSE 3.3 compliance** when per-file licensing matters.
 23. **DCO (`Signed-off-by`)** when outside contributions arrive.
 24. **Docs site / Diataxis-structured `docs/`** when README passes
     ~200 lines.

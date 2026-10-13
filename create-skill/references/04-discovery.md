@@ -5,7 +5,9 @@
 
 # Discovery: Where Skills Are Found
 
-## Built-in locations (V1)
+## Discovery locations
+
+Per the official OpenCode docs (opencode.ai/docs/skills):
 
 | # | Location | Scope |
 |---|---|---|

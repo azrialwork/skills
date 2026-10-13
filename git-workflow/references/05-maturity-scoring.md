@@ -1,0 +1,162 @@
+<!--
+  05-maturity-scoring.md -- Reference for git-workflow.
+
+  The complete 0-100 workflow-maturity scoring algorithm: six weighted
+  categories, every item mapped to a checkable probe (exact git / gh
+  commands) or an explicit human attestation. Model selection itself
+  lives in references/01-branching-models.md (Step 0 below points there).
+  Read when auditing a repo or verifying an engagement.
+-->
+
+# Workflow maturity scoring (0-100)
+
+A fully disciplined repo scores exactly 100. Nothing the skill teaches
+is left unscored: each practice below maps to one checkable item, either
+a machine probe (exact command given) or an explicit human attestation
+(marked HUMAN). Items that cannot be automated are labeled as such
+instead of being silently omitted.
+
+## Band legend
+
+| Score | Band | Meaning |
+|---|---|---|
+| 90-100 | Exemplary | Fully disciplined, automated, auditable. |
+| 70-89 | Disciplined | Workflow enforced end to end; minor gaps. |
+| 40-69 | Developing | Some practices adopted; enforcement gaps. |
+| 0-39 | Ad-hoc | No enforced workflow; history not machine-readable. |
+
+Bands are tunable. The 100-point arithmetic is the stable part.
+
+## Step 0 - Select the model
+
+Use the decision tree in `references/01-branching-models.md` (five
+inputs: `parallel_versions`, `staged_envs`, `team_size`,
+`continuous_deployment`, `ci_maturity`). Every item below is scored
+against the chosen model's parameters (branch lifetimes, merge method,
+integration branches).
+
+## Step 1 - Score the six categories
+
+### Category 1 - Branching model (14 pts)
+
+| # | Item | Pts | Evidence |
+|---|---|---|---|
+| 1.1 | Model explicitly chosen and documented: one of the four named models (GitFlow, GitHub Flow, GitLab Flow, trunk-based) plus why, in README/CONTRIBUTING/docs. No invented workflow names. | 4 | HUMAN (read the docs; confirm the model name and rationale exist) |
+| 1.2 | Branch naming convention defined and followed. | 0/2/4 | AUTO: `git branch -a --format='%(refname:short)'` -> >=90% of work branches match the documented pattern = 4; 60-89% = 2; else 0 |
+| 1.3 | Work-branch lifetimes within the model's bound (GitHub Flow <=1 day, trunk-based <=2 days, GitLab Flow days, GitFlow days-weeks). | 0/2/4 | AUTO: `git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)' refs/heads/` -> oldest open work branch within bound = 4; within 2x bound = 2; else 0 |
+| 1.4 | Branch inventory matches the documented model: the model's integration branches exist (`develop`, `staging`/`production`, or trunk-only), and there are no unexpected long-lived branches. | 2 | AUTO: `git branch -a` compared against the model's branch set |
+
+### Category 2 - Commit discipline (24 pts)
+
+The linter is `scripts/commit-lint.sh` (exit 0 = conventional).
+Spec-mandated vs skill-strict rules are defined in
+`references/02-conventional-commits.md`.
+
+| # | Item | Pts | Evidence |
+|---|---|---|---|
+| 2.1 | Share of the last 100 integration-branch commits passing `commit-lint.sh`. | pct x 10, rounded | AUTO: `for h in $(git log -100 --format='%H' main); do git log -1 --format=%B "$h" \| sh scripts/commit-lint.sh >/dev/null 2>&1 && pass=$((pass+1)); done` |
+| 2.2 | Linting enforced, not just documented: a `commit-msg` hook exists, or a CI step lints commits. For squash-merge repos the enforcement point MUST be the PR title / squash message (e.g. a CI check on the PR title), because branch commits never reach history. | 4 | AUTO: `ls .git/hooks/commit-msg` or `grep -ri 'commit-lint\|commitlint\|semantic-pr\|semantic-pull-request' .github/workflows/ .husky/ 2>/dev/null` |
+| 2.3 | No vague subjects in the last 100 commits (`fix bug`, `update`, `wip`, single-word subjects). | 4 | AUTO: `git log -100 --format=%s main \| grep -ciE '^(fix bug\|update\|wip\|tmp\|test)$'` = 0 |
+| 2.4 | Breaking changes are marked with `!` or a `BREAKING CHANGE:` footer; no silent breaking changes in the window. | 4 | HUMAN (attestation; supporting heuristic: `git log --format=%B -100 \| grep -c 'BREAKING CHANGE'` cross-checked against release notes) |
+| 2.5 | Sync discipline: contributors sync the integration branch before starting work (`git pull --rebase` or equivalent) and push promptly after landing; work never starts on a dirty main. | 2 | HUMAN (attestation; evidence: contributors confirm the habit, no stale-branch PRs) |
+
+### Category 3 - Review loop (24 pts)
+
+| # | Item | Pts | Evidence |
+|---|---|---|---|
+| 3.1 | Pull request required before merging to the integration branch (no direct pushes). | 4 | AUTO (GitHub): `gh api repos/{owner}/{repo}/branches/main/protection --jq .required_pull_request_reviews` is non-null. GitLab: branch is protected and "Allowed to merge" excludes direct push. |
+| 3.2 | Required status checks must pass, and branches must be up to date before merging. | 4 | AUTO (GitHub): `.../protection --jq '{checks: .required_status_checks}'` shows `strict: true` and at least one context. GitLab: "Pipelines must succeed" + "merge request must be up to date" equivalent. |
+| 3.3 | At least one approving review required (team repos). N/A for solo-dev: exclude and renormalize. | 4 | AUTO: `required_pull_request_reviews.required_approving_review_count >= 1`. GitLab: MR approval rules. |
+| 3.4 | Stale review approvals dismissed when new commits land. | 2 | AUTO: `required_pull_request_reviews.dismiss_stale_reviews == true`. |
+| 3.5 | Force pushes blocked on shared branches (the "never rewrite public history" guardrail, enforced mechanically). | 2 | AUTO (GitHub): `.../protection --jq .allow_force_pushes` == false. GitLab: protected branch, "Allowed to force push" off. |
+| 3.6 | CODEOWNERS present and current (no reviewers who left). N/A for solo-dev: exclude and renormalize. | 2 | HUMAN (read `.github/CODEOWNERS`; confirm entries map to active contributors) |
+| 3.7 | PR template present answering what / why / how-tested. | 2 | AUTO: `.github/pull-request-template.md` or `.github/PULL_REQUEST_TEMPLATE/` exists |
+| 3.8 | PR size discipline: share of the last 20 PRs at or under ~400 changed lines. | 0/2/4 | AUTO (GitHub): `gh pr list --limit 20 --json additions,deletions` -> >=80% = 4; 50-79% = 2; else 0. GitLab: MR diff stats via the merge-request changes API. |
+
+### Category 4 - Merge discipline (10 pts)
+
+| # | Item | Pts | Evidence |
+|---|---|---|---|
+| 4.1 | Exactly one merge strategy chosen and documented (squash, rebase, or merge commit) with its rationale. | 4 | HUMAN (read the docs/CONTRIBUTING) |
+| 4.2 | Strategy enforced in repo settings: exactly one merge method enabled. | 3 | AUTO (GitHub): `gh api repos/{owner}/{repo} --jq '{m: .allow_merge_commit, s: .allow_squash_merge, r: .allow_rebase_merge}'` -> exactly one true. GitLab: project "Merge method" setting. |
+| 4.3 | Work branches deleted after merge; no stale branches older than 30 days. | 3 | AUTO: `git branch --merged main` shows no work branches left, and `git for-each-ref --format='%(committerdate:short) %(refname:short)' refs/heads/` shows nothing older than 30 days except integration branches |
+
+### Category 5 - Release discipline (20 pts)
+
+| # | Item | Pts | Evidence |
+|---|---|---|---|
+| 5.1 | Releases use annotated tags only. | 4 | AUTO: `for t in $(git tag); do git cat-file -t "$t"; done \| sort \| uniq -c` -> every line is `tag` |
+| 5.2 | Tags follow SemVer with `v` prefix: `vMAJOR.MINOR.PATCH`, no leading zeros, optional prerelease/build. | 0/2/4 | AUTO: `git tag \| grep -cE '^v?(0\|[1-9][0-9]*)\.(0\|[1-9][0-9]*)\.(0\|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$'` -> >=90% of tags = 4; 60-89% = 2; else 0 |
+| 5.3 | Release notes published for every release (GitHub Release notes or a changelog entry per version). | 4 | AUTO (GitHub): `gh release list` count matches release-tag count. Either host: `CHANGELOG.md` has one entry per released version |
+| 5.4 | Changelog automated from conventional commits (release-please, semantic-release, git-cliff, conventional-changelog, or equivalent configured). | 4 | AUTO: config present (`.release-please-manifest.json`, `release-please-config.json`, `.releaserc*`, `cliff.toml`, or a workflow step generating notes) |
+| 5.5 | Tags immutable: release tags are never moved, deleted, or recreated. | 4 | HUMAN (attestation; supporting: tag-protection rules where the host offers them) |
+
+### Category 6 - Automation (8 pts)
+
+| # | Item | Pts | Evidence |
+|---|---|---|---|
+| 6.1 | CI runs on every PR and every push to the integration branch. | 3 | AUTO: workflow triggers include `pull_request` and `push` on the integration branch; recent runs exist (`gh run list`) |
+| 6.2 | The version number is derived from commit types (`fix`->PATCH, `feat`->MINOR, breaking->MAJOR); no human picks the number. | 3 | AUTO: release automation from 5.4 configured for versioning (release-please / semantic-release), or bot-authored version-bump PRs |
+| 6.3 | Releases are published by the pipeline (tag-triggered workflow or release automation), not by hand. | 2 | AUTO: workflow triggered on `release`/`tags`, or release-please/semantic-release publish step |
+
+**Total: 14 + 24 + 24 + 10 + 20 + 8 = 100.**
+
+## Step 2 - Renormalize N/A items
+
+Any item whose precondition does not exist is marked N/A and excluded
+from both numerator and denominator:
+
+- Solo-dev repos: 3.3 (required approvals) and 3.6 (CODEOWNERS) are N/A.
+- Solo direct-to-main trunk-based: PR-gated items 3.1-3.5 and 3.7-3.8 are
+  N/A (there are no PRs); 2.2 is satisfied by the `commit-msg` hook.
+- Repos with no releases yet: all of Category 5 is N/A.
+- Non-GitHub hosts: use the GitLab mappings in the table (protected
+  branches, MR approval rules, project merge-method setting, MR changes
+  API, GitLab Releases).
+
+Final score: `100 x earned_points / applicable_points`, rounded to the
+nearest integer. List every N/A item in the report so the score stays
+auditable.
+
+## Step 3 - Edge cases (encoded, not footnoted)
+
+1. **Squash-merge repos:** 2.1 is measured on integration-branch history,
+   which already contains the squash messages (PR titles). 2.2 MUST be
+   enforced at the PR title, not on branch commits -- the Conventional
+   Commits spec FAQ explicitly allows maintainers to clean up messages at
+   merge time, so linting branch commits in a squash workflow is wrong.
+2. **Rebase-merge repos:** every commit must be clean on its own; lint
+   branch commits via hook or CI.
+3. **GitFlow repos:** 4.2 expects merge commits enabled (`--no-ff`
+   preserves feature boundaries per Driessen); 1.4 expects `develop` to
+   exist.
+4. **Vague-subject false positives:** 2.3's probe is intentionally narrow
+   (exact known-vague subjects). A human may override a flag with a reason.
+
+## Step 4 - Pseudocode
+
+```
+select model via decision tree (references/01-branching-models.md)
+applicable = []
+for each item in categories 1..6:
+    if item.precondition_missing(repo): mark N/A; continue
+    applicable.append(item)
+    item.score = probe(item)          # AUTO: run the command; HUMAN: record attestation
+earned = sum(item.score for item in applicable)
+max    = sum(item.points for item in applicable)
+score  = round(100 * earned / max)
+band   = band(score)
+report(score, band, per-item evidence, N/A list)
+```
+
+## What remains human-judged (stated openly)
+
+- 1.1 (the documented *rationale* for the model choice), 2.4 (no silent
+  breaking change), 2.5 (sync habit), 3.6 (CODEOWNERS currency), 4.1
+  (strategy rationale), 5.5 (tag immutability): these are attestations,
+  because they describe team behavior and intent, not repo state. The
+  algorithm treats an attestation as a checkable input (a named person
+  confirms it), never as an assumption.
+- Tone of release notes, quality of review comments, and whether a
+  chosen model still fits a changed team: judgment calls outside the
+  100 points, surfaced as review notes, not scored.

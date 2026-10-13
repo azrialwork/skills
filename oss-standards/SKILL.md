@@ -36,7 +36,10 @@ supply-chain security, the security process, CI/CD, and documentation.
    fix NOW items before SOON, SOON before LATER. Never start with LATER.
 4. **Apply standards.** Follow the matching reference file(s). Prefer the
    smallest change that satisfies the standard; do not gold-plate.
-5. **Verify.** Re-run the audit script; confirm every NOW item passes.
+5. **Verify and score.** Re-run the audit script; confirm every NOW
+   item passes. For a complete 0-100 compliance score, apply
+   `references/15-scoring-algorithm.md` (every requirement maps to an
+   automated probe or an explicit human-rubric input).
 
 ## Reference map
 
@@ -56,6 +59,7 @@ supply-chain security, the security process, CI/CD, and documentation.
 | `references/12-cicd.md` | Pipeline stages, provenance, SHA-pinned actions, least privilege |
 | `references/13-docs-community.md` | Diataxis, ADRs, man pages, CoC, CONTRIBUTING, CODEOWNERS |
 | `references/14-adoption-roadmap.md` | NOW / SOON / LATER / SKIP prioritization |
+| `references/15-scoring-algorithm.md` | Standalone 0-100 compliance-scoring algorithm: criteria, weights, gates, probes |
 
 Read a reference only when its topic is in scope. Do not preload all of them.
 
@@ -66,18 +70,6 @@ Read a reference only when its topic is in scope. Do not preload all of them.
 - `assets/SECURITY-template.md` -- minimal SECURITY.md starter (15 lines).
 - `assets/install-sh-skeleton.sh` -- minimal installer skeleton with the
   standard idioms (strict mode, checksum, progress bar, trap cleanup).
-
-## Collaborating with other skills
-
-- **no-slop:** when writing README.md, CHANGELOG.md, SECURITY.md, or any
-  docs this skill calls for, run them through no-slop (DURING while
-  writing, AFTER for review) so the prose is human-grade, not just
-  standards-compliant.
-- **git-workflow:** the release process (branching model, tagging,
-  changelog automation) lives there. Apply both when setting up how a
-  project ships.
-- **create-skill:** if the engagement produces a reusable workflow worth
-  keeping, use create-skill to package it as a proper skill.
 
 ## Guardrails
 

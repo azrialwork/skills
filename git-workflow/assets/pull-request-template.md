@@ -22,6 +22,6 @@
 
 ## Checklist
 
-- [ ] Conventional Commits format on every commit
+- [ ] Conventional Commits format on every commit (or on the PR title, for squash-merge repos)
 - [ ] No secrets committed (`.env`, keys, tokens)
 - [ ] Docs updated if behavior changed

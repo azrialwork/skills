@@ -59,3 +59,24 @@ must be added, not assumed. A sterile result is a failure to fix.
 Ship only when all four blocks pass. If a block cannot be satisfied
 honestly, say so in the text rather than faking it. A fix that adds
 new unverified claims restarts the audit at Block 1.
+
+## Scoring the audit (0-100)
+
+The four blocks above are also a scoring algorithm
+(full spec: `references/04-scoring-algorithm.md`):
+
+1. **Hard Gate (Block 1)** is binary: any H-rule failure -> score 0.
+2. **Purpose-Gate (Block 2)**: start at 100; each unjustified P-rule
+   costs up to 8 points by density (P-01..P-05, max 40 total).
+3. **Quality Locks (Block 4)**: each failed lock costs 0, 2, or 4
+   points (max 20 total).
+4. **Liveliness (Block 3)** is a ceiling, not a deduction: failing any
+   of the three tests caps the score at 40 -- sterile-but-clean is a
+   failure to fix, not a pass.
+5. **PASS at 80+.** A perfectly clean, lively text scores exactly 100.
+
+`scripts/slop-scan.sh` automates the mechanical subset (phrase hits,
+density groups, structural heuristics, hard fails, burstiness as info).
+Everything it cannot see -- H-01/H-04 provenance, the P-rule reasons,
+Q-01/Q-02/Q-05 judgment, all of liveliness -- is an explicit human or
+LLM-judge input to the algorithm. Nothing is silently omitted.

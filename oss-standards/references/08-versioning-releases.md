@@ -23,7 +23,7 @@
 - Enables automated changelog generation and SemVer-bump computation.
 - Enforce with commitlint in CI.
 
-## Keep a Changelog (keepachangelog.com)
+## Keep a Changelog 1.1.0 (keepachangelog.com/en/1.1.0)
 
 - Human-curated `CHANGELOG.md`: `## [Unreleased]` section, categories
   `Added / Changed / Deprecated / Removed / Fixed / Security`,

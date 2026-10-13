@@ -2,9 +2,27 @@
   slop-phrases.txt -- Asset for no-slop.
 
   Banned/cliche phrase list for scripts/slop-scan.sh. One
-  case-insensitive fixed-string pattern per line. Lines starting with
-  # are comments. Extend when new markers are found.
+  case-insensitive fixed-string pattern per line.
+
+  Scoring modes (understood by slop-scan.sh):
+    # @shots               -- following patterns score 2 points per matched line
+    # @density:<group>      -- following patterns are pooled per <group> and
+                              scored by density per 1000 words:
+                              >=12 -> +8, >=6 -> +5, >=2 -> +2, else +0.
+  Lines starting with # (other than the markers above), blank lines, and
+  the < > comment lines of this header are ignored.
+
+  Extend when new markers are found. Prefer empirically grounded additions:
+  Kobak et al., "Delving into LLM-assisted writing in biomedical
+  publications through excess vocabulary", Science Advances 11, eadt3813
+  (2025) -- 15M+ PubMed abstracts; excess style words (delve, tapestry,
+  underscore, meticulous, intricate) spiked post-ChatGPT. Note the drift
+  caveat: the human baseline is moving toward AI vocabulary, so single-word
+  tells decay over time -- structure, stance, and specificity are the
+  durable signals, word lists are only the floor.
 -->
+
+# @shots
 
 # throat-clearing openers
 great question
@@ -12,20 +30,21 @@ excellent question
 as an ai
 certainly!
 
-# empty intensifiers (flagged only when stacked; scanner counts density)
-very
-really
-truly
-incredibly
-extremely
-
-# cliche metaphors
+# cliche metaphors and AI-vocabulary
 delve
 tapestry
 bustling
 vibrant
 testament to
 embark on
+nuanced
+multifaceted
+underscore
+meticulous
+holistic
+robust
+revolutionary
+next level
 
 # hollow transitions
 furthermore
@@ -82,7 +101,16 @@ you're absolutely right
 that's a fantastic point
 great point!
 
-# hedge-stack markers (density-checked by the scanner)
+# @density:intensifiers
+# P-04: stacked intensifiers are padding. Scored by density per 1000 words.
+very
+really
+truly
+incredibly
+extremely
+
+# @density:hedges
+# P-03: stacked hedges are evasion. Scored by density per 1000 words.
 might
 could
 may
