@@ -2,7 +2,7 @@
   02-install-sh-security.md -- Reference for oss-standards.
 
   Covers: payload verification, signature schemes, TLS hardening, and the
-  curl|bash trust model. Read when securing an installer script.
+  piped-installer trust model. Read when securing an installer script.
 -->
 
 # install.sh security
@@ -44,6 +44,6 @@ signatures as soon as the project has users (roadmap SOON item).
 ## Anti-patterns
 
 - No checksum anywhere; "the CDN is trustworthy" as a security argument.
-- `curl | sudo bash` or any sudo requirement for a user-space tool.
+- Piping an installer into a root shell, or any sudo requirement for a user-space tool.
 - Verifying with a checksum fetched over the same channel with no
   signature (better than nothing, but say so honestly).

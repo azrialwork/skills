@@ -1,6 +1,6 @@
 ---
 name: git-workflow
-description: Guides selection and application of international standard git workflows: GitFlow, GitHub Flow, GitLab Flow, and trunk-based development, plus Conventional Commits, PR/review practices, merge strategies, branch protection, and release automation. Ships with a commit-message linter and a 100-point workflow-maturity scoring algorithm. Use when choosing a branching model for a project, setting up branch protection or PR templates, writing commit messages, designing a release process, auditing a repo's git hygiene, or when the user mentions git workflow, branching strategy, release flow, or conventional commits.
+description: Guides selection and application of international standard git workflows: GitFlow, GitHub Flow, GitLab Flow, and trunk-based development, plus Conventional Commits, PR/review practices, merge strategies, branch protection, and release automation. Ships with the commit-message linter `scripts/commit-lint.sh` and a 100-point workflow-maturity scoring algorithm in `references/`; not for repo-wide standards audits or installer-script checklists. Use when choosing a branching model for a project, setting up branch protection or PR templates (`.github/pull-request-template.md`), writing commit messages, designing a release process, auditing a repo's git hygiene, or when the user mentions git workflow, branching strategy, release flow, or conventional commits.
 ---
 
 <!--
@@ -10,7 +10,8 @@ description: Guides selection and application of international standard git work
   model for the project at hand, applies the supporting practices
   (commits, PRs, releases), and can score a repo's workflow maturity
   0-100. Model details live in references/; the full scoring algorithm
-  in references/05-maturity-scoring.md. This file stays lean and
+  in references/05a-maturity-scoring-rubric.md and
+  references/05b-maturity-scoring-interpretation.md. This file stays lean and
   workflow-oriented. The skill is standalone: it defines every concept
   it scores (including the SemVer bump mapping) inline.
 -->
@@ -76,14 +77,15 @@ parameters: `references/01-branching-models.md`.
 4. **Verify:** `git log --oneline -10` shows clean conventional history;
    `git tag` matches releases.
 5. **Score:** run the maturity algorithm in
-   `references/05-maturity-scoring.md`. A fully disciplined repo scores
+   `references/05a-maturity-scoring-rubric.md`, then interpret per
+   `references/05b-maturity-scoring-interpretation.md`. A fully disciplined repo scores
    exactly 100.
 
 ## Maturity scoring (summary)
 
 Six weighted categories, every item mapped to a checkable probe or an
-explicit human attestation. Full algorithm, exact commands, edge cases,
-and pseudocode: `references/05-maturity-scoring.md`.
+explicit human attestation. Full rubric: `references/05a-maturity-scoring-rubric.md`;
+renormalization, edge cases, and pseudocode: `references/05b-maturity-scoring-interpretation.md`.
 
 | Category | Points |
 |---|---|
@@ -107,7 +109,8 @@ and the score renormalizes over what applies.
 | `references/02-conventional-commits.md` | Spec v1.0.0 essentials, spec-mandated vs skill-strict rules, SemVer mapping, loop hygiene |
 | `references/03-pr-review.md` | Review loop, branch protection/Rulesets, merge queues, CODEOWNERS, merge strategies |
 | `references/04-releasing.md` | Tagging, GitHub Releases, changelog generation, computable pipeline, hotfixes |
-| `references/05-maturity-scoring.md` | The complete 0-100 scoring algorithm: probes, edge cases, pseudocode |
+| `references/05a-maturity-scoring-rubric.md` | The 0-100 rubric: band legend, model selection, six weighted categories with probes/attestations |
+| `references/05b-maturity-scoring-interpretation.md` | Score interpretation: N/A renormalization, encoded edge cases, pseudocode, human-judged caveats |
 
 Read a reference only when its phase is active.
 

@@ -3,7 +3,7 @@
 
   Covers: POSIX sh vs bash choice, strict-mode idioms, and dissections of
   eight professional installer scripts. Read when writing or reviewing a
-  curl|bash installer.
+  piped (`curl`-to-shell) installer.
 -->
 
 # install.sh fundamentals

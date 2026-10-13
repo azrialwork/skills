@@ -1,6 +1,6 @@
 ---
 name: no-slop
-description: Keeps AI-generated content free of AI slop through a tiered rule system and a generate-then-audit workflow. Enforces Hard Gate rules (no fabricated specifics, no em dash, no sycophancy, no invented sources), Purpose-Gate rules (bullets, bold, hedges, intensifiers, metaphors allowed only with a stated reason), and Quality Locks, plus a liveliness bar that rejects sterile-but-clean text. Ships with a density-aware heuristic scanner and a complete standalone 0-100 scoring algorithm. Use in two modes: DURING generation (filter while writing) or AFTER (audit existing text with a findings list and score). Use when writing, reviewing, or polishing any AI-generated text, or when the user mentions slop, low-quality AI content, or wants human-grade output.
+description: Keeps AI-generated content free of AI slop through a tiered rule system and a generate-then-audit workflow. Enforces Hard Gate rules (no fabricated specifics, no em dash, no sycophancy, no invented sources), Purpose-Gate rules (bullets, bold, hedges, intensifiers, metaphors allowed only with a stated reason), and Quality Locks, plus a liveliness bar that rejects sterile-but-clean text; ships with the density-aware heuristic scanner `scripts/slop-scan.sh` (phrase list `assets/slop-phrases.txt`) and a complete standalone 0-100 scoring algorithm in `references/`. Use when writing, reviewing, or polishing any AI-generated text (DURING generation or AFTER as an audit), or when the user mentions slop, low-quality AI content, or wants human-grade output; not for detecting authorship or accusing writers, only for scoring your own draft.
 ---
 
 <!--
@@ -26,10 +26,10 @@ hit is fixed or justified, the liveliness bar is met, and nothing ships
 without passing the Delivery Gate. That gets as close to slop-free as a
 mechanical process can.
 
-The 0-100 score (`references/04-scoring-algorithm.md`) is a rubric for
+The 0-100 score (`references/04a-scoring-algorithm.md`) is a rubric for
 your own draft, not a detector for other people's writing and not proof
 of authorship. External AI-detector statistics are unreliable as
-verdicts (see `references/01-slop-markers.md`): never accuse on
+verdicts (see `references/01b-slop-markers-structural.md`): never accuse on
 statistics alone.
 
 ## Two usage modes
@@ -55,11 +55,12 @@ Resolve the mode before starting. Ask the user if it is not clear.
   varied structure, no decorative conclusion, no emoji, specifics or
   silence.
 
-Full definitions in `references/02-anti-slop-writing.md`.
+Full definitions in `references/02a-anti-slop-rules.md`.
 
 ## Workflow (Mode 1 -- DURING)
 
-1. **Load the markers.** Read `references/01-slop-markers.md`.
+1. **Load the markers.** Read `references/01a-slop-markers-lexical.md`
+   and `references/01b-slop-markers-structural.md`.
 2. **Generate under the tiered rules.** Hard Gate always; Purpose-Gate
    techniques only with a stated reason.
 3. **Scan.** Save the draft and run `scripts/slop-scan.sh <file>`.
@@ -68,7 +69,7 @@ Full definitions in `references/02-anti-slop-writing.md`.
    and reports burstiness as information only.
 4. **Delivery Gate.** Walk `references/03-self-audit.md`: Hard Gate,
    Purpose-Gate, liveliness, Quality Locks. All four blocks must pass.
-5. **Score (optional).** `references/04-scoring-algorithm.md` turns the
+5. **Score (optional).** `references/04a-scoring-algorithm.md` turns the
    audit into a 0-100 score: Hard Gate failure = 0, Purpose-Gate and
    Quality Locks are capped deductions, liveliness failure caps at 40,
    PASS at 80+.
@@ -93,10 +94,15 @@ generic -- rewrite until only this topic could have produced it.
 
 | File | Covers |
 |---|---|
-| `references/01-slop-markers.md` | Marker catalog with before/after, rule IDs, and empirical grounding |
-| `references/02-anti-slop-writing.md` | Tiered rules: Hard Gate, Purpose-Gate, Quality Locks, plus the rule-to-check mapping |
+| `references/01a-slop-markers-lexical.md` | Lexical markers: empty vocabulary, significance inflation, weasel attributions, throat-clearing openers, hollow transitions |
+| `references/01b-slop-markers-structural.md` | Structural and substance markers, the one-line test, and empirical grounding |
+| `references/02a-anti-slop-rules.md` | Tiered rules: Hard Gate, Purpose-Gate, Quality Locks, plus before/after examples |
+| `references/02b-rule-to-check-mapping.md` | Rule-to-check mapping: mechanical probes and judge inputs per rule |
 | `references/03-self-audit.md` | Delivery Gate: four audit blocks incl. liveliness, with scoring |
-| `references/04-scoring-algorithm.md` | The complete standalone 0-100 scoring algorithm: bands, formulas, pseudocode, worked example |
+| `references/04a-scoring-algorithm.md` | The standalone 0-100 scoring algorithm: bands, formulas, and the five steps |
+| `references/04b-scoring-pseudocode.md` | Pseudocode implementing the five scoring steps |
+| `references/04c-scoring-worked-example.md` | Worked example: a sample text scored end to end |
+| `references/04d-scoring-limits.md` | What cannot be automated; calibration and reliability notes |
 
 Read a reference only when its phase is active.
 

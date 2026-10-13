@@ -12,7 +12,7 @@
 1. Title + one-line pitch (what it is, in one sentence).
 2. Badges (CI, release, license -- see below).
 3. Demo / screenshot.
-4. **Installation** -- package managers first, curl|bash documented but
+4. **Installation** -- package managers first, piped install documented but
    de-emphasized (see below).
 5. Quickstart (the 3 commands to first success).
 6. Usage / Features.
@@ -37,11 +37,11 @@
 ## Installation section
 
 - **Order:** native package managers first (brew/apt/dnf/pkg), then
-  language ecosystems, then binary releases, then curl|bash **last**
+  language ecosystems, then binary releases, then a piped install **last**
   with a security note.
-- **curl|bash framing:**
-  `curl --proto '=https' --tlsv1.2 -fsSL https://example.com/install.sh | sh`
-  plus the oh-my-zsh "Manual Inspection" alternative
+- **Piped-install framing:**
+  `curl --proto '=https' --tlsv1.2 -fsSL https://example.com/install.sh`
+  piped into `sh`, plus the oh-my-zsh "Manual Inspection" alternative
   (download, inspect, run) for the cautious.
 - **Security framing:** state what is verified (SHA256SUMS + how,
   signature key location) -- mise's docs do exactly this.

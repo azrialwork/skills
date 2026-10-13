@@ -63,7 +63,7 @@ new unverified claims restarts the audit at Block 1.
 ## Scoring the audit (0-100)
 
 The four blocks above are also a scoring algorithm
-(full spec: `references/04-scoring-algorithm.md`):
+(full spec: `references/04a-scoring-algorithm.md`):
 
 1. **Hard Gate (Block 1)** is binary: any H-rule failure -> score 0.
 2. **Purpose-Gate (Block 2)**: start at 100; each unjustified P-rule

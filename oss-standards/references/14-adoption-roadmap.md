@@ -2,7 +2,7 @@
   14-adoption-roadmap.md -- Reference for oss-standards.
 
   Prioritized adoption order for a tiny single-binary distributor repo
-  (builds one native binary in CI -> GitHub Releases -> curl|bash
+  (builds one native binary in CI -> GitHub Releases -> piped
   installer). Apply NOW before SOON, SOON before LATER. Adapt the
   phases to other repo shapes; keep the ordering principle.
 -->

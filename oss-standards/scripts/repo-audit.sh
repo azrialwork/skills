@@ -7,7 +7,7 @@
 # SOON items are reported as INFO only.
 #
 # This script covers the fast, fully-automated subset of
-# references/15-scoring-algorithm.md:
+# references/15a-scoring-algorithm.md:
 #   I1, I2, I3, I5, I6 (installer), R1, R2, R4, R5 (repo layout),
 #   V3 (tag/changelog consistency), L2 (SPDX identifier),
 #   C2, C3, C4 (CI/CD hardening).
@@ -66,7 +66,7 @@ check "install.sh hardens TLS (--proto '=https' --tlsv1.2)" NOW sh -c \
 check "install.sh verifies SHA256 checksums" NOW sh -c \
     '[ ! -f "$1/install.sh" ] || grep -qi "sha256" "$1/install.sh"' sh "$dir"
 # NOTE: fail-closed tracing (missing/bad checksum -> nonzero exit) is a
-# human rubric (criterion I4 in 15-scoring-algorithm.md), not grep-able.
+# human rubric (criterion I4 in 15a-scoring-algorithm.md), not grep-able.
 
 # --- NOW: SPDX identifier ----------------------------------------------------
 # Heuristic subset of common OSI-approved SPDX IDs.

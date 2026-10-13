@@ -1,6 +1,6 @@
 ---
 name: create-skill
-description: Guides the creation of professional Agent Skills (SKILL.md) for OpenCode and spec-compatible agents. Use when the user wants to create, scaffold, review, validate, score, or improve a skill; covers frontmatter rules, directory layout, description writing, progressive disclosure, discovery, invocation, permissions, security, and implementation differences. Run scripts/validate.py to check a skill before publishing.
+description: Guides the creation of professional Agent Skills (SKILL.md) for OpenCode and spec-compatible agents. Use when the user wants to create, scaffold, review, validate, score, or improve a skill; covers frontmatter rules, directory layout, description writing, progressive disclosure, discovery, invocation, permissions, security, and implementation differences. Run scripts/validate.py to check a skill before publishing; not for one-off prompt shortcuts that will never be reused.
 ---
 
 <!--
