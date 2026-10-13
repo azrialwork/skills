@@ -13,6 +13,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- `research`: turns vague questions into source-graded, date-stamped
+  deliverables with explicit confidence levels, for any topic via a declared
+  topic adapter. Source hierarchy with official docs as source of truth,
+  per-claim "verified as of" stamps, two-source triangulation, honest
+  unknowns; ships `scripts/cite-check.sh` and a standalone 0-100
+  research-quality scoring algorithm.
 - `create-skill`: guides building professional Agent Skills (SKILL.md).
   Frontmatter rules, description formula, progressive disclosure,
   invocation/permission models, security review, `scripts/validate.py`
