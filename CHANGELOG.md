@@ -8,42 +8,41 @@
 # Changelog
 
 All notable changes to this skills collection are documented here.
-The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-## [2026-10-12] -- no-slop upgraded, cross-skill collaboration
+## [1.0.0] - 2026-10-13
 
 ### Added
-- `no-slop`: tiered rule system (Hard Gate H-01..H-04, Purpose-Gate
-  P-01..P-05, Quality Locks Q-01..Q-05), before/after examples per marker,
-  DURING/AFTER usage modes, four-block Delivery Gate, liveliness bar with
-  topic-swap test. Scanner gains em-dash hard-fail (H-02) and extended
-  phrase vocabulary. Concepts adopted from miqdadbadjuber/anti-slop
-  (v3.2.20, MIT); content written originally.
-- Cross-skill collaboration sections in all three SKILL.md files.
-- `CHANGELOG.md`, `SECURITY.md`, and CI validation workflow for this repo.
-
-## [2026-10-12] -- no-slop added
-
-### Added
-- `no-slop`: keeps AI-generated content free of AI slop via a
-  generate-then-audit workflow. Marker catalogs (lexical, structural,
-  substance), anti-slop writing rules, self-audit checklist, and
-  `scripts/slop-scan.sh` heuristic scanner with phrase list.
-
-## [2026-10-12] -- oss-standards added
-
-### Added
+- `create-skill`: guides building professional Agent Skills (SKILL.md).
+  Frontmatter rules, description formula, progressive disclosure,
+  invocation/permission models, security review, `scripts/validate.py`
+  validator with `--score` mode, and a standalone 0-100 skill-quality
+  scoring algorithm.
 - `oss-standards`: applies international open-source industry standards
-  (professional install.sh, repo structure, README anatomy, SemVer,
-  SPDX, SLSA/Sigstore, SECURITY.md, hardened CI/CD, docs). 14 references,
-  `scripts/repo-audit.sh` checklist auditor, SECURITY template, and
-  installer skeleton.
+  (installer script, repo structure, README, SemVer, SPDX, SLSA/Sigstore,
+  Scorecard, SECURITY.md, hardened CI/CD, docs). `scripts/repo-audit.sh`
+  checklist auditor (16 NOW checks) and a standalone 0-100 compliance
+  scoring algorithm.
+- `no-slop`: keeps AI-generated content free of AI slop via a
+  generate-then-audit workflow. Tiered rules (Hard Gate, Purpose-Gate,
+  Quality Locks), liveliness bar, density-aware `scripts/slop-scan.sh`
+  heuristic scanner, and a standalone 0-100 text-quality scoring
+  algorithm.
+- `git-workflow`: international standard git workflows (GitFlow, GitHub
+  Flow, GitLab Flow, trunk-based development), Conventional Commits,
+  PR/review practices, merge strategies, release automation.
+  `scripts/commit-lint.sh` and a standalone 0-100 maturity scoring
+  algorithm with a model-selection decision tree.
+- Repo hygiene: CI validation workflow (dogfoods all four skills),
+  OpenSSF Scorecard workflow, Dependabot for GitHub Actions,
+  SECURITY.md, CODEOWNERS, issue/PR templates.
 
-## [2026-10-12] -- create-skill added
-
-### Added
-- `create-skill`: guides building professional Agent Skills. Full research
-  baked into 10 references, `scripts/validate.py` validator, and
-  `assets/SKILL-template.md`. End-to-end audited on OpenCode 1.19.0.
+### Changed
+- All four skills rewritten against their official documentation as
+  source of truth (verified 2026-10-13): SPDX spec 3.0.1, CycloneDX
+  1.6/1.7, SLSA v1.2, REUSE 3.3, Scorecard v5.5.0, Conventional Commits
+  1.0.0, Agent Skills spec.
+- Each skill is now standalone: no cross-skill references; every concept
+  a skill needs is defined inline.

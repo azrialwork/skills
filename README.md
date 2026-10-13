@@ -7,6 +7,9 @@
 
 # skills
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/azrialwork/skills/badge)](https://scorecard.dev/viewer/?uri=github.com/azrialwork/skills)
+
 A personal collection of [Agent Skills](https://agentskills.io/) (`SKILL.md`) for
 OpenCode and other spec-compatible agents (Claude Code, Codex, Cursor, Gemini CLI).
 
@@ -55,6 +58,17 @@ description: <what it does>. Use when <trigger scenarios and keywords>.
 3. Write the description in third person, specific and trigger-rich -- it is the
    only thing the model sees when choosing a skill.
 
+## Troubleshooting
+
+- **A skill never triggers:** check that `skills.paths` points at this repo
+  and that OpenCode was restarted after the change. The description is the
+  only thing the model sees when choosing — keep it specific and
+  trigger-rich.
+- **CI validation fails:** run the failing check locally first, e.g.
+  `python3 create-skill/scripts/validate.py <skill>`,
+  `sh no-slop/scripts/slop-scan.sh <file>`, or
+  `sh oss-standards/scripts/repo-audit.sh .`, and fix what it reports.
+
 ## License
 
-MIT -- see [LICENSE](LICENSE).
+SPDX-License-Identifier: MIT -- see [LICENSE](LICENSE).

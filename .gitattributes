@@ -1,0 +1,4 @@
+# Normalize line endings; keep scripts LF so they run everywhere.
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
