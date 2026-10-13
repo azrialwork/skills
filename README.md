@@ -13,20 +13,7 @@
 A personal collection of [Agent Skills](https://agentskills.io/) (`SKILL.md`) for
 OpenCode and other spec-compatible agents (Claude Code, Codex, Cursor, Gemini CLI).
 
-## Layout
-
-```
-<skill-name>/
-  SKILL.md        # required: YAML frontmatter (name, description) + instructions
-  scripts/        # optional: deterministic helper scripts
-  references/     # optional: docs loaded on demand
-  assets/         # optional: templates, images, data files
-```
-
-Rules: one folder per skill; the folder name must equal the frontmatter `name`
-(lowercase, hyphens, `^[a-z0-9]+(-[a-z0-9]+)*$`).
-
-## Use with OpenCode
+## Installation
 
 Point OpenCode at this repo in `opencode.json`:
 
@@ -40,7 +27,38 @@ Point OpenCode at this repo in `opencode.json`:
 
 Restart OpenCode after adding or changing skills.
 
-## Adding a new skill
+## Quickstart
+
+```sh
+# Audit a repo against open-source standards
+sh oss-standards/scripts/repo-audit.sh /path/to/repo
+
+# Scan a draft for AI slop
+sh no-slop/scripts/slop-scan.sh draft.md
+
+# Validate a new skill (add --score for a 0-100 quality score)
+python3 create-skill/scripts/validate.py my-skill
+
+# Lint a commit message
+git log -1 --format=%B | sh git-workflow/scripts/commit-lint.sh
+```
+
+## Usage
+
+### Layout
+
+```
+<skill-name>/
+  SKILL.md        # required: YAML frontmatter (name, description) + instructions
+  scripts/        # optional: deterministic helper scripts
+  references/     # optional: docs loaded on demand
+  assets/         # optional: templates, images, data files
+```
+
+Rules: one folder per skill; the folder name must equal the frontmatter `name`
+(lowercase, hyphens, `^[a-z0-9]+(-[a-z0-9]+)*$`).
+
+### Adding a new skill
 
 1. Create `<skill-name>/SKILL.md` with frontmatter:
 
