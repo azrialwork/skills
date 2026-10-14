@@ -1,5 +1,5 @@
 <!--
-  01f-slop-patterns-structure.md -- Reference for no-slop.
+  01f-slop-markers-structure.md -- Reference for no-slop.
 
   Covers: structural patterns -- portability test, false agency,
   distant narrator, opener habits, bare-noun lists, placeholders,

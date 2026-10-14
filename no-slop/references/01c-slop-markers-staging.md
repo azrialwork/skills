@@ -1,5 +1,5 @@
 <!--
-  01c-slop-patterns-staging.md -- Reference for no-slop.
+  01c-slop-markers-staging.md -- Reference for no-slop.
 
   Covers: staged patterns -- contrasts, closers, aphorisms, run-ups,
   and phantom arguments. Part of the marker catalog; part A is

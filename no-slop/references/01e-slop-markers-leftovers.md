@@ -1,5 +1,5 @@
 <!--
-  01e-slop-patterns-leftovers.md -- Reference for no-slop.
+  01e-slop-markers-leftovers.md -- Reference for no-slop.
 
   Covers: leftover patterns -- knowledge disclaimers, document-about-
   itself, heading echoes, decorative headings, wrong-reader writing,

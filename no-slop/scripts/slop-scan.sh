@@ -34,6 +34,9 @@ hit() { # $1 = points, $2 = message
     score=$((score + $1))
     printf 'HIT +%d: %s\n' "$1" "$2"
 }
+hard_fail() { # $1 = rule, $2 = detail -- an H-rule violation ends the run
+    hit 50 "HARD FAIL ($1): $2"
+}
 info() { # $1 = message
     printf 'info: %s\n' "$1"
 }
@@ -124,7 +127,7 @@ for cf in "$tmpd"/clust-*; do
     g=${cf##*/clust-}
     pdir="$tmpd/paras-$g"
     mkdir -p "$pdir"
-    awk 'BEGIN{RS=""; n=0} {n++; f="'$pdir'/p" n ".txt"; print $0 > f; close(f); print n}' \
+    awk -v pdir="$pdir" 'BEGIN{RS=""; n=0} {n++; f=pdir "/p" n ".txt"; print $0 > f; close(f); print n}' \
         "$file" > "$pdir/index"
     while read -r pn; do
         pf="$pdir/p$pn.txt"
@@ -167,15 +170,15 @@ lower=$(printf '%s' "$first" | tr '[:upper:]' '[:lower:]')
 # text block only) to avoid false positives deeper in the text.
 case "$lower" in
     *great\ question*|*excellent\ question*|*as\ an\ ai*|*certainly!*|*fantastic\ point*)
-        hit 50 "HARD FAIL (H-03): sycophancy/throat-clearing opener: $first" ;;
+        hard_fail "H-03" "sycophancy/throat-clearing opener: $first" ;;
     *"you're right"*|*"you are right"*|*absolutely*)
-        hit 50 "HARD FAIL (H-03): sycophancy/throat-clearing opener: $first" ;;
+        hard_fail "H-03" "sycophancy/throat-clearing opener: $first" ;;
 esac
 
 # --- 2b. hard gate: em dash (H-02) -------------------------------------------
 emdash_lines=$(LC_ALL=C grep -n "$(printf '\342\200\224')" "$file" | cut -d: -f1 | tr '\n' ',' | sed 's/,$//' || true)
 if [ -n "$emdash_lines" ]; then
-    hit 50 "HARD FAIL (H-02): em dash character on lines $emdash_lines"
+    hard_fail "H-02" "em dash character on lines $emdash_lines"
 fi
 
 # --- 2c. burstiness: sentence-length CV (informational only) ------------------

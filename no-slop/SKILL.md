@@ -1,6 +1,6 @@
 ---
 name: no-slop
-description: Keeps AI-generated content free of AI slop through a tiered rule system and a generate-then-audit workflow. Enforces Hard Gate rules (no fabricated specifics, no em dash, no sycophancy, no invented sources), Purpose-Gate rules (bullets, bold, hedges, intensifiers, metaphors allowed only with a stated reason), and Quality Locks, plus a liveliness bar that rejects sterile-but-clean text; ships with the density-aware heuristic scanner `scripts/slop-scan.sh` (tiered vocabulary, paragraph-cluster detection) and a standalone 0-100 scoring algorithm in `references/`. Covers code-comment hygiene (`references/05`) and UI/visual slop (`references/06a-c`) when the task touches code or interfaces; use when writing, reviewing, or polishing AI-generated text (DURING generation or AFTER as an audit), or when the user mentions slop or wants human-grade output -- not for detecting authorship, only for scoring your own draft.
+description: Keeps AI-generated content free of AI slop through a tiered rule system and a generate-then-audit workflow. Enforces Hard Gate rules (no fabricated specifics, no em dash, no sycophancy, no invented sources), Purpose-Gate rules (bullets, bold, hedges, intensifiers, metaphors allowed only with a stated reason), and Quality Locks, plus a liveliness bar that rejects sterile-but-clean text; ships with the density-aware heuristic scanner `scripts/slop-scan.sh` (tiered vocabulary, paragraph-cluster detection) and a standalone 0-100 scoring algorithm in `references/`. Covers code-comment hygiene (`references/05`) and UI/visual slop (`references/06a-d`) when the task touches code or interfaces; use when writing, reviewing, or polishing AI-generated text (DURING generation or AFTER as an audit), or when the user mentions slop or wants human-grade output -- not for detecting authorship, only for scoring your own draft.
 ---
 
 <!--
@@ -50,7 +50,8 @@ run as supplements to the Delivery Gate, not replacements.
 
 Load only the modules the task needs:
 
-- Prose work: the core references (01a, 01b, 02a, 02b, 03, 04x).
+- Prose work: the core references (01a-01f markers, 02a-02b rules,
+  03 Delivery Gate, 04a-04d scoring).
 - The task writes or edits code: also load
   `references/05-code-comment-hygiene.md`. It filters comments only;
   the scope guardrail (comments, never code) always holds.
@@ -116,8 +117,9 @@ Full definitions in `references/02a-anti-slop-rules.md`.
 
 ## Workflow (Mode 1 -- DURING)
 
-1. **Load the markers.** Read `references/01a-slop-markers-lexical.md`
-   and `references/01b-slop-markers-structural.md`.
+1. **Load the markers.** Read the marker catalog
+   (`references/01a-slop-markers-lexical.md` through
+   `references/01f-slop-markers-structure.md`).
 2. **Generate under the tiered rules.** Hard Gate always; Purpose-Gate
    techniques only with a stated reason.
 3. **Scan.** Save the draft and run `scripts/slop-scan.sh <file>`.
@@ -153,6 +155,10 @@ generic -- rewrite until only this topic could have produced it.
 |---|---|
 | `references/01a-slop-markers-lexical.md` | Lexical markers: empty vocabulary, significance inflation, weasel attributions, throat-clearing openers, hollow transitions |
 | `references/01b-slop-markers-structural.md` | Structural and substance markers, the one-line test, and empirical grounding |
+| `references/01c-slop-markers-staging.md` | Staged patterns: contrasts, one-line closers, deep-sounding sayings, run-ups, phantom arguments |
+| `references/01d-slop-markers-rhythm.md` | Rhythm by rule and inflation: triads, repeated openings, passive voice, stacked qualifiers, vague connections, -ing riders, sales language, borrowed authority, copula avoidance |
+| `references/01e-slop-markers-leftovers.md` | Leftovers: knowledge disclaimers, document-about-itself, heading echoes, decorative headings, wrong-reader writing, adjective inflation, scenario openers, false ranges, empty closers |
+| `references/01f-slop-markers-structure.md` | Extended structure: portability test, false agency, distant narrator, opener habits, bare-noun lists, placeholders, tool fingerprints |
 | `references/02a-anti-slop-rules.md` | Tiered rules: Hard Gate, Purpose-Gate, Quality Locks, plus before/after examples |
 | `references/02b-rule-to-check-mapping.md` | Rule-to-check mapping: mechanical probes and judge inputs per rule |
 | `references/03-self-audit.md` | Delivery Gate: four audit blocks incl. liveliness, with scoring |
@@ -160,11 +166,11 @@ generic -- rewrite until only this topic could have produced it.
 | `references/04b-scoring-pseudocode.md` | Pseudocode implementing the five scoring steps |
 | `references/04c-scoring-worked-example.md` | Worked example: a sample text scored end to end |
 | `references/04d-scoring-limits.md` | What cannot be automated; calibration and reliability notes |
-| `references/05-code-comment-hygiene.md` | Code comments: remove AI-slop comments, keep the valuable ones, never touch the code. Load only for code tasks |
+| `references/05-code-comment-hygiene.md` | Code comments: remove AI-slop comments, keep the valuable ones, never touch the code |
 | `references/06a-ui-color-layout.md` | UI slop: color, decoration, layout, components |
 | `references/06b-ui-type-motion.md` | UI slop: typography, icons, motion |
 | `references/06c-ui-app-copy.md` | UI slop: app screens, UI copy, honesty, UI checklist |
-| `references/06d-ui-direction.md` | UI direction: Design Read, product truth, art direction, real imagery, browser self-check. Load 06a-d only for interface tasks |
+| `references/06d-ui-direction.md` | UI direction: Design Read, product truth, art direction, real imagery, browser self-check |
 
 Read a reference only when its phase is active.
 
@@ -175,8 +181,9 @@ Read a reference only when its phase is active.
   spam, non-ASCII/emoji, hard fails for em dash and sycophancy openers)
   and informational burstiness. Exit nonzero above threshold.
 - `assets/slop-phrases.txt` -- the banned/cliche phrase list, one
-  case-insensitive pattern per line; `# @shots` / `# @density:<group>`
-  markers select the scoring mode. Extend it when you find new markers.
+  case-insensitive pattern per line; `# @shots`, `# @density:<group>`,
+  and `# @cluster:<group>` markers select the scoring mode. Extend it
+  when you find new markers.
 
 ## Guardrails
 

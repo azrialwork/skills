@@ -1,5 +1,5 @@
 <!--
-  01d-slop-patterns-rhythm.md -- Reference for no-slop.
+  01d-slop-markers-rhythm.md -- Reference for no-slop.
 
   Covers: rhythm applied by rule and inflation patterns -- triads,
   openings, passive voice, qualifiers, vague connections, -ing riders,
