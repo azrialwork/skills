@@ -3,9 +3,7 @@
 
   Covers: structural patterns -- portability test, false agency,
   distant narrator, opener habits, bare-noun lists, placeholders,
-  tool fingerprints. Curated from petergyang/no-ai-slop (MIT),
-  hardikpandya/stop-slop (MIT), and conorbronsdon/avoid-ai-writing
-  (MIT) -- see SOURCES.md. Part of the marker catalog; part B is
+  tool fingerprints. Part of the marker catalog; part B is
   01b-slop-markers-structural.md.
 -->
 

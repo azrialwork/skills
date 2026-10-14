@@ -2,9 +2,7 @@
   06d-ui-direction.md -- Reference for no-slop.
 
   Covers: direction before building -- Design Read, product truth,
-  art direction, real imagery, browser self-check. Curated from
-  miqdadbadjuber/anti-slop (MIT), pbakaus/impeccable (Apache-2.0),
-  and Leonxlnx/taste-skill (MIT) -- see SOURCES.md. Load with the
+  art direction, real imagery, browser self-check. Load with the
   other 06 modules when the task builds an interface. The 06 modules
   filter slop; this one supplies the direction the filter cannot
   invent.
@@ -73,8 +71,7 @@ not when the code compiles.
 
 ## What this module does not do
 
-It does not run the heavyweight taste-skill pipeline (dedicated art
+It does not run a heavyweight art-direction pipeline (dedicated art
 direction per brief, long visual-iteration builds). It captures the
 mergeable essence: direction stated up front, real imagery, honest
-self-review. For full art-direction workflows, use the upstream skill
-directly (see SOURCES.md).
+self-review.

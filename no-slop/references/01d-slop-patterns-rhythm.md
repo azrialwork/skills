@@ -3,9 +3,8 @@
 
   Covers: rhythm applied by rule and inflation patterns -- triads,
   openings, passive voice, qualifiers, vague connections, -ing riders,
-  sales language, borrowed authority, copula avoidance. Curated from
-  blader/humanizer (MIT) -- see SOURCES.md. Part of the marker
-  catalog; part A is 01a-slop-markers-lexical.md.
+  sales language, borrowed authority, copula avoidance. Part of the
+  marker catalog; part A is 01a-slop-markers-lexical.md.
 -->
 
 # Slop patterns -- rhythm by rule, inflation extended

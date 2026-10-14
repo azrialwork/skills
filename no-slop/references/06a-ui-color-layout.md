@@ -2,11 +2,8 @@
   06a-ui-color-layout.md -- Reference for no-slop.
 
   Covers: UI color/decoration and layout/component slop patterns.
-  Curated from miqdadbadjuber/anti-slop skills/antislop-ui (MIT) and
-  the detector rules of pbakaus/impeccable (Apache-2.0) -- see
-  SOURCES.md. Load only when the task builds or edits an interface.
-  A filter, not a style guide: direction comes from the brief or
-  DESIGN.md.
+  Load only when the task builds or edits an interface. A filter,
+  not a style guide: direction comes from the brief or DESIGN.md.
 -->
 
 # UI slop -- color, decoration, layout

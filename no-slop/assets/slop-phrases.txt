@@ -16,9 +16,8 @@
   the < > comment lines of this header are ignored.
 
   Word tiers: the @shots additions marked Tier 1A/1B, the @cluster:tier2
-  group, and the @density:vague-praise / @density:boilerplate groups adapt
-  the tiered vocabulary system from conorbronsdon/avoid-ai-writing
-  (MIT) -- see SOURCES.md. Tier 1A = AI frequency markers (flag on
+  group, and the @density:vague-praise / @density:boilerplate groups form
+  a tiered vocabulary system. Tier 1A = AI frequency markers (flag on
   sight); Tier 1B = clarity edits (always worth fixing, not authorship
   evidence); Tier 2 = fine alone, flag in clusters; Tier 3 = flag by
   density only.
@@ -179,7 +178,7 @@ likely began
 maintains a low profile
 
 # @cluster:tier2
-# Tier 2 (avoid-ai-writing): legitimate alone; 2+ DISTINCT words in one
+# Tier 2: legitimate alone; 2+ DISTINCT words in one
 # paragraph = rewrite signal. Scored per paragraph by slop-scan.sh (+3).
 # (nuanced, multifaceted, elevate, empower, streamline moved here from
 # @shots: flagging them on sight caused false positives.)
@@ -240,7 +239,7 @@ potentially
 possibly
 
 # @density:vague-praise
-# Tier 3 (avoid-ai-writing): normal words AI overuses as vague praise.
+# Tier 3: normal words AI overuses as vague praise.
 # Flag only at high density; fix by replacing with specifics.
 significant
 significantly
@@ -261,7 +260,7 @@ sophisticated
 instrumental
 
 # @density:boilerplate
-# Tier 3 phrases (avoid-ai-writing): individually unobjectionable
+# Tier 3 phrases: individually unobjectionable
 # multi-word boilerplate that stacks in AI-generated content.
 # Same density ramp as an approximation of the "2+ uses" rule.
 the integration of

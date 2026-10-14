@@ -2,9 +2,7 @@
   06b-ui-type-motion.md -- Reference for no-slop.
 
   Covers: UI typography, icons/decoration, and motion slop patterns.
-  Curated from miqdadbadjuber/anti-slop skills/antislop-ui (MIT) and
-  the detector rules of pbakaus/impeccable (Apache-2.0) -- see
-  SOURCES.md. Load only when the task builds or edits an interface.
+  Load only when the task builds or edits an interface.
 -->
 
 # UI slop -- typography, icons, motion

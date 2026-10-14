@@ -116,9 +116,9 @@ for gf in "$tmpd"/dens-*; do
 done
 
 # --- 1c. cluster verdicts ----------------------------------------------------
-# Tier 2 (adapted from avoid-ai-writing): each word is legitimate alone;
-# 2+ DISTINCT words of the group inside one paragraph (blank-line
-# separated) is the rewrite signal. +3 per offending paragraph.
+# Tier 2: each word is legitimate alone; 2+ DISTINCT words of the
+# group inside one paragraph (blank-line separated) is the rewrite
+# signal. +3 per offending paragraph.
 for cf in "$tmpd"/clust-*; do
     [ -f "$cf" ] || continue
     g=${cf##*/clust-}

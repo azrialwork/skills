@@ -44,17 +44,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   SECURITY.md, CODEOWNERS, issue/PR templates.
 
 ### Changed
-- `no-slop`: second merge pass -- remaining advantages from the
-  research. New `references/06d-ui-direction.md` (Design Read, product
-  truth, art direction, real credited imagery, browser self-check at
-  three widths; from antislop, impeccable, taste-skill). Liveliness
-  dials ENERGY/RHYTHM/MOTION declared per UI task and checked at the
-  Delivery Gate (new SKILL.md section + 03-self-audit dial check).
-  Voice preset profiles (casual/professional/technical/warm/blunt)
-  alongside voice-sample override. SOURCES.md gains the taste-skill
-  row (pinned `a60a36d`, MIT).
-- `no-slop`: full merge with six researched anti-slop skills (see
-  `no-slop/SOURCES.md` for pinned versions and licenses). New
+- `no-slop`: standalone pass -- `SOURCES.md` removed; all pattern
+  content now lives inline with no external pointers (research pins
+  remain in `azrial/research/anti-slop-skills/`). Added accessibility
+  floor + mobile rules to 06c (the last unmerged advantage from the
+  research: antislop-human/layoutmobile).
+- `no-slop`: full merge with six researched anti-slop skills
+  (upstream pins recorded in the research notes). New
   `references/05-code-comment-hygiene.md` (AI-slop comment cleanup,
   comments-only scope guardrail) and
   `references/06-ui-slop-patterns.md` (visual slop: color, layout,

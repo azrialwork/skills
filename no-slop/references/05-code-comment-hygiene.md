@@ -1,8 +1,7 @@
 <!--
   05-code-comment-hygiene.md -- Reference for no-slop: hygiene for
-  comments in AI-generated code. Adapted from miqdadbadjuber/anti-slop
-  skills/antislop-code (MIT) -- see SOURCES.md. Load only when the task
-  writes or edits code.
+  comments in AI-generated code. Load only when the task writes or
+  edits code.
 -->
 
 # Code comment hygiene

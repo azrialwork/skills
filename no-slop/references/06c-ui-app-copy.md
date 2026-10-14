@@ -1,11 +1,9 @@
 <!--
   06c-ui-app-copy.md -- Reference for no-slop.
 
-  Covers: app/dashboard slop patterns, UI copy tells, honesty rules,
-  and the UI checklist. Curated from miqdadbadjuber/anti-slop
-  skills/antislop-ui (MIT) and the detector rules of
-  pbakaus/impeccable (Apache-2.0) -- see SOURCES.md. Load only when
-  the task builds or edits an interface.
+  Covers: app/dashboard slop patterns, UI copy tells, accessibility
+  floor, honesty rules, and the UI checklist. Load only when the task
+  builds or edits an interface.
 -->
 
 # UI slop -- app screens, UI copy, checklist
@@ -62,6 +60,25 @@
   A loading state says what it is loading; an error state says what
   failed and what to do next.
 - **Rule:** Q-01.
+
+## Accessibility floor
+
+Shipped-but-broken is slop. The minimum, checked at every breakpoint:
+
+- **Keyboard:** every interactive element reachable and operable by
+  keyboard; visible focus state on all of them. If it only works with
+  a mouse, it does not work.
+- **Semantics:** real buttons, links, inputs, and landmarks -- not
+  divs with click handlers. Screen readers get the structure the
+  sighted user sees.
+- **Contrast and text:** body text meets WCAG AA (4.5:1, 3:1 large);
+  no information carried by color alone.
+- **Motion:** honor `prefers-reduced-motion` -- endless or large
+  animations switch off when the user asks.
+- **Touch and small screens:** touch targets at least 44px; no
+  horizontal scrolling on phones; the layout is re-thought per
+  breakpoint, not the desktop version shrunk.
+- **Rule:** Q-01 (broken), H-01 (fake controls).
 
 ## UI copy
 

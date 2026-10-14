@@ -2,9 +2,8 @@
   01c-slop-patterns-staging.md -- Reference for no-slop.
 
   Covers: staged patterns -- contrasts, closers, aphorisms, run-ups,
-  and phantom arguments. Curated from blader/humanizer (MIT) and
-  petergyang/no-ai-slop (MIT) -- see SOURCES.md. Part of the marker
-  catalog; part A is 01a-slop-markers-lexical.md.
+  and phantom arguments. Part of the marker catalog; part A is
+  01a-slop-markers-lexical.md.
 -->
 
 # Slop patterns -- staging instead of stating

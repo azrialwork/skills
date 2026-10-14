@@ -4,9 +4,8 @@
   Covers: leftover patterns -- knowledge disclaimers, document-about-
   itself, heading echoes, decorative headings, wrong-reader writing,
   adjective inflation, scenario openers, false ranges, empty closers.
-  Curated from blader/humanizer (MIT) and
-  conorbronsdon/avoid-ai-writing (MIT) -- see SOURCES.md. Part of the
-  marker catalog; part A is 01a-slop-markers-lexical.md.
+  Part of the marker catalog; part A is
+  01a-slop-markers-lexical.md.
 -->
 
 # Slop patterns -- leftovers and wrong-reader writing

@@ -62,10 +62,10 @@ Deduction caps at 8 per rule. W = word count.
   density groups (`@density:vague-praise`, `@density:boilerplate`)
   use the standard density ramp (>= 12 -> 8; >= 6 -> 5; >= 2 -> 2)
   and feed the same P-05 deduction, capped at 8 combined.
-- **P-05 cluster probe (mechanical, scanner-level)** -- Tier 2 rule
-  (adapted from avoid-ai-writing): 2+ DISTINCT `@cluster:tier2`
-  words inside one paragraph -> +3 per paragraph in `slop-scan.sh`.
-  Reported as a floor signal; the Delivery Gate decides.
+- **P-05 cluster probe (mechanical, scanner-level)** -- Tier 2 rule:
+  2+ DISTINCT `@cluster:tier2` words inside one paragraph -> +3 per
+  paragraph in `slop-scan.sh`. Reported as a floor signal; the
+  Delivery Gate decides.
 
 ### Extension modules -- checklist probes
 

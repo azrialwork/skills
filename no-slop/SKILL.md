@@ -84,9 +84,9 @@ Load only the modules the task needs:
 
 ## Liveliness dials
 
-Adapted from miqdadbadjuber/anti-slop (MIT) -- see SOURCES.md. The
-liveliness bar says *whether* the result is alive; the dials say *how*
-alive. Declare them at the start of a UI task (default 2 when unstated):
+The liveliness bar says *whether* the result is alive; the dials say
+*how* alive. Declare them at the start of a UI task (default 2 when
+unstated):
 
 - **ENERGY (1-3):** 1 calm and restrained, 2 balanced, 3 bold and
   expressive. Governs color intensity, type scale, decoration density.
@@ -167,12 +167,6 @@ generic -- rewrite until only this topic could have produced it.
 | `references/06d-ui-direction.md` | UI direction: Design Read, product truth, art direction, real imagery, browser self-check. Load 06a-d only for interface tasks |
 
 Read a reference only when its phase is active.
-
-## Sources
-
-Pattern taxonomies adapted from third-party skills under permissive
-licenses; see `SOURCES.md` for the full attribution table (repo,
-pinned version, license, what was taken).
 
 ## Scripts and assets
 
