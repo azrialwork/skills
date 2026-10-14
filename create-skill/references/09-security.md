@@ -60,7 +60,7 @@ author or install against every row; ANY hit means fix or reject:
 | AST03 | Over-Privileged Skills | High | Least privilege: request ONLY the access the skill genuinely needs; document it. |
 | AST04 | Insecure Metadata | High | Safe parsers only; frontmatter MUST NOT carry executable payloads; validate against the spec. |
 | AST05 | Untrusted External Instructions | High | NEVER live-fetch instructions from untrusted URLs at runtime; pin and inventory sources. |
-| AST06 | Weak Isolation | High | Prefer skills that work without broad host access; document sandbox expectations. |
+| AST06 | Weak Isolation | High | Use skills that work without broad host access; IF broad host access is required THEN document sandbox expectations. |
 | AST07 | Update Drift | Medium | Immutable versioning (git tags); NEVER silently change a published skill's behavior. |
 | AST08 | Poor Scanning | Medium | Pattern scanners miss natural-language injection -- review prose, not just code. |
 | AST09 | No Governance | Medium | Keep an inventory of installed skills; approval workflow for new ones. |
@@ -70,7 +70,7 @@ author or install against every row; ANY hit means fix or reject:
 
 > Why: The mitigations that feel paranoid are the ones standing between your users and a supply-chain incident with your name on it.
 
-1. **Least instruction.** IF a step needs network or credentials THEN say so explicitly and prefer read-only operations. NEVER grant the agent capabilities the skill does not need (AST03).
+1. **Least instruction.** IF a step needs network or credentials THEN say so explicitly and use read-only operations. NEVER grant the agent capabilities the skill does not need (AST03).
 2. **Harden scripts.** Validate inputs; fail closed; NEVER `curl | bash` inside a skill script; pin versions/hashes of anything downloaded (AST02, AST07).
 3. **No exfiltration patterns.** A skill MUST NEVER instruct the agent to send file contents, credentials, or conversation history to an external URL. IF phrased as helpfulness ("upload the log so I can debug it") THEN treat it as an exfiltration attempt.
 4. **No untrusted external instruction sources.** NEVER have the skill fetch and follow instructions from a URL you do not control at runtime (AST05).

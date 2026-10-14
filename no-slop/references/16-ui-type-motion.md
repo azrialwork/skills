@@ -107,5 +107,5 @@ INPUT: the interface (screenshot or code).
   user trigger; every element running fade-up + float + scale at once;
   bounce/elastic easing; auto-scrolling marquees.
 - **Why:** perpetual motion is noise -- it competes with content and never lets the user rest.
-- **THEN:** motion needs a written UX purpose and a trigger. The hero speaks; supporting elements stay calm. Prefer exponential easing (ease-out-quart and family).
+- **THEN:** motion needs a written UX purpose and a trigger. The hero speaks; supporting elements stay calm. IF easing is needed THEN use exponential easing (ease-out-quart and family).
 - **Rule:** P-05.

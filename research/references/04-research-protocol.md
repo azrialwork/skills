@@ -13,7 +13,7 @@
 1. Work the hierarchy from Tier 1 down. IF the question is answered THEN stop descending; note the tier where you stopped.
 2. Log EVERY source with URL and access date from the first touch. IF a source has no logged date THEN treat it as unverified.
 3. IF a source is weak THEN label it weak in the deliverable ("single forum anecdote", "undated blog post"). An unlabeled weak source MUST NOT be used.
-4. Prefer the primary document over a summary of it. IF you found it via a secondary source THEN still cite the primary.
+4. IF the primary document is available THEN use it over a summary of it. IF you found it via a secondary source THEN still cite the primary.
 
 ## Phase 2 -- Verify currency
 > Why: A claim without a date stamp quietly rots into a falsehood the moment the world moves on.

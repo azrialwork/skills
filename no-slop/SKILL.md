@@ -93,7 +93,7 @@ Removing slop leaves a void; liveliness must be ADDED, not assumed. A sterile re
 
 - NEVER ship text that fails the Delivery Gate.
 - NEVER fix slop by deleting the flagged word and keeping the hollow sentence; rewrite the passage with real substance.
-- NEVER "fix" slop by adding more words. Shorter is usually cleaner.
+- NEVER "fix" slop by adding more words. IF two versions say the same thing THEN keep the shorter one.
 - NEVER treat the scanner as a ceiling: passing it means only that no known markers fired. The Delivery Gate decides whether the text is good.
 - NEVER weaken a Hard Gate rule to simplify. H-rules have no exceptions.
 

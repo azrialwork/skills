@@ -44,7 +44,19 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   SECURITY.md, CODEOWNERS, issue/PR templates.
 
 ### Changed
-- `no-slop`: standalone pass -- `SOURCES.md` removed; all pattern
+- 2026-10-14 mechanical refactor (commits `d078cf4`, `a09081a`,
+  `ca170bb`, `ec38b03`, `ed13d71`): all five `SKILL.md` rewritten to
+  one skeleton (Trigger, Algorithm, Verify, Guardrails, Reference
+  map, Scripts and assets); all `references/*.md` rewritten as
+  numbered algorithms (INPUT, IF/THEN/ELSE, PASS/FAIL) with scoring
+  pseudocode/formulas/weights/IDs kept verbatim; all reference files
+  renamed to consistent `NN-descriptive-slug.md` (no letter suffixes)
+  with all cross-links updated; distro-specific references removed
+  (Termux, ubuntu/debian/alpine/fedora -> generic glibc-based /
+  musl-based / minimal POSIX categories); 227 labeled `> Why:`
+  one-liners added, one per rule-bearing section, stating the human
+  cost of violation (additive-only, zero deletions). Validation
+  scores unchanged (4x100, no-slop 93).
   content now lives inline with no external pointers (research pins
   remain in `azrial/research/anti-slop-skills/`). Added accessibility
   floor + mobile rules to 06c (the last unmerged advantage from the
