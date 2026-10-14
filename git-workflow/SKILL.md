@@ -3,89 +3,65 @@ name: git-workflow
 description: Guides selection and application of international standard git workflows: GitFlow, GitHub Flow, GitLab Flow, and trunk-based development, plus Conventional Commits, PR/review practices, merge strategies, branch protection, and release automation. Ships with the commit-message linter `scripts/commit-lint.sh` and a 100-point workflow-maturity scoring algorithm in `references/`; not for repo-wide standards audits or installer-script checklists. Use when choosing a branching model for a project, setting up branch protection or PR templates (`.github/pull-request-template.md`), writing commit messages, designing a release process, auditing a repo's git hygiene, or when the user mentions git workflow, branching strategy, release flow, or conventional commits.
 ---
 
-<!--
-  git-workflow -- SKILL.md
-
-  Purpose: entry point for the git-workflow skill. Picks the right branching
-  model for the project at hand, applies the supporting practices
-  (commits, PRs, releases), and can score a repo's workflow maturity
-  0-100. Model details live in references/; the full scoring algorithm
-  in references/05a-maturity-scoring-rubric.md and
-  references/05b-maturity-scoring-interpretation.md. This file stays lean and
-  workflow-oriented. The skill is standalone: it defines every concept
-  it scores (including the SemVer bump mapping) inline.
--->
-
 # git-workflow
 
-Git workflows are team coordination protocols, not personal habits.
-This skill picks the right protocol for the project, applies it end to
-end -- branching model, commit discipline, review loop, release -- and
-scores how mature the result is.
+Git workflows are team coordination protocols, not personal habits. This skill picks the right protocol for the project, applies it end to end -- branching model, commit discipline, review loop, release -- and scores how mature the result is on a 0-100 rubric.
 
-## Pick the model first
+## Trigger
 
-Ask: how many people, and how are releases shipped?
+USE WHEN:
+- Choosing a branching model for a project.
+- Setting up branch protection or PR templates (`.github/pull-request-template.md`).
+- Writing commit messages.
+- Designing a release process.
+- Auditing a repo's git hygiene.
+- The user mentions git workflow, branching strategy, release flow, or conventional commits.
 
-| Situation | Model | Shape |
+DO NOT USE WHEN:
+- The task is a repo-wide standards audit or an installer-script checklist (use oss-standards).
+
+## Algorithm
+
+INPUT: the project (team size, release shape, current repo state) and the task.
+
+### Step 1 -- Select the branching model
+
+Evaluate in order; the first matching row wins. IF no row matches THEN select GitHub Flow.
+
+| IF the situation is | THEN select | Shape |
 |---|---|---|
 | Solo dev or 2-3 people, continuous delivery | Trunk-based (or direct-to-main) | Short-lived branches (hours, max 1-2 days), merge to main constantly |
 | Small team, PR-based review | GitHub Flow | `main` + feature branches + pull requests; deploy from main |
 | Staged environments (staging -> production) | GitLab Flow | Environment branches (`main` -> `staging` -> `production`) or release branches |
 | Versioned software, multiple releases maintained in parallel | GitFlow | `main`, `develop`, `feature/*`, `release/*`, `hotfix/*` |
 
-Default for a new project without special needs: GitHub Flow. It is the
-simplest model that still gives review and CI a place to live. Do not
-reach for GitFlow unless parallel maintained versions are a real
-requirement -- its own creator walked the recommendation back in 2020.
+State the choice and why. IF the choice is GitFlow THEN you MUST justify it with parallel maintained versions; its own creator walked the recommendation back in 2020. (Full decision tree: `references/01-branching-models.md`.)
 
-The full decision tree (five inputs, evaluated in order) and per-model
-parameters: `references/01-branching-models.md`.
+### Step 2 -- Apply core practices
 
-## Core practices (apply regardless of model)
+1. **Conventional Commits.** Every message MUST match `<type>[scope][!]: <description>` with type in `feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert` (the spec defines only `feat` and `fix`; the rest come from the Angular convention via commitlint). Type lowercase, description starts lowercase, no trailing period, ~50-72 chars. SemVer mapping: `feat` -> minor bump, `fix` -> patch, breaking change (`!`) -> major. (Spec-mandated vs skill-strict rules: `references/02-conventional-commits.md`.)
+2. **Main hygiene.** IF main is dirty THEN sync with `pull --rebase` BEFORE starting work. Push immediately after the commit lands.
+3. **Review loop.** IF the project has more than one contributor THEN every change MUST go through a pull request; main is protected: no direct pushes, CI must pass, force pushes blocked. Merge strategy: IF tidy history is the goal THEN squash; ELSE IF faithful history is the goal THEN rebase; ELSE IF the branch topology matters THEN merge commits. (Details: `references/03-pr-review.md`.)
+4. **Release.** Tag with annotated tags (`v1.2.3`), write release notes from the commit history, publish through GitHub Releases, automate the version from commit types. (Details: `references/04-releasing.md`.)
 
-1. **Conventional Commits.** `<type>[scope][!]: <description>` --
-   types `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`,
-   `build`, `ci`, `chore`, `revert` (the spec defines only `feat` and
-   `fix`; the rest come from the Angular convention via commitlint).
-   Lowercase type, lowercase-start description, no trailing period,
-   ~50-72 chars. The types make version numbers computable: `feat` ->
-   minor bump, `fix` -> patch, breaking change -> major. Spec-mandated
-   vs skill-strict rules: `references/02-conventional-commits.md`.
-2. **Never commit on a dirty main.** Sync (`pull --rebase`) before
-   starting work; push right after the commit lands.
-3. **Review loop for teams.** Every change goes through a pull request;
-   main is protected (no direct pushes, CI must pass, force pushes
-   blocked). Merge strategy per project: squash for tidy history,
-   rebase for faithful history, merge commits only when the branch
-   topology matters. Details: `references/03-pr-review.md`.
-4. **Release deliberately.** Tag with annotated tags (`v1.2.3`), write
-   release notes from the commit history, publish through GitHub
-   Releases, automate the version from commit types. Details:
-   `references/04-releasing.md`.
+### Step 3 -- Set up the repo
 
-## Workflow
+1. Branch protection rules (or Rulesets).
+2. PR template from `assets/pull-request-template.md`.
+3. Commit linting: install `scripts/commit-lint.sh` as a commit-msg hook or CI step. IF the repo uses squash-merge THEN also lint PR titles.
 
-1. **Select the model** using the decision tree. State the choice and
-   why.
-2. **Set up the repo:** branch protection rules (or Rulesets), PR
-   template (`assets/pull-request-template.md`), commit linting
-   (`scripts/commit-lint.sh` as a commit-msg hook or CI step; PR-title
-   linting for squash-merge repos).
-3. **Work the loop:** branch -> commit (linted) -> PR -> review -> merge
-   (per chosen strategy) -> release (tagged).
-4. **Verify:** `git log --oneline -10` shows clean conventional history;
-   `git tag` matches releases.
-5. **Score:** run the maturity algorithm in
-   `references/05a-maturity-scoring-rubric.md`, then interpret per
-   `references/05b-maturity-scoring-interpretation.md`. A fully disciplined repo scores
-   exactly 100.
+### Step 4 -- Work the loop
 
-## Maturity scoring (summary)
+Branch -> commit (linted) -> PR -> review -> merge (per chosen strategy) -> release (tagged).
 
-Six weighted categories, every item mapped to a checkable probe or an
-explicit human attestation. Full rubric: `references/05a-maturity-scoring-rubric.md`;
-renormalization, edge cases, and pseudocode: `references/05b-maturity-scoring-interpretation.md`.
+### Step 5 -- Verify
+
+1. `git log --oneline -10` shows clean conventional history. IF not THEN FAIL.
+2. `git tag` matches the releases. IF not THEN FAIL.
+
+### Step 6 -- Score maturity
+
+Run the rubric in `references/05a-maturity-scoring-rubric.md`, then interpret per `references/05b-maturity-scoring-interpretation.md`. Six weighted categories, every item mapped to a checkable probe or an explicit human attestation:
 
 | Category | Points |
 |---|---|
@@ -97,9 +73,22 @@ renormalization, edge cases, and pseudocode: `references/05b-maturity-scoring-in
 | 6. Automation | 8 |
 | **Total** | **100** |
 
-Bands: 90-100 Exemplary, 70-89 Disciplined, 40-69 Developing, 0-39
-Ad-hoc. Inapplicable items (solo-dev, no releases yet) are excluded
-and the score renormalizes over what applies.
+Bands: 90-100 Exemplary, 70-89 Disciplined, 40-69 Developing, 0-39 Ad-hoc. IF an item is inapplicable (solo-dev, no releases yet) THEN exclude it and renormalize the score over what applies. A fully disciplined repo scores exactly 100.
+
+## Verify
+
+- [ ] PASS: a branching model is stated with its reason, and GitFlow (if chosen) is justified by parallel maintained versions.
+- [ ] PASS: `scripts/commit-lint.sh` rejects vague subjects (`fix bug`, `update`) and accepts valid conventional messages.
+- [ ] PASS: `git log --oneline -10` shows only conventional-format subjects.
+- [ ] PASS: main has no direct pushes; branch protection is active.
+- [ ] PASS: maturity score computed; inapplicable items excluded and renormalized.
+
+## Guardrails
+
+- NEVER rewrite public history (`push --force` on shared branches). Rebase is for private branches only.
+- NEVER pick GitFlow by default; justify it with parallel maintained versions or do not use it.
+- NEVER commit a vague subject; the linter rejects them for a reason.
+- NEVER invent workflow names. The four models above are the vocabulary; everything else is a named variation.
 
 ## Reference map
 
@@ -116,20 +105,5 @@ Read a reference only when its phase is active.
 
 ## Scripts and assets
 
-- `scripts/commit-lint.sh` -- validates a commit message against
-  Conventional Commits (spec v1.0.0 + the skill's house rules).
-  Usage: `commit-lint.sh <file>` or pipe a message on stdin. Exit 0 on
-  valid, 1 with a reason on stderr otherwise. POSIX sh, ASCII only.
+- `scripts/commit-lint.sh` -- validates a commit message against Conventional Commits (spec v1.0.0 + the skill's house rules). Usage: `commit-lint.sh <file>` or pipe a message on stdin. Exit 0 on valid, 1 with a reason on stderr otherwise. POSIX sh, ASCII only.
 - `assets/pull-request-template.md` -- PR template (what/why/testing).
-
-## Guardrails
-
-- Never rewrite public history (`push --force` on shared branches).
-  Rebase is for private branches only; force pushes are blocked by
-  branch protection (scored, not just advised).
-- Never pick GitFlow by default. Justify it with parallel maintained
-  versions or do not use it.
-- A commit message is a contract with future readers: vague subjects
-  (`fix bug`, `update`) are rejected by the linter for a reason.
-- Do not invent workflow names. The four models above are the
-  vocabulary; everything else is a variation, named as such.
