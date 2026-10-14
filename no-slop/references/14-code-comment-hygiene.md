@@ -1,5 +1,5 @@
 <!--
-  05-code-comment-hygiene.md -- Reference for no-slop: hygiene for
+  14-code-comment-hygiene.md -- Reference for no-slop: hygiene for
   comments in AI-generated code. Load only when the task writes or
   edits code.
 -->
@@ -114,7 +114,7 @@ workaround, not a paragraph about it.
 
 ## Code comment checklist
 
-Run alongside the Delivery Gate (`references/03-self-audit.md`) when
+Run alongside the Delivery Gate (`references/09-self-audit.md`) when
 the task touches comments. Verdict = PASS only when every answer is
 **yes**:
 

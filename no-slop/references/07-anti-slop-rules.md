@@ -1,15 +1,15 @@
 <!--
-  02a-anti-slop-rules.md -- Reference for no-slop.
+  07-anti-slop-rules.md -- Reference for no-slop.
 
   Covers: the tiered rule set -- Hard Gate (absolute), Purpose-Gate
   (technique allowed with a stated reason), Quality Locks (consistency) --
   plus before/after examples. Part A; the rule-to-check mapping is part B
-  (02b-rule-to-check-mapping.md). Follow while writing.
+  (08-rule-to-check-mapping.md). Follow while writing.
 -->
 # Anti-slop rules -- the tiered rule set (part A)
 
 Part A: the rules themselves. The rule-to-check mapping (mechanical probes
-and judge inputs per rule) is part B (`02b-rule-to-check-mapping.md`).
+and judge inputs per rule) is part B (`08-rule-to-check-mapping.md`).
 
 ## Verdict algorithm
 

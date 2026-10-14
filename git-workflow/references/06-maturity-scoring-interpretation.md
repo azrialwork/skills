@@ -1,16 +1,16 @@
 <!--
-  05b-maturity-scoring-interpretation.md -- Reference for git-workflow.
+  06-maturity-scoring-interpretation.md -- Reference for git-workflow.
 
   Covers: how to interpret the maturity score after the rubric is
   applied: N/A renormalization (Step 2), encoded edge cases (Step 3),
   the scoring pseudocode (Step 4), and what remains human-judged.
-  Companion: 05a-maturity-scoring-rubric.md (Steps 0-1: the rubric).
+  Companion: 05-maturity-scoring-rubric.md (Steps 0-1: the rubric).
   Read after scoring, before reporting.
 -->
 
 # Maturity scoring - interpretation (Steps 2-4)
 
-INPUT: the per-item scores from `05a-maturity-scoring-rubric.md`
+INPUT: the per-item scores from `05-maturity-scoring-rubric.md`
 (Steps 0-1). OUTPUT: the final score, band, and an auditable report.
 
 Run Step 2, then Step 3, then Step 4, in order. Read this file after

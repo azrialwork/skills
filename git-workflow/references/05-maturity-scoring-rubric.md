@@ -1,10 +1,10 @@
 <!--
-  05a-maturity-scoring-rubric.md -- Reference for git-workflow.
+  05-maturity-scoring-rubric.md -- Reference for git-workflow.
 
   Covers: the 0-100 workflow-maturity scoring rubric: band legend, model
   selection (Step 0), and the six weighted categories with every item
   mapped to a checkable probe or an explicit human attestation (Step 1).
-  Companion: 05b-maturity-scoring-interpretation.md (Steps 2-4: N/A
+  Companion: 06-maturity-scoring-interpretation.md (Steps 2-4: N/A
   renormalization, edge cases, pseudocode, human-judged caveats).
   Read when auditing a repo or verifying an engagement.
 -->
@@ -14,7 +14,7 @@
 Scoring procedure:
 
 1. Run Step 0, then score every item in Step 1.
-2. Continue with `05b-maturity-scoring-interpretation.md` (Steps 2-4:
+2. Continue with `06-maturity-scoring-interpretation.md` (Steps 2-4:
    renormalize N/A items, apply edge cases, combine per the
    pseudocode) before reporting.
 
@@ -109,4 +109,4 @@ Spec-mandated vs skill-strict rules are defined in
 
 **Total: 14 + 24 + 24 + 10 + 20 + 8 = 100.**
 
-After scoring each item, continue with `05b-maturity-scoring-interpretation.md` (Step 2: renormalize N/A items; Step 3: edge cases; Step 4: pseudocode).
+After scoring each item, continue with `06-maturity-scoring-interpretation.md` (Step 2: renormalize N/A items; Step 3: edge cases; Step 4: pseudocode).

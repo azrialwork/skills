@@ -1,5 +1,5 @@
 <!--
-  06d-ui-direction.md -- Reference for no-slop.
+  18-ui-direction.md -- Reference for no-slop.
 
   Covers: direction before building -- Design Read, product truth,
   art direction, real imagery, browser self-check. Load with the
@@ -11,7 +11,7 @@
 # UI direction -- before building
 
 A filter removes what should not be there; it cannot invent what
-should. Run this once before any UI build, then apply the 06a-c
+should. Run this once before any UI build, then apply the 15-17
 filters during the build.
 
 ## Direction algorithm
@@ -22,7 +22,7 @@ INPUT: the brief (and DESIGN.md if it exists).
 2. Capture product truth once; write it down. Later decisions check against it instead of re-deriving it.
 3. Pick one art direction and commit for the whole surface.
 4. Use real, credited imagery only.
-5. After building, run the browser self-check below. Verdict = done only when a fresh look finds nothing from the 06a-c checklists.
+5. After building, run the browser self-check below. Verdict = done only when a fresh look finds nothing from the 15-17 checklists.
 
 ## Design Read
 
@@ -60,12 +60,12 @@ acceptable sources; put the credit on the page. Replace stock with
 the client's own assets when they exist.
 
 NEVER ship a fake screenshot, a fake terminal, or invented people as
-stand-ins for the real product (see 06c honesty rules).
+stand-ins for the real product (see 17 honesty rules).
 
 ## Browser self-check
 
 Check the built page in a real browser at three widths (desktop,
-tablet, phone) and fail your own work against the 06a-c patterns
+tablet, phone) and fail your own work against the 15-17 patterns
 before delivering:
 
 1. Screenshot each width.

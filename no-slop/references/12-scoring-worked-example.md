@@ -1,15 +1,15 @@
 <!--
-  04c-scoring-worked-example.md -- Reference for no-slop.
+  12-scoring-worked-example.md -- Reference for no-slop.
 
   Covers: a worked example scoring a sample text end to end through all
   five steps, with the Mode 2 findings list and the contrast against
   `slop-scan.sh`. Part C of the scoring algorithm; part A is
-  04a-scoring-algorithm.md.
+  10-scoring-algorithm.md.
 -->
 # Scoring algorithm -- worked example (part C)
 
 A sample text scored end to end through all five steps. The algorithm spec
-is part A (`04a-scoring-algorithm.md`).
+is part A (`10-scoring-algorithm.md`).
 
 ## Worked example
 

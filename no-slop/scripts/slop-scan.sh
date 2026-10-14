@@ -21,8 +21,8 @@
 # Prints hits with line numbers and a slop score.
 # Exit 0 when the score is at or under the threshold, 1 above it.
 # This script is the mechanical floor, not the verdict: the Delivery Gate
-# (references/03-self-audit.md) and the 0-100 algorithm
-# (references/04a-scoring-algorithm.md) decide whether text is good.
+# (references/09-self-audit.md) and the 0-100 algorithm
+# (references/10-scoring-algorithm.md) decide whether text is good.
 set -eu
 
 file=${1:?usage: slop-scan.sh <text-file> [phrases-file]}

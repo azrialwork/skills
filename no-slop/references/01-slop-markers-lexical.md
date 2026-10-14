@@ -1,16 +1,16 @@
 <!--
-  01a-slop-markers-lexical.md -- Reference for no-slop.
+  01-slop-markers-lexical.md -- Reference for no-slop.
 
   Covers: lexical AI slop markers -- empty vocabulary, significance
   inflation, weasel attributions, throat-clearing openers, hollow
   transitions -- with before/after examples and rule IDs.
-  Part A of the marker catalog; part B is 01b-slop-markers-structural.md.
+  Part A of the marker catalog; part B is 02-slop-markers-structural.md.
   Read before generating any non-trivial text.
 -->
 # Slop markers -- lexical markers (part A)
 
 Part A of the marker catalog: the lexical markers. Part B
-(`01b-slop-markers-structural.md`) covers structural and substance markers.
+(`02-slop-markers-structural.md`) covers structural and substance markers.
 
 ## Detection algorithm
 
@@ -18,7 +18,7 @@ INPUT: the draft text.
 
 1. Scan the text against each marker below, in order.
 2. IF a marker's Pattern is observed THEN record a finding: marker name, matched text, and Rule ID.
-3. IF the Rule ID is an H-rule THEN FAIL immediately (see `02a-anti-slop-rules.md`).
+3. IF the Rule ID is an H-rule THEN FAIL immediately (see `07-anti-slop-rules.md`).
 4. ELSE rewrite or cut the matched passage per the marker's THEN line; never keep it for emphasis.
 5. Findings feed Mode 2's numbered list (`SKILL.md` Step 3b).
 

@@ -38,7 +38,7 @@ case "$arch" in
     *) error "unsupported architecture: $arch" ;;
 esac
 if [ "$(uname -o 2>/dev/null)" = "Android" ]; then
-    info "Android/Termux detected"
+    info "Android environment detected; using Android-compatible paths"
 fi
 
 # --- download ---------------------------------------------------------------

@@ -1,22 +1,22 @@
 <!--
-  02b-rule-to-check-mapping.md -- Reference for no-slop.
+  08-rule-to-check-mapping.md -- Reference for no-slop.
 
   Covers: the rule-to-check mapping for the 0-100 scoring algorithm --
   mechanical probes (regex, count, density formula with threshold) or
   explicit judge inputs for every H/P/Q rule and liveliness.
-  Part B of the tiered rules; part A is 02a-anti-slop-rules.md.
+  Part B of the tiered rules; part A is 07-anti-slop-rules.md.
 -->
 # Rule-to-check mapping -- mechanical probes and judge inputs (part B)
 
 Part B of the tiered rules: how each rule maps to a check for the 0-100
-algorithm. The rules themselves are part A (`02a-anti-slop-rules.md`).
+algorithm. The rules themselves are part A (`07-anti-slop-rules.md`).
 
 ## Rule-to-check mapping (for the 0-100 algorithm)
 
 Reading rule: every rule below maps to exactly one check. Run the check;
 IF it is a mechanical probe THEN apply the formula; IF it is a judge
 input THEN supply the named input -- never silently omit it.
-Full algorithm: `references/04a-scoring-algorithm.md`.
+Full algorithm: `references/10-scoring-algorithm.md`.
 
 ### Hard Gate -- mechanical probes + required attestations
 

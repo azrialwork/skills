@@ -61,7 +61,7 @@ Branch -> commit (linted) -> PR -> review -> merge (per chosen strategy) -> rele
 
 ### Step 6 -- Score maturity
 
-Run the rubric in `references/05a-maturity-scoring-rubric.md`, then interpret per `references/05b-maturity-scoring-interpretation.md`. Six weighted categories, every item mapped to a checkable probe or an explicit human attestation:
+Run the rubric in `references/05-maturity-scoring-rubric.md`, then interpret per `references/06-maturity-scoring-interpretation.md`. Six weighted categories, every item mapped to a checkable probe or an explicit human attestation:
 
 | Category | Points |
 |---|---|
@@ -98,8 +98,8 @@ Bands: 90-100 Exemplary, 70-89 Disciplined, 40-69 Developing, 0-39 Ad-hoc. IF an
 | `references/02-conventional-commits.md` | Spec v1.0.0 essentials, spec-mandated vs skill-strict rules, SemVer mapping, loop hygiene |
 | `references/03-pr-review.md` | Review loop, branch protection/Rulesets, merge queues, CODEOWNERS, merge strategies |
 | `references/04-releasing.md` | Tagging, GitHub Releases, changelog generation, computable pipeline, hotfixes |
-| `references/05a-maturity-scoring-rubric.md` | The 0-100 rubric: band legend, model selection, six weighted categories with probes/attestations |
-| `references/05b-maturity-scoring-interpretation.md` | Score interpretation: N/A renormalization, encoded edge cases, pseudocode, human-judged caveats |
+| `references/05-maturity-scoring-rubric.md` | The 0-100 rubric: band legend, model selection, six weighted categories with probes/attestations |
+| `references/06-maturity-scoring-interpretation.md` | Score interpretation: N/A renormalization, encoded edge cases, pseudocode, human-judged caveats |
 
 Read a reference only when its phase is active.
 

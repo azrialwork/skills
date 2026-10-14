@@ -1,15 +1,15 @@
 <!--
-  04b-scoring-pseudocode.md -- Reference for no-slop.
+  11-scoring-pseudocode.md -- Reference for no-slop.
 
   Covers: pseudocode implementing the five scoring steps (Hard Gate,
   Purpose-Gate deductions, Quality Lock deductions, liveliness ceiling,
   verdict). Part B of the scoring algorithm; part A is
-  04a-scoring-algorithm.md.
+  10-scoring-algorithm.md.
 -->
 # Scoring algorithm -- pseudocode (part B)
 
 Executable-form summary of the five steps. The algorithm spec is part A
-(`04a-scoring-algorithm.md`).
+(`10-scoring-algorithm.md`).
 
 ## Pseudocode
 

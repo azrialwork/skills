@@ -21,7 +21,7 @@ INPUT: the repo's current state (from `scripts/repo-audit.sh`).
 
 ## NOW (before first public release -- hours of work, foundational trust)
 
-1. **POSIX `sh` + `set -eu` installer** -- maximal installable population incl. Termux; strictness turns silent corruption into loud failure.
+1. **POSIX `sh` + `set -eu` installer** -- maximal installable population across Unix-like platforms; strictness turns silent corruption into loud failure.
 2. **SHA256SUMS verification in install.sh (fail-closed)** -- the single highest-value security line; publish SHA256SUMS next to the tarball.
 3. **OSI-approved LICENSE at root + SPDX identifier in README.**
 4. **README: pitch + badges + installation + quickstart + license** -- the 60-second trust test.
@@ -36,7 +36,7 @@ INPUT: the repo's current state (from `scripts/repo-audit.sh`).
 
 11. **minisign-sign SHA256SUMS**; embed/ship `minisign.pub`.
 12. **GitHub Artifact Attestations / SLSA provenance** on releases (~10 lines of YAML, approx SLSA Build L2/L3).
-13. **bats installer tests** on a docker distro matrix (ubuntu/debian/alpine/fedora + a Termux-ish check).
+13. **bats installer tests** on a container matrix covering the supported platforms (glibc-based, musl-based, and minimal POSIX environments).
 14. **CONTRIBUTING.md + issue/PR templates + CODEOWNERS.**
 15. **Conventional Commits + release automation** (release-please or git-cliff).
 16. **Completions + man page** (generated from `--help`).

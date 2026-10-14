@@ -1,19 +1,19 @@
 <!--
-  04a-scoring-algorithm.md -- Reference for no-slop.
+  10-scoring-algorithm.md -- Reference for no-slop.
 
   Covers: the complete, standalone 0-100 text-quality scoring algorithm --
   band legend, inputs, Hard Gate binary-zero rule, capped Purpose-Gate and
   Quality Lock deductions with density formulas and thresholds, liveliness
   ceiling, and verdict. Part A of the algorithm.
-  Parts: pseudocode (04b), worked example (04c), limits (04d).
+  Parts: pseudocode (11), worked example (12), limits (13).
   Requires nothing outside this skill.
 -->
 # The no-slop scoring algorithm (0-100) (part A)
 
 The algorithm spec: bands, inputs, the five steps. Pseudocode is part B
-(`04b-scoring-pseudocode.md`), the worked example part C
-(`04c-scoring-worked-example.md`), limits and calibration part D
-(`04d-scoring-limits.md`).
+(`11-scoring-pseudocode.md`), the worked example part C
+(`12-scoring-worked-example.md`), limits and calibration part D
+(`13-scoring-limits.md`).
 
 Scores a text against the tiered rules (H/P/Q + liveliness). A perfectly
 clean, lively text scores exactly 100. Any Hard Gate violation scores 0.

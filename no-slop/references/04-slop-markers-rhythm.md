@@ -1,10 +1,10 @@
 <!--
-  01d-slop-markers-rhythm.md -- Reference for no-slop.
+  04-slop-markers-rhythm.md -- Reference for no-slop.
 
   Covers: rhythm applied by rule and inflation patterns -- triads,
   openings, passive voice, qualifiers, vague connections, -ing riders,
   sales language, borrowed authority, copula avoidance. Part of the
-  marker catalog; part A is 01a-slop-markers-lexical.md.
+  marker catalog; part A is 01-slop-markers-lexical.md.
 -->
 
 # Slop patterns -- rhythm by rule, inflation extended

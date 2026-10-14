@@ -11,7 +11,7 @@
 
 INPUT: the installer script.
 
-1. **Platform detection.** Normalize with a `case $(uname -sm)` matrix covering `aarch64|arm64` and `x86_64|x64` plus OS (`Linux`, `Darwin`). IF `uname -o` returns `Android` THEN apply the Termux/musl path (oh-my-zsh detects Termux via `case "$PREFIX" in *com.termux*)`; mise maps Android to its musl variant). IF libc flavor matters THEN probe it (`ldd /bin/ls | grep musl`, `/etc/alpine-release`, or glibc-version check with musl fallback). IF the platform is unsupported THEN fail with a clear message; NEVER silently install the wrong binary.
+1. **Platform detection.** Normalize with a `case $(uname -sm)` matrix covering `aarch64|arm64` and `x86_64|x64` plus OS (`Linux`, `Darwin`). IF `uname -o` returns `Android` THEN select the Android-compatible binary path (typically the musl variant where the project ships one); probe non-standard install prefixes via `case "$PREFIX"`. IF libc flavor matters THEN probe it (`ldd /bin/ls | grep musl`, or a glibc-version check with musl fallback). IF the platform is unsupported THEN fail with a clear message; NEVER silently install the wrong binary.
 2. **Download resilience.** Use curl first, wget as fallback (mise, nvm translate flags between them). Add retry: `--retry 5` (flyctl) or exponential backoff (Homebrew). Resume partial downloads with `curl -C -` where appropriate. Do not fight proxies: curl honors `https_proxy`/`HTTPS_PROXY` automatically.
 3. **Temp hygiene.** Create with `tmpdir=$(mktemp -d)` and trap cleanup: `trap 'rm -rf "$tmpdir"' EXIT INT TERM`. Quote EVERY `rm -rf "$var"`; an unquoted `rm -rf $var` is a FAIL. Warn when /tmp is mounted noexec (rustup pattern).
 4. **Idempotency.** Re-running MUST be safe: IF the installed version already matches THEN skip (mise: `MISE_INSTALL_SKIP_IF_EXISTS=1`); ELSE upgrade cleanly in place. Install atomically: extract to the temp dir, `chmod +x`, then `mv` into place -- NEVER write over a running executable (flyctl pattern).
@@ -20,6 +20,6 @@ INPUT: the installer script.
 ## FLAG on sight (FAIL)
 
 - `rm -rf` with unquoted or unguarded variables.
-- Hardcoded `/usr/local` (breaks Termux, containers, unprivileged users).
+- Hardcoded `/usr/local` (breaks single-user environments, containers, unprivileged users).
 - Assuming sudo exists or is needed.
 - Silent failure on unsupported arch (installs x86_64 binary on aarch64).

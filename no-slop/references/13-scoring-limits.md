@@ -1,15 +1,15 @@
 <!--
-  04d-scoring-limits.md -- Reference for no-slop.
+  13-scoring-limits.md -- Reference for no-slop.
 
   Covers: what the algorithm cannot automate (named, required human or
   LLM-judge inputs) and calibration and reliability notes (current as of
   2026-10-13). Part D of the scoring algorithm; part A is
-  04a-scoring-algorithm.md.
+  10-scoring-algorithm.md.
 -->
 # Scoring algorithm -- limits and calibration (part D)
 
 What the algorithm cannot automate, and calibration/reliability notes. The
-algorithm spec is part A (`04a-scoring-algorithm.md`).
+algorithm spec is part A (`10-scoring-algorithm.md`).
 
 ## What cannot be automated (explicit)
 

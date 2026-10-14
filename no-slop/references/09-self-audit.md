@@ -1,5 +1,5 @@
 <!--
-  03-self-audit.md -- Reference for no-slop.
+  09-self-audit.md -- Reference for no-slop.
 
   Post-generation audit: the Delivery Gate plus the liveliness check.
   Walk this after slop-scan.sh passes. Covers what heuristics cannot see.
@@ -69,7 +69,7 @@ IF all four blocks pass THEN ship. IF a block cannot be satisfied honestly THEN 
 ## Scoring the audit (0-100)
 
 The four blocks above are also a scoring algorithm
-(full spec: `references/04a-scoring-algorithm.md`):
+(full spec: `references/10-scoring-algorithm.md`):
 
 1. **Hard Gate (Block 1)** is binary: any H-rule failure -> score 0.
 2. **Purpose-Gate (Block 2)**: start at 100; each unjustified P-rule

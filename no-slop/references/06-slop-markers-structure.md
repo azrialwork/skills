@@ -1,10 +1,10 @@
 <!--
-  01f-slop-markers-structure.md -- Reference for no-slop.
+  06-slop-markers-structure.md -- Reference for no-slop.
 
   Covers: structural patterns -- portability test, false agency,
   distant narrator, opener habits, bare-noun lists, placeholders,
   tool fingerprints. Part of the marker catalog; part B is
-  01b-slop-markers-structural.md.
+  02-slop-markers-structural.md.
 -->
 
 # Slop patterns -- structure, extended

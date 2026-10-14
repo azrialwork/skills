@@ -1,11 +1,11 @@
 <!--
-  15a-scoring-algorithm.md -- Reference for oss-standards.
+  15-scoring-algorithm.md -- Reference for oss-standards.
 
   Covers: the complete, standalone 0-100 open-source compliance scoring
   algorithm -- band legend, inputs, procedure (including N/A renormalization
   and the NOW-gate), and all 33 criteria tables with weights and probes.
   Worked example, pseudocode, anti-patterns, and pinned standard versions
-  live in 15b-scoring-appendix.md.
+  live in 16-scoring-appendix.md.
 
   This file is self-contained: it does not depend on any other skill
   or any other file in this skill to be applied.
@@ -61,7 +61,7 @@ INPUT: the repository under audit.
 | I4 | SHA256SUMS verification present and fail-closed (missing/bad checksum -> nonzero exit). Scale: 4 = verified fail-closed; 2 = checksum present, failure path not traced; 0 = none | 4 | NOW | `[auto]` `grep -qi sha256 install.sh`; `[rubric]` trace the failure path |
 | I5 | `tmpdir=$(mktemp -d)` + `trap 'rm -rf "$tmpdir"' EXIT INT TERM`; every `rm -rf` quoted | 2 | NOW | `[auto]` `grep -q 'mktemp -d' install.sh && grep -q "trap .* EXIT" install.sh && ! grep -Eq 'rm -rf [^"'"'"']*\$[A-Za-z_]' install.sh` |
 | I6 | `--help` and `--version` flags; non-interactive mode (`--yes`, `NONINTERACTIVE=1`, or tty-detect) | 2 | SOON | `[auto]` `grep -q -- '--help' install.sh && grep -q -- '--version' install.sh` |
-| I7 | Platform matrix via `case $(uname -sm)` (aarch64/arm64, x86_64; Android/Termux note where relevant); loud failure on unsupported. Scale 0-2 | 2 | SOON | `[auto]` `grep -q 'uname' install.sh`; `[rubric]` matrix completeness |
+| I7 | Platform matrix via `case $(uname -sm)` (aarch64/arm64, x86_64; Android/musl note where relevant); loud failure on unsupported. Scale 0-2 | 2 | SOON | `[auto]` `grep -q 'uname' install.sh`; `[rubric]` matrix completeness |
 | I8 | `shellcheck` exit 0 and `shfmt -d` zero-diff | 2 | SOON | `[auto]` `shellcheck install.sh`; `shfmt -d install.sh` |
 
 ### 2. Repository and README (15 pts)

@@ -51,7 +51,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   research: antislop-human/layoutmobile).
 - `no-slop`: full merge with six researched anti-slop skills
   (upstream pins recorded in the research notes). New
-  `references/05-code-comment-hygiene.md` (AI-slop comment cleanup,
+  `references/14-code-comment-hygiene.md` (AI-slop comment cleanup,
   comments-only scope guardrail) and
   `references/06-ui-slop-patterns.md` (visual slop: color, layout,
   typography, decoration, motion, app screens, UI copy, checklist).

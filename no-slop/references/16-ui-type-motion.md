@@ -1,5 +1,5 @@
 <!--
-  06b-ui-type-motion.md -- Reference for no-slop.
+  16-ui-type-motion.md -- Reference for no-slop.
 
   Covers: UI typography, icons/decoration, and motion slop patterns.
   Load only when the task builds or edits an interface.

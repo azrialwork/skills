@@ -1,11 +1,11 @@
 <!--
-  01e-slop-markers-leftovers.md -- Reference for no-slop.
+  05-slop-markers-leftovers.md -- Reference for no-slop.
 
   Covers: leftover patterns -- knowledge disclaimers, document-about-
   itself, heading echoes, decorative headings, wrong-reader writing,
   adjective inflation, scenario openers, false ranges, empty closers.
   Part of the marker catalog; part A is
-  01a-slop-markers-lexical.md.
+  01-slop-markers-lexical.md.
 -->
 
 # Slop patterns -- leftovers and wrong-reader writing

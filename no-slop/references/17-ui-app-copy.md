@@ -1,5 +1,5 @@
 <!--
-  06c-ui-app-copy.md -- Reference for no-slop.
+  17-ui-app-copy.md -- Reference for no-slop.
 
   Covers: app/dashboard slop patterns, UI copy tells, accessibility
   floor, honesty rules, and the UI checklist. Load only when the task
@@ -82,7 +82,7 @@ Interface text follows the same H/P/Q rules as prose, with these UI-specific tel
 
 ## UI checklist
 
-Run alongside the Delivery Gate (`references/03-self-audit.md`) when
+Run alongside the Delivery Gate (`references/09-self-audit.md`) when
 the task is UI work. Verdict = PASS only when every answer is **yes**:
 
 - [ ] Palette from brand identity, not the default gradient set?

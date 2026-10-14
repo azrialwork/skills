@@ -1,8 +1,8 @@
 <!--
-  15b-scoring-appendix.md -- Reference for oss-standards.
+  16-scoring-appendix.md -- Reference for oss-standards.
 
   Covers: supporting material for the 0-100 compliance scoring algorithm
-  defined in 15a-scoring-algorithm.md -- the anti-pattern table (each maps
+  defined in 15-scoring-algorithm.md -- the anti-pattern table (each maps
   to exactly one criterion, no double counting), what automation cannot see
   (stated openly), the scoring pseudocode, a worked example, and the
   standard versions pinned by the algorithm (verified 2026-10-13).

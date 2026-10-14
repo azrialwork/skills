@@ -1,5 +1,5 @@
 <!--
-  06a-ui-color-layout.md -- Reference for no-slop.
+  15-ui-color-layout.md -- Reference for no-slop.
 
   Covers: UI color/decoration and layout/component slop patterns.
   Load only when the task builds or edits an interface. A filter,

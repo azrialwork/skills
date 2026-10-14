@@ -1,9 +1,9 @@
 <!--
-  01c-slop-markers-staging.md -- Reference for no-slop.
+  03-slop-markers-staging.md -- Reference for no-slop.
 
   Covers: staged patterns -- contrasts, closers, aphorisms, run-ups,
   and phantom arguments. Part of the marker catalog; part A is
-  01a-slop-markers-lexical.md.
+  01-slop-markers-lexical.md.
 -->
 
 # Slop patterns -- staging instead of stating

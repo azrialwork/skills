@@ -26,7 +26,7 @@ INPUT: the target (installer, repo layout, README, release process, or full audi
 4. **Prioritize with the roadmap.** Apply `references/14-adoption-roadmap.md` in strict order: fix ALL NOW items before any SOON item, ALL SOON items before any LATER item. NEVER start with LATER.
 5. **Apply standards.** Follow the matching reference file(s). IF two changes both satisfy the standard THEN apply the smaller one. NEVER add changes beyond what the standard requires (no gold-plating).
 6. **Check proportionality.** BEFORE recommending a standard: consult the SKIP list in `references/14-adoption-roadmap.md`. IF the standard is on SKIP for this project size THEN do not recommend it.
-7. **Verify and score.** Re-run the audit script. IF any NOW item fails THEN return to step 5. For a complete 0-100 compliance score, apply `references/15a-scoring-algorithm.md` (every requirement maps to an automated probe or an explicit human-rubric input).
+7. **Verify and score.** Re-run the audit script. IF any NOW item fails THEN return to step 5. For a complete 0-100 compliance score, apply `references/15-scoring-algorithm.md` (every requirement maps to an automated probe or an explicit human-rubric input).
 
 ## Verify
 
@@ -61,8 +61,8 @@ INPUT: the target (installer, repo layout, README, release process, or full audi
 | `references/12-cicd.md` | Pipeline stages, provenance, SHA-pinned actions, least privilege |
 | `references/13-docs-community.md` | Diataxis, ADRs, man pages, CoC, CONTRIBUTING, CODEOWNERS |
 | `references/14-adoption-roadmap.md` | NOW / SOON / LATER / SKIP prioritization |
-| `references/15a-scoring-algorithm.md` | Standalone 0-100 compliance-scoring algorithm: bands, criteria, weights, gates, probes |
-| `references/15b-scoring-appendix.md` | Scoring-algorithm appendix: anti-patterns, pseudocode, worked example, pinned standard versions |
+| `references/15-scoring-algorithm.md` | Standalone 0-100 compliance-scoring algorithm: bands, criteria, weights, gates, probes |
+| `references/16-scoring-appendix.md` | Scoring-algorithm appendix: anti-patterns, pseudocode, worked example, pinned standard versions |
 
 Read a reference only when its topic is in scope. Do not preload all of them.
 

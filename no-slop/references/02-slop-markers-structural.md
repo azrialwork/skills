@@ -1,17 +1,17 @@
 <!--
-  01b-slop-markers-structural.md -- Reference for no-slop.
+  02-slop-markers-structural.md -- Reference for no-slop.
 
   Covers: structural AI slop markers (bullet walls, bold spam, chatbot
   closers, template skeletons), substance markers scanners cannot see,
   the one-line read-aloud test, and the empirical grounding (with its
   limits) for the whole marker list.
-  Part B of the marker catalog; part A is 01a-slop-markers-lexical.md.
+  Part B of the marker catalog; part A is 01-slop-markers-lexical.md.
 -->
 # Slop markers -- structural and substance markers (part B)
 
 Part B of the marker catalog: structural markers, substance markers, the
 one-line test, and empirical grounding. Part A
-(`01a-slop-markers-lexical.md`) covers the lexical markers.
+(`01-slop-markers-lexical.md`) covers the lexical markers.
 
 ## Detection algorithm
 
