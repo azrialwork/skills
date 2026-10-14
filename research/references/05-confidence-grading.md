@@ -14,6 +14,7 @@ Grade every finding. Classification rules -- evaluate top-down, first match wins
 - **Low** IF ANY hold: weak or single anecdotal source; unverifiable claim; significant disagreement. Treat as a lead, not a finding.
 
 ## Promotion and demotion algorithm
+> Why: Confidence only ever moves down because evidence degrades with time and doubt, never the reverse — grading upward is how guesses get laundered into findings.
 
 1. Start at the level the WEAKEST load-bearing source supports.
 2. Move DOWN (never up) one level for each of: staleness, disagreement, failed re-verification.
@@ -21,6 +22,7 @@ Grade every finding. Classification rules -- evaluate top-down, first match wins
 4. IF `scripts/cite-check.sh` fails a finding's link THEN demote the finding one level until the citation is repaired or replaced.
 
 ## Unknowns
+> Why: An unstated unknown doesn't disappear; it gets filled in later by whoever reads the deliverable, using their own imagination.
 
 1. IF a sub-question has no usable source THEN emit the finding "Unknown -- no Tier-1/2 source covers X as of <date>". NEVER fill the gap with a plausible-sounding guess.
 2. Cap the deliverable's OVERALL confidence at the level of its weakest load-bearing finding. State the cap in the limitations section.

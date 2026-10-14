@@ -12,6 +12,7 @@ Part B of the tiered rules: how each rule maps to a check for the 0-100
 algorithm. The rules themselves are part A (`07-anti-slop-rules.md`).
 
 ## Rule-to-check mapping (for the 0-100 algorithm)
+> Why: A rule without a check is a wish — the mapping exists so every rule is either measured or explicitly attested, never silently skipped.
 
 Reading rule: every rule below maps to exactly one check. Run the check;
 IF it is a mechanical probe THEN apply the formula; IF it is a judge

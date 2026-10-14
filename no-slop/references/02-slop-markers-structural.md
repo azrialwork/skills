@@ -14,6 +14,7 @@ one-line test, and empirical grounding. Part A
 (`01-slop-markers-lexical.md`) covers the lexical markers.
 
 ## Detection algorithm
+> Why: Cheap structural checks run before judgment because there is no point weighing meaning in a wall of formatted nothing.
 
 INPUT: the draft text.
 
@@ -22,6 +23,7 @@ INPUT: the draft text.
 3. ELSE apply the marker's THEN line. One-line test and empirical grounding below are judge inputs, not auto-fails.
 
 ## Structural markers
+> Why: Structure is where slop hides behind competence — a well-formatted page that says nothing still says nothing.
 
 ### Bullet-list everything
 
@@ -56,6 +58,7 @@ INPUT: the draft text.
 - **Rule:** Q-02.
 
 ## Substance markers (what scanners cannot see)
+> Why: The most dangerous slop is invisible to scripts — these markers need a reader, not a regex.
 
 ### Fabricated specifics
 
@@ -78,12 +81,14 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## The one-line test
+> Why: Your ear outranks any script — a sentence that sounds wrong read aloud was wrong on paper too.
 
 Read the passage aloud. IF it sounds like a press release, a LinkedIn
 influencer, or a model completing a prompt THEN it is slop: rewrite it
 until it sounds like a competent human who knows the subject.
 
 ## Empirical grounding (why these markers, and their limits)
+> Why: A marker list without grounding is superstition — the evidence says what the filter can and cannot claim.
 
 The marker list is not folk wisdom. Kobak et al., "Delving into
 LLM-assisted writing in biomedical publications through excess

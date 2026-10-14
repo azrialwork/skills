@@ -9,6 +9,7 @@
 # Releasing
 
 ## Tagging algorithm
+> Why: A moved or lightweight tag silently changes what consumers run, and they will blame you for a breakage you cannot reproduce.
 
 1. Create an annotated tag: `git tag -a v1.2.3 -m "Release v1.2.3"`.
    Annotated tags are full git objects (tagger, date, message,
@@ -29,6 +30,7 @@
    (`git tag -s`; Driessen's post itself suggests `-s`/`-u`).
 
 ## GitHub Releases
+> Why: Release notes written by hand rot; notes generated from commits stay true because they cannot drift from what shipped.
 
 1. Push the tag, then create the release (or create it in the web UI,
    which creates the tag).
@@ -39,6 +41,7 @@
    trigger on `release`.
 
 ## Changelog generation
+> Why: The changelog is a user-facing contract, and a missing entry is a silent breaking change in trust.
 
 Algorithm: collect `feat`/`fix` subjects since the last tag, grouped
 by type. The discipline that makes it possible is the commit format,
@@ -54,6 +57,7 @@ not the tool.
 | standard-version | yes | yes | **Deprecated** -- IF using it THEN migrate to release-please |
 
 ## The computable pipeline
+> Why: Every hand-written version number is a negotiation; a computed one is a fact nobody can argue with.
 
 ```
 conventional commits -> linter (CI) -> version computed from types
@@ -72,6 +76,7 @@ linting for squash-merge repos). IF any commit fails linting THEN the
 pipeline output is untrustworthy: fix the commits first.
 
 ## Hotfixes
+> Why: A hotfix outside the pipeline creates a version that matches nothing in history, and the next release inherits the lie.
 
 1. Create a `fix:` commit on a release branch (or on `main` for
    trunk-based).

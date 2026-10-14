@@ -17,6 +17,7 @@ Run Step 2, then Step 3, then Step 4, in order. Read this file after
 scoring, before reporting.
 
 ## Step 2 - Renormalize N/A items
+> Why: Scoring a solo dev on team practices manufactures failure out of thin air; renormalization keeps the score honest.
 
 Rule: any item whose precondition does not exist is marked N/A and
 excluded from BOTH numerator and denominator. Evaluate each:
@@ -36,6 +37,7 @@ nearest integer. ALWAYS list every N/A item in the report -- the list
 is what keeps the score auditable.
 
 ## Step 3 - Edge cases (encoded, not footnoted)
+> Why: Edge cases encoded as rules stay consistent across audits; edge cases left as footnotes get forgotten by the third audit.
 
 1. **Squash-merge repos:** 2.1 is measured on integration-branch history,
    which already contains the squash messages (PR titles). 2.2 MUST be
@@ -68,6 +70,7 @@ report(score, band, per-item evidence, N/A list)
 ```
 
 ## What remains human-judged (stated openly)
+> Why: Labeling attestations openly is what keeps the score an audit instead of a performance.
 
 The following are attestations, because they describe team behavior
 and intent, not repo state. The algorithm treats each attestation as a

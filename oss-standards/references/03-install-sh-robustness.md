@@ -8,6 +8,7 @@
 # install.sh robustness
 
 ## Algorithm
+> Why: An installer that works only on the author's machine ships broken software to everyone else, and the failure always looks like the project's fault, not the user's.
 
 INPUT: the installer script.
 
@@ -18,6 +19,7 @@ INPUT: the installer script.
 5. **CLI surface.** `--help` and `--version` are mandatory. IF stdin is not a tty THEN run non-interactive automatically (oh-my-zsh pattern); also accept `--yes` / `NONINTERACTIVE=1`. Support version pinning via env var (`MISE_VERSION`, `TOOL_VERSION`) or positional arg (deno). IF the installer does anything destructive THEN implement a true `--dry-run`.
 
 ## FLAG on sight (FAIL)
+> Why: An unquoted `rm -rf` once deleted a user's home directory in a famous incident -- these are the flags that delete data or brick machines.
 
 - `rm -rf` with unquoted or unguarded variables.
 - Hardcoded `/usr/local` (breaks single-user environments, containers, unprivileged users).

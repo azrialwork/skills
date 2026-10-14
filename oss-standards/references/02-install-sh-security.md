@@ -8,6 +8,7 @@
 # install.sh security
 
 ## Algorithm
+> Why: A piped installer asks a stranger to execute arbitrary code from the internet, so its security is not a feature -- it is the entire product.
 
 INPUT: the installer script plus the release assets it downloads.
 
@@ -20,6 +21,7 @@ INPUT: the installer script plus the release assets it downloads.
 7. **Privilege.** NEVER `curl | sudo bash`. Install to user-writable locations (`$PREFIX`, `~/.local/bin`) instead of demanding root.
 
 ## Verification matrix
+> Why: Each layer fails differently -- transport to a network attacker, integrity to a bad mirror, authenticity to a compromised pipeline -- so one layer can never cover the others.
 
 | Level | Mechanism | Protects against |
 |---|---|---|
@@ -28,6 +30,7 @@ INPUT: the installer script plus the release assets it downloads.
 | Authenticity | minisign / GPG / Sigstore | Compromised release pipeline |
 
 ## FLAG on sight (FAIL)
+> Why: Every one of these has a real incident behind it where users installed something the maintainer never shipped.
 
 - No checksum anywhere; "the CDN is trustworthy" as a security argument.
 - Piping an installer into a root shell, or any sudo requirement for a user-space tool.

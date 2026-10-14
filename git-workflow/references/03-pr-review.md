@@ -10,6 +10,7 @@
 # PR and review workflow
 
 ## The loop
+> Why: Reviews only work when the PR is the single place where code, discussion, and CI meet; scatter them and context dies.
 
 1. Branch from the integration branch (`main` in GitHub Flow).
 2. Push early. IF the branch is not ready for review THEN open the
@@ -19,6 +20,7 @@
 4. Merge with the project's chosen strategy, then delete the branch.
 
 ## Branch protection (GitHub)
+> Why: Branch protection is the difference between a policy everyone follows and a policy everyone remembers after the damage.
 
 Selection: IF one policy must cover many branches THEN use Rulesets
 (Settings -> Rules, the newer layered mechanism). ELSE classic branch
@@ -48,6 +50,7 @@ writing protection via the API THEN include the full rule; partial
 payloads silently drop omitted settings.
 
 ## Merge queues (advanced)
+> Why: On a busy repo, rebase churn burns more reviewer hours than any feature is worth.
 
 IF "require branches to be up to date" causes constant rebase churn on
 a busy repo THEN adopt a merge queue (GitHub) or merge train (GitLab)
@@ -57,6 +60,7 @@ stack a merge queue on top of the up-to-date requirement. Not scored;
 adopt when rebase churn becomes the bottleneck.
 
 ## CODEOWNERS
+> Why: A stale CODEOWNERS pages people who left, which teaches the team that review requests are noise to be ignored.
 
 `.github/CODEOWNERS` maps paths to reviewers so the right people are
 requested automatically:
@@ -73,6 +77,7 @@ an entry pages someone who left THEN remove it -- a stale CODEOWNERS
 is worse than none.
 
 ## Merge strategies (pick exactly one per project, stay consistent)
+> Why: Mixed merge strategies produce history nobody can read, and unreadable history is history nobody trusts.
 
 | Method | History shape | Use when |
 |---|---|---|
@@ -86,6 +91,7 @@ with `gh api repos/{owner}/{repo} --jq`). IF more than one is enabled
 THEN FAIL -- inconsistency is what produces noisy history.
 
 ## Review discipline
+> Why: Giant PRs get skimmed, not reviewed, so every unreviewed line is a bug the team agreed to ship sight unseen.
 
 - Comment on code, not the author. Suggest concrete changes.
   Distinguish blocking issues from nits.

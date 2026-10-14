@@ -13,6 +13,8 @@ content precedes it THEN the frontmatter FAILS to parse.
 
 ## Field validation algorithm
 
+> Why: Frontmatter is the only part of a skill parsed by machines, so one malformed field can make the whole skill unloadable or invisible.
+
 INPUT: the parsed frontmatter map. Evaluate every row; ANY FAIL rejects the skill.
 
 | Field | Required | IF violated THEN |
@@ -34,6 +36,8 @@ form; OpenCode also accepts YAML booleans as a convenience.
 
 ## Fields you must NEVER use
 
+> Why: A field that works in one client and is silently ignored in another is a portability bug waiting for its first victim.
+
 - **`disable-model-invocation`**: appears in some community docs, but it is in
   NEITHER the Agent Skills spec NOR OpenCode's official documentation. NEVER
   use it. The portable, documented equivalent is
@@ -46,6 +50,8 @@ form; OpenCode also accepts YAML booleans as a convenience.
   the spec. Do not mix it into spec frontmatter.)
 
 ## Rules
+
+> Why: Lenient loaders forgive sloppy frontmatter today and break on it tomorrow — authoring to the strict rule is the only version that survives upgrades.
 
 - IF a top-level field is unknown to the spec THEN parsers tolerate and ignore it -- but NEVER invent one; client-specific behavior belongs in `metadata`.
 - `metadata` values MUST be strings for cross-client portability.

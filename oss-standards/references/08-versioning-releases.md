@@ -8,6 +8,7 @@
 # Versioning and releases
 
 ## Algorithm
+> Why: Version numbers are a contract with every downstream user -- a breaking change smuggled into a MINOR release breaks builds you will never hear about.
 
 INPUT: the repo's tags, CHANGELOG.md, and release workflow.
 
@@ -18,6 +19,7 @@ INPUT: the repo's tags, CHANGELOG.md, and release workflow.
 5. **Deprecation policy.** Deprecate in a MINOR release (warnings + docs marked deprecated); remove in the next MAJOR at the earliest. Give consumers at least one MINOR release of notice.
 
 ## FLAG on sight (FAIL)
+> Why: Hand-built artifacts and mismatched tags mean nobody, including you, can reproduce what users actually installed.
 
 - Tags that do not match any changelog entry.
 - Hand-built release artifacts attached to a release.

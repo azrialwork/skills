@@ -8,6 +8,7 @@
 # Repository structure
 
 ## Algorithm
+> Why: A repo's root layout is read before a single line of code -- a missing license or CI tells a corporate evaluator to walk away in under a minute.
 
 INPUT: the repository root (tiny single-binary shape unless stated otherwise).
 
@@ -30,6 +31,7 @@ INPUT: the repository root (tiny single-binary shape unless stated otherwise).
 6. **Enforce hygiene.** Binaries MUST NEVER be committed to git -- release assets live in GitHub Releases (Scorecard `Binary-Artifacts` penalizes committed binaries). `.gitattributes` MUST set `* text=auto` and `eol=lf` for scripts (a CRLF-corrupted install.sh is a real failure mode on Windows-edited repos). `CODEOWNERS` MUST exist (`* @you` minimum documents the bus factor). Prune merged branches. NEVER vendor dependency tarballs; use lockfiles.
 
 ## FLAG on sight (FAIL)
+> Why: No LICENSE does not mean "free to use" -- legally it means "all rights reserved," so the project is unusable by anyone with a legal department.
 
 - No LICENSE (legally unusable; corporate users walk away).
 - README-only repo with no CI and no changelog.

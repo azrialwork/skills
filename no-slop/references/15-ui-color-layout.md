@@ -9,6 +9,7 @@
 # UI slop -- color, decoration, layout
 
 ## Detection algorithm
+> Why: UI slop is recognized by repetition across thousands of generated interfaces — the detector checks for defaults, not for ugliness.
 
 INPUT: the interface (screenshot or code).
 
@@ -17,6 +18,7 @@ INPUT: the interface (screenshot or code).
 3. IF the element serves a documented hierarchy or brand function with the reason written down THEN keep it; ELSE apply the THEN line.
 
 ## The default gradient family
+> Why: The most overused treatments are a confession — the interface announces it was generated before the user reads a single word.
 
 - **Tell:** blue-to-purple / purple-to-pink gradients, cyan-on-dark,
   glowing colored shadows, radial halo washes, gradient text on
@@ -26,6 +28,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** P-05.
 
 ## Background texture defaults
+> Why: Texture without intent is set dressing — it makes a flat page feel technical while doing no work.
 
 - **Tell:** dot grids, blueprint lines, hairline grid overlays,
   repeating-gradient stripes used as page background.
@@ -34,6 +37,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** P-05.
 
 ## Dose-cap violations (glass, glow, shadow, radius)
+> Why: When every surface glows, none does — decoration applied everywhere communicates nothing.
 
 - **Tell:** blur/backdrop-filter on navbar + cards + modals at once;
   glow on every button and badge; large shadows on everything;
@@ -43,6 +47,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** P-02.
 
 ## Dark mode default for no reason
+> Why: A theme chosen for looks instead of brand is a decision made by fashion — it will age like fashion too.
 
 - **Tell:** the whole page dark because it looks "tech", with no brand
   reason.
@@ -50,6 +55,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** P-05.
 
 ## Palette discipline
+> Why: An accent smeared everywhere stops being an accent — hierarchy dies by dilution.
 
 - **Tell:** 5-7 colors with no system; one accent smeared across
   buttons, icons, badges, links, and glows at once.
@@ -58,6 +64,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** P-02.
 
 ## The template landing page
+> Why: A structure copied from memory instead of content needs is a narrative the product never told.
 
 - **Tell:** hero, subtitle, 2 CTAs, screenshot, feature grid,
   testimonials, FAQ, CTA, footer -- in that order, every time.
@@ -66,6 +73,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-02.
 
 ## Card uniformity and nesting
+> Why: Uniform cards flatten content hierarchy — when everything has equal weight, nothing does.
 
 - **Tell:** identical feature cards (same size, icon tile, padding);
   cards nested inside cards; a thick colored side-tab stripe on cards.
@@ -74,6 +82,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-02.
 
 ## Bento grid by reflex
+> Why: A mosaic for content with no size variation is complexity performing as design.
 
 - **Tell:** a mosaic of differently-sized cards filling a section like
   a tiled dashboard, when the content has no real size variation.
@@ -81,6 +90,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-02.
 
 ## Uniform spacing and rhythm
+> Why: One spacing value everywhere removes rhythm — sections blur together and the page becomes a corridor.
 
 - **Tell:** identical padding/margin/gap across every section; every
   section centered title + subtitle + identical card grid.
@@ -89,6 +99,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-02.
 
 ## The "How it works" 3-step and friends
+> Why: Default shapes are decisions never made — each one is a place where the product's actual story was skipped.
 
 - **Tell:** round icon + number 1-2-3 + short text, always three steps;
   "Trusted by" logo bar with generic logos; pricing as three columns

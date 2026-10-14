@@ -15,6 +15,8 @@
 
 ## SKILL.md body algorithm
 
+> Why: The full body loads into context on every single activation, so every unnecessary line is a tax every agent pays forever.
+
 INPUT: the draft body. The body MUST follow this skeleton, in order:
 Trigger -> Algorithm -> Verify -> Guardrails -> Reference map -> Scripts and assets.
 
@@ -28,6 +30,8 @@ Construction rules:
 
 ## scripts/ algorithm
 
+> Why: Prose describing deterministic steps is executed by interpretation; a script is executed by the machine — only one of those is repeatable.
+
 IF the agent would otherwise write the same ad-hoc script every session
 THEN bundle it in `scripts/`. Scripts run deterministically **without loading
 code into context**.
@@ -39,6 +43,8 @@ Packaging rules:
 - The skill body tells the agent *when* to run which script, NEVER *how* the script works.
 
 ## references/ algorithm
+
+> Why: A reference file that loads when it is not needed is not documentation, it is context pollution.
 
 Load rule: the agent reads a reference file ONLY when the skill's instructions
 call for it -- NEVER preload all of them.
@@ -53,6 +59,8 @@ Static resources: templates, images, lookup tables, example inputs. Referenced
 by relative path from the skill root, same as `references/`.
 
 ## Hard rules
+
+> Why: These four rules are the load-bearing walls — violate any one and the skill does not degrade gracefully, it fails to load at all.
 
 1. Frontmatter `---` block is byte 0 of SKILL.md. Repo header comments go *after* the frontmatter, NEVER before it.
 2. `<skill-name>` directory == frontmatter `name`, exactly.

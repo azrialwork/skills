@@ -24,6 +24,7 @@ Items that cannot be automated are labeled as such -- nothing is
 silently omitted. A fully disciplined repo scores exactly 100.
 
 ## Band legend
+> Why: Bands exist so a score becomes a conversation about what to fix next instead of a number to defend.
 
 | Score | Band | Meaning |
 |---|---|---|
@@ -35,6 +36,7 @@ silently omitted. A fully disciplined repo scores exactly 100.
 Bands are tunable. The 100-point arithmetic is the stable part.
 
 ## Step 0 - Select the model
+> Why: Scoring against the wrong model punishes a healthy repo for not being a different repo.
 
 Run the decision tree in `references/01-branching-models.md` (five
 inputs: `parallel_versions`, `staged_envs`, `team_size`,

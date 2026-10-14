@@ -8,6 +8,7 @@
 # CI/CD standards
 
 ## Algorithm
+> Why: CI is the only maintainer that never sleeps, never forgets, and never lets a "just this once" exception through.
 
 INPUT: the repo's `.github/workflows/` directory.
 
@@ -22,6 +23,7 @@ INPUT: the repo's `.github/workflows/` directory.
 4. **Apply least privilege.** EVERY workflow MUST declare top-level `permissions: contents: read`. Elevate per-job ONLY where needed: `contents: write` for the release job, `id-token: write` for Sigstore/OIDC, `security-events: write` for CodeQL/Scorecard uploads. IF a workflow has broad default permissions THEN Scorecard `Token-Permissions` fails it: FAIL.
 
 ## FLAG on sight (FAIL)
+> Why: A floating action tag or a broad token turns every third-party maintainer into someone with write access to your release pipeline.
 
 - `permissions: write-all` or no permissions block (broad token).
 - Floating action tags (`actions/checkout@v4`) on the release pipeline.

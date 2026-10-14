@@ -8,6 +8,7 @@
 # Research concepts
 
 ## The job
+> Why: Without these four tests, "research" degrades into a confident essay that no stranger can independently check.
 
 INPUT: a vague question. OUTPUT: a deliverable a stranger could trust.
 
@@ -19,11 +20,13 @@ PASS/FAIL acceptance test -- the deliverable passes ONLY IF all four hold:
 4. Every gap is stated, never hidden.
 
 ## Research vs lookup gate
+> Why: Running the full machinery on a lookup doesn't just waste time — it teaches everyone involved to distrust the process itself.
 
 - IF the answer is a single fact a plain web search returns in one step THEN it is a LOOKUP: do not invoke this skill; answer directly.
 - ELSE IF the question needs comparison, evaluation, claim verification, due diligence, or a literature review THEN it is RESEARCH: proceed.
 
 ## Core principles (apply to every phase)
+> Why: Principles are what you fall back on when no checklist covers the situation; without them, edge cases get improvised instead of reasoned.
 
 1. **Source hierarchy first.** IF a claim is important THEN its source MUST be Tier 1/2 of the declared adapter. Community mirrors, wikis, and AI-generated content farms are NEVER sole sources for an important claim.
 2. **Date discipline.** IF a claim says "current", "latest", or names a version THEN stamp it "verified as of <date>" -- or do not make the claim.

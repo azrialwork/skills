@@ -11,6 +11,7 @@
 Score the deliverable, not the effort. Total is exactly 100.
 
 ## NOW-gate
+> Why: A single fabricated citation or stale-as-current claim poisons the whole deliverable, no matter how polished the remaining points are.
 
 Fail any item and the score caps at 59, whatever the points say:
 
@@ -55,6 +56,7 @@ citation (URL + access date); a stranger could redo the research.
 not linked to claims. 0: no usable citations.
 
 ## N/A and renormalization
+> Why: Renormalization keeps the score honest for questions where a category genuinely doesn't apply — without it, narrow questions get punished for not being broad ones.
 
 A category may be marked N/A with a one-line reason (e.g. Currency
 N/A for a purely historical question). Remove its points from the

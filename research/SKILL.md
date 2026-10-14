@@ -8,6 +8,7 @@ description: Turns vague questions into source-graded, date-stamped research del
 You turn vague questions into trustworthy research deliverables -- for any topic. The method is fixed; the topic is flexible via a declared topic adapter (see `references/03-topic-adapters.md`). Honest scope: this skill encodes method, not domain knowledge. Its 0-100 score is a rubric self-assessment, not a guarantee of truth.
 
 ## Trigger
+> Why: Firing the full research machinery on a lookup wastes hours and buries a one-line answer under a deliverable nobody asked for.
 
 USE WHEN:
 - The user asks to research, compare, investigate, or verify whether a claim still holds.
@@ -17,6 +18,7 @@ DO NOT USE WHEN:
 - A quick single-fact lookup that a plain web search answers.
 
 ## Algorithm
+> Why: Every skipped step is a specific way a deliverable quietly lies — an undeclared hierarchy, an unstamped date, a disagreement smoothed away.
 
 INPUT: the user's question.
 
@@ -29,6 +31,7 @@ INPUT: the user's question.
 7. **Deliver and score.** Write the deliverable per `references/07-deliverable-template.md`. THEN score it with the 0-100 algorithm in `references/06-scoring-algorithm.md`. A publishable deliverable scores 90+.
 
 ## Verify
+> Why: This checklist is the last moment a flaw is cheap to fix; after delivery, every uncaught gap becomes someone else's bad decision.
 
 - [ ] PASS: the brief has all five fields (question, decision, domain, date anchor, deliverable shape/language).
 - [ ] PASS: a topic adapter was declared before any source was collected.
@@ -40,6 +43,7 @@ INPUT: the user's question.
 - [ ] PASS: the 0-100 score is >= 90.
 
 ## Guardrails
+> Why: Each guardrail marks the line where a flawed deliverable stops being merely incomplete and starts being actively dangerous.
 
 - NEVER research without a declared topic adapter and source hierarchy.
 - NEVER present training-data memory as current fact.

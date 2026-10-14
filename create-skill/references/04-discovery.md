@@ -7,6 +7,8 @@
 
 ## Install-location algorithm
 
+> Why: A skill installed in the wrong scope is either invisible to the project that needs it or leaks into projects that do not.
+
 INPUT: who the skill serves. Per the official OpenCode docs
 (opencode.ai/docs/skills):
 
@@ -27,6 +29,8 @@ Selection rules:
 
 ## Config-driven sources (`opencode.json`)
 
+> Why: Remote skills arrive over the network, so every URL in this config is a supply-chain decision, not just a path.
+
 ```jsonc
 {
   "skills": {
@@ -46,6 +50,8 @@ plugins/MCP/permissions. IF a user skill has the same name THEN the user skill
 overrides it. Plugins can register skills through the plugin API as well.
 
 ## Precedence, caching, and diagnostics algorithm
+
+> Why: When two skills share a name, the loser is silently shadowed — and silent shadowing is how the wrong instructions get followed with full confidence.
 
 1. **Duplicate names.** IF two locations contain the same skill name THEN a warning is logged and the **later-scanned copy wins**. NEVER rely on shadowing order -- keep skill names unique across all locations.
 2. **Startup scan.** Discovery (glob + frontmatter parse of name/description) runs once at startup and is cached per instance. IF you add, rename, or change a skill THEN restart OpenCode.

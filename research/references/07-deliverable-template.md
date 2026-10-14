@@ -10,6 +10,7 @@
 Write in the user's language unless the brief says otherwise.
 
 ## Assembly algorithm
+> Why: Structure is what lets a busy reader extract the answer in sixty seconds instead of drowning in the research behind it.
 
 1. **Executive summary** (3-6 sentences): the answer, the confidence, and what would change it. IF the answer is "unknown" THEN the first sentence says "unknown".
 2. **Findings**: one block per sub-question, using the per-finding format below.
@@ -18,6 +19,7 @@ Write in the user's language unless the brief says otherwise.
 5. **Sources**: every source with URL and access date.
 
 ## Per-finding format
+> Why: A fixed format forces every finding to carry its evidence and grade alongside it, so nothing important can hide inside a paragraph.
 
 ```markdown
 ### <Sub-question>
@@ -41,6 +43,7 @@ last release was 2026-07-15.
 ```
 
 ## Honesty gates
+> Why: The most dangerous deliverable is not the wrong one — it is the uncertain one written to sound certain.
 
 - IF the answer is "unknown" THEN the summary's first sentence says "unknown".
 - NEVER bury a Low-confidence finding in confident prose; its grade travels with it.

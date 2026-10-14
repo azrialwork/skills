@@ -9,6 +9,7 @@
 # Documentation and community standards
 
 ## Algorithm
+> Why: Documentation is written once and read hundreds of times, so every hour spent structuring it pays back in support questions you never have to answer.
 
 INPUT: the repo's docs and contributor state.
 
@@ -30,6 +31,7 @@ INPUT: the repo's docs and contributor state.
 7. **Minimum i18n/a11y.** UTF-8 everywhere; respect `NO_COLOR`; NEVER hardcode date/number formats. Full gettext catalogs are SKIP for a CLI (roadmap).
 
 ## FLAG on sight (FAIL)
+> Why: A CONTRIBUTING.md that CI does not enforce is fiction -- contributors learn the real process from the first rejected PR, not from the document.
 
 - Docs that duplicate `--help` and drift from it.
 - CONTRIBUTING.md that nobody follows because CI does not enforce it.

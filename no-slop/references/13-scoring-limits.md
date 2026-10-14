@@ -12,6 +12,7 @@ What the algorithm cannot automate, and calibration/reliability notes. The
 algorithm spec is part A (`10-scoring-algorithm.md`).
 
 ## What cannot be automated (explicit)
+> Why: Naming the limits is part of the algorithm — an honest filter states what it cannot see instead of pretending the script saw it.
 
 The algorithm is complete because every non-mechanical check is a named,
 required input -- but the following genuinely need a human or an
@@ -33,6 +34,7 @@ LLM-judge; the script will never do them:
   sycophancy shapes need a reader.
 
 ## Calibration and reliability notes (current as of 2026-10-13)
+> Why: Thresholds decay — today's default is tomorrow's guess, so the notes say when to re-check, not just what to trust.
 
 - Density ramps are anchored on practitioner heuristics: hedge density
   >= 6/1000w as high-signal, AI-vocab >= 15/1000w as high-signal, bullet

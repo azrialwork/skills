@@ -17,6 +17,7 @@ DO NOT USE WHEN:
 - Detecting authorship of other people's writing. This skill scores your own draft only.
 
 ## Algorithm
+> Why: A filter applied halfway produces neither clean nor lively text — it just interrupts the work it was meant to protect.
 
 INPUT: the task and (for Mode 2) the existing text.
 
@@ -57,6 +58,7 @@ Both modes apply to the extension modules as well: their checklists run as suppl
 4. WAIT for the user to pick numbers. Fix ONLY the picked numbers. Rescan.
 
 ### Rule catalog -- the tiered rules
+> Why: Severity needs an order because polish can never average out a fatal flaw — one invented fact outweighs a hundred clean sentences.
 
 - **Hard Gate (H-01..H-04):** absolute, no exceptions. No fabricated specifics (empty is better than deceptive), no em dash, no sycophancy or throat-clearing, no invented sources. Any violation is a FAIL.
 - **Purpose-Gate (P-01..P-05):** the technique is allowed, but you MUST state what it serves. Bullets, bold, hedges, intensifiers, metaphors -- "it looks good" is not a reason; cut it.
@@ -65,16 +67,19 @@ Both modes apply to the extension modules as well: their checklists run as suppl
 Full definitions in `references/07-anti-slop-rules.md`.
 
 ### Rule catalog -- editing principles
+> Why: Editing that erases the writer's voice trades one emptiness for another — a draft that sounds like everyone is still slop, just polished.
 
 - **Minimum effective edit.** Fix slop patterns, errors, repetition, and unclear passages. Leave strong human sentences alone. A rough draft with a real voice must still sound like the same person after editing. NEVER rewrite distinctive lines merely for consistency. NEVER smooth every paragraph to the same polish.
 - **Voice sample overrides patterns.** IF the user provides a writing sample THEN match its sentence length, word choice, punctuation, and openings first; the sample overrides pattern rules (including H-02's em-dash ban -- IF the sample uses dashes THEN match its rate). ELSE IF the user picks a preset (casual, professional, technical, warm, or blunt) THEN set the target voice per the preset, independent of the audience.
 - **Show its work.** Default output = final text plus a short summary. IF the user asks for the full trail THEN return the draft, a short list of remaining patterns, then the final rewrite.
 
 ### Rule catalog -- the liveliness bar
+> Why: Slop removed leaves a void, and a void is not a virtue — sterile text still bills the reader for their time and delivers nothing.
 
 Removing slop leaves a void; liveliness must be ADDED, not assumed. A sterile result is a failure. PASS/FAIL test -- the topic-swap test: IF the topic were swapped for another and the text read the same THEN the text is generic: FAIL. Rewrite until only this topic could have produced it. The Delivery Gate checks the work against the declared dials: an endless pulse animation with MOTION=1 is a FAIL, not a style choice.
 
 ## Verify
+> Why: An unchecked draft teaches the next draft that empty is acceptable — slop compounds faster than it gets fixed.
 
 - [ ] PASS: mode was resolved explicitly (DURING for new text, AFTER for review).
 - [ ] PASS: only the modules the task needs were loaded.
@@ -84,6 +89,7 @@ Removing slop leaves a void; liveliness must be ADDED, not assumed. A sterile re
 - [ ] PASS: (Mode 2) a numbered findings list cited rule IDs; only user-picked numbers were fixed; rescan ran.
 
 ## Guardrails
+> Why: Guardrails are agreed before temptation — in the moment, every exception feels reasonable.
 
 - NEVER ship text that fails the Delivery Gate.
 - NEVER fix slop by deleting the flagged word and keeping the hollow sentence; rewrite the passage with real substance.

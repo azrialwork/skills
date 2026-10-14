@@ -10,6 +10,8 @@
 
 ## Model-driven invocation (primary path)
 
+> Why: If the model cannot infer when to call your skill from the description alone, the skill might as well not exist.
+
 OpenCode lists available skills in the `skill` tool description as an
 `<available_skills>` block (each entry: `name` + `description`). The agent
 matches the current task against descriptions and calls the tool:
@@ -30,6 +32,8 @@ available but not volunteered THEN set
 
 ## User-driven invocation algorithm
 
+> Why: Depending on auto-exposure that no longer exists is how a skill becomes unreachable the day the client updates.
+
 INPUT: whether users should fire the skill manually.
 
 1. IF user-invoked access is wanted THEN set `metadata: {"opencode/slash": "true"}`: exposes the skill as a `/name` slash command in the TUI. Typing `/git-release` injects the SKILL.md content as a prompt.
@@ -37,6 +41,8 @@ INPUT: whether users should fire the skill manually.
 3. NEVER depend on auto-exposure: older OpenCode V1 installs auto-exposed *every* skill as `/name` with no metadata key needed. The current official docs describe the opt-in form -- author for the opt-in form ONLY.
 
 ## Permission-gating algorithm
+
+> Why: A skill without a permission posture inherits the agent's full ambient authority by default — the most dangerous default there is.
 
 `permission.skill` in `opencode.json` uses wildcard patterns with three actions:
 
@@ -65,6 +71,8 @@ Scope of control:
 - Patterns support wildcards: `internal-*` matches `internal-docs`, `internal-tools`, etc.
 
 ## Authoring rules
+
+> Why: Undocumented permissions are discovered by users only after the damage, never before.
 
 WHEN authoring a skill, run these rules:
 

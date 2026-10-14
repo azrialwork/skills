@@ -20,6 +20,7 @@ Algorithm -- fill all five fields BEFORE collecting anything:
 Gate: IF any field is empty THEN ask the user and WAIT. Do not start collecting until all five are filled.
 
 ## Pushback rules
+> Why: Pushback is cheap; a deliverable built on sources that can't support its conclusions is expensive for everyone who acts on it.
 
 - IF the domain has no identifiable authoritative sources THEN warn that confidence caps at Medium and confirm before proceeding.
 - IF the decision is unclear and the stakes seem high THEN ask.

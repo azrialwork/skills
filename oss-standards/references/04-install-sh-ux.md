@@ -8,6 +8,7 @@
 # install.sh user experience
 
 ## Algorithm
+> Why: Users decide in the first thirty seconds whether they trust your tool, and most of that judgment comes from what the installer shows them, not what it installs.
 
 INPUT: the installer script's user-facing output.
 
@@ -21,6 +22,7 @@ INPUT: the installer script's user-facing output.
 4. **Messages.** On success, print `"tool: installed successfully to $install_path"` PLUS the exact next command to run (flyctl: "Run 'flyctl --help' to get started"). On failure, state what failed, what was tried, and the next step (flyctl prints `%{http_code} %{url_effective}` on download failure). EVERY error MUST exit nonzero with the failing step named.
 
 ## FLAG on sight (FAIL)
+> Why: Blindly editing someone's shell config is the fastest way to turn a first-time user into a permanent detractor.
 
 - Editing `~/.bashrc` blindly with no idempotency check.
 - Spinner or colors when piped / non-tty.

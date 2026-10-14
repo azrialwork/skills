@@ -15,6 +15,8 @@ compatibility is achieved through the identical file format.
 
 ## Compatibility checklist (PASS/FAIL)
 
+> Why: A skill that works in one client and breaks in another teaches users not to trust the format itself.
+
 A skill is portable across spec clients IFF every check passes:
 
 - [ ] PASS: shared directories work -- OpenCode natively reads `~/.claude/skills`, `.claude/skills/`, `~/.agents/skills/`, `.agents/skills/`, the same folders other spec clients use. A skill installed once is visible everywhere.
@@ -48,6 +50,8 @@ sources. The official sources win -- evaluate each claim mechanically:
   ignored by spec parsers.
 
 ## Portability rules for authors
+
+> Why: Silent non-portability is worse than an explicit incompatibility, because at least the explicit one warns you.
 
 1. Keep `metadata` values as **strings** (quoted) -- the spec defines the map as string-to-string; unquoted booleans are an OpenCode convenience, not portable.
 2. IF the skill body depends on OpenCode-only behavior THEN either remove the dependency or mark the skill `compatibility: opencode`. NEVER ship a silently non-portable skill.

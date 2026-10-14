@@ -11,6 +11,7 @@
 # Branching models
 
 ## Selection algorithm
+> Why: The model shapes every future commit, review, and release, so a wrong pick compounds daily while a right one disappears into the background.
 
 INPUT: the five inputs below. OUTPUT: one of the four models.
 
@@ -41,6 +42,7 @@ else:                                                          -> GITHUB_FLOW
    pain; NEVER upgrade in anticipation of one.
 
 ## GitFlow (Vincent Driessen, 2010; note of reflection added 2020-03-05)
+> Why: Teams reach for GitFlow by habit and then pay its ceremony on every single release for years, which is why its own creator walked it back.
 
 Primary source: nvie.com/posts/a-successful-git-branching-model/
 
@@ -116,6 +118,7 @@ Three documented variants; pick exactly one per project:
   team will not use.
 
 ## Trunk-based development (Paul Hammant; trunkbaseddevelopment.com)
+> Why: Trunk-based without real CI discipline is just everyone pushing to main, and the first broken trunk becomes everyone's emergency.
 
 - **Branches:** one long-lived trunk (`main`); every commit on it is
   releasable. Branches live hours, at most 1-2 days. The scaled variant

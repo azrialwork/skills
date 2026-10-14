@@ -12,6 +12,7 @@ The strongest single tell in current model prose: the sentence signals
 importance instead of adding a fact. Act on one sighting.
 
 ## Detection algorithm
+> Why: Staged sentences survive a skim because they perform importance instead of adding facts — the detector must weigh, not just read.
 
 INPUT: the draft text.
 
@@ -20,6 +21,7 @@ INPUT: the draft text.
 3. IF the sentence adds no fact after the THEN rewrite THEN cut it.
 
 ## Staged contrasts (the Not-X-but-Y family)
+> Why: A contrast against a claim nobody made is weight without substance — it borrows drama the evidence did not earn.
 
 - **Pattern:** "It's not X, it's Y"; "not just X, but Y"; "X rather
   than Y"; the split-sentence form ("This does not mean X. It means
@@ -34,6 +36,7 @@ INPUT: the draft text.
 - **Rule:** Q-02.
 
 ## One-line closers and dramatic fragments
+> Why: A closer that repeats the paragraph asks the reader to pause on nothing — reverence for an empty claim.
 
 - **Pattern:** a one-sentence paragraph restating the paragraph before
   it ("That is the real win.", "Let that sink in."); rows of fragments
@@ -44,6 +47,7 @@ INPUT: the draft text.
 - **Rule:** Q-03.
 
 ## Sayings that sound deep
+> Why: Aphorisms persuade by formula instead of evidence — the reader feels convinced and learns nothing.
 
 - **Pattern:** "At its core, what really matters is..."; "X is the
   language of Y"; "X becomes a trap"; "X is not a tool but a mirror";
@@ -56,6 +60,7 @@ INPUT: the draft text.
 - **Rule:** P-05.
 
 ## Staged run-up before the point
+> Why: Every announced point delays the point — the reader came for the substance, not the drumroll.
 
 - **Pattern:** "Let's dive in", "Here's the thing", "Honestly?",
   "Look,", "Here's what you need to know", "Real talk".
@@ -65,6 +70,7 @@ INPUT: the draft text.
 - **Rule:** H-03.
 
 ## Arguing with no one
+> Why: A defense with no attacker is a leftover, not an argument — it answers a draft the reader never saw.
 
 - **Pattern:** "This isn't mainly about X", "I'm not saying...",
   "Don't get me wrong", "A tempting approach would be... but".

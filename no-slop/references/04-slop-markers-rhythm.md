@@ -13,6 +13,7 @@ Shapes and punctuation applied everywhere, whether or not the meaning
 asks for them; ordinary facts dressed as pivotal or expert-backed.
 
 ## Detection algorithm
+> Why: Rhythm applied by rule is audible before it is visible — the detector listens paragraph by paragraph, not word by word.
 
 INPUT: the draft text.
 
@@ -21,6 +22,7 @@ INPUT: the draft text.
 3. IF the rewrite changes a factual claim THEN re-verify it against H-01 before continuing.
 
 ## Forced triads
+> Why: A count that serves the rhythm instead of the meaning teaches the reader that shape matters more than sense.
 
 - **Pattern:** ideas arriving in threes to sound complete whether the
   meaning has three parts or not ("innovation, inspiration, and
@@ -30,6 +32,7 @@ INPUT: the draft text.
 - **Rule:** Q-02.
 
 ## Repeated sentence openings
+> Why: Repetition handled by rule instead of by ear is the sound of a template, not a mind.
 
 - **Pattern:** several sentences in a row starting with the same
   subject ("She noted... She noted... She filed...").
@@ -38,6 +41,7 @@ INPUT: the draft text.
 - **Rule:** Q-02.
 
 ## Passive voice and missing subjects
+> Why: A sentence with no actor assigns no responsibility — and unaccountable prose is how mistakes hide.
 
 - **Pattern:** "No configuration file needed."; "The results are
   preserved automatically."; "Mistakes were made."
@@ -46,6 +50,7 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## Stacked qualifiers
+> Why: Hedges that cancel each other leave a sentence asserting nothing while sounding careful — caution as camouflage.
 
 - **Pattern:** "could potentially possibly be argued"; "may eventually
   unlock"; "might ultimately transform".
@@ -55,6 +60,7 @@ INPUT: the draft text.
 - **Rule:** P-03.
 
 ## Vague connection
+> Why: Vagueness here is not diplomacy, it is evasion — 'associated with' hides whether someone was CEO or bystander.
 
 - **Pattern:** "associated with", "in connection with", "linked to",
   "tied to" -- without saying how.
@@ -64,6 +70,7 @@ INPUT: the draft text.
 - **Rule:** H-01.
 
 ## Shallow -ing riders
+> Why: A rider that pretends to explain meaning borrows depth the fact does not have — the reader gets commentary instead of content.
 
 - **Pattern:** "highlighting...", "underscoring...", "reflecting...",
   "showcasing..." bolted onto a simple fact to sound deeper.
@@ -75,6 +82,7 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## Sales language
+> Why: Advertisement language in non-advertising text breaks the reader's trust — they came for information, not a pitch.
 
 - **Pattern:** "nestled within the breathtaking region";
   "a vibrant hub of innovation"; "must-visit"; "stunning".
@@ -86,6 +94,7 @@ INPUT: the draft text.
 - **Rule:** Q-05.
 
 ## Borrowed authority, extended
+> Why: A name or number standing in for what was said is authority as decoration — the claim still has no source.
 
 - **Pattern:** prestige-outlet lists ("cited in NYT, BBC, FT, and The
   Hindu"); follower counts ("over 500,000 followers"); unnamed
@@ -95,6 +104,7 @@ INPUT: the draft text.
 - **Rule:** H-01, H-04.
 
 ## Copula avoidance
+> Why: Longer verbs for simple relations are inflation by syllable — the reader pays in attention for nothing gained.
 
 - **Pattern:** "serves as", "stands as", "functions as", "boasts",
   "features", "offers" where "is", "are", or "has" would do.

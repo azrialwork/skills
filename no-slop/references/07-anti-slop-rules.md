@@ -12,6 +12,7 @@ Part A: the rules themselves. The rule-to-check mapping (mechanical probes
 and judge inputs per rule) is part B (`08-rule-to-check-mapping.md`).
 
 ## Verdict algorithm
+> Why: A verdict without an order is a negotiation — the hard gate runs first because a fatal flaw can never be outweighed by polish.
 
 INPUT: the draft text.
 
@@ -21,6 +22,7 @@ INPUT: the draft text.
 4. Verdict = PASS only when all three steps pass.
 
 ## Hard Gate -- absolute, no exceptions
+> Why: Absolute lines exist because the alternative is a debate you will lose to your own deadline — some boundaries must be drawn before the work starts.
 
 ### H-01 -- No fabricated specifics
 
@@ -46,6 +48,7 @@ INPUT: the draft text.
 - **THEN:** every factual claim must trace to something you can point at: a file you read, a tool result, a URL you opened. IF you cannot name it THEN do not state it as fact.
 
 ## Purpose-Gate -- technique allowed, reason required
+> Why: Banning every technique would trade one monotony for another — the question is never the tool, it is what the tool serves.
 
 Before using one, answer: **what does this serve?** IF the only answer is "it looks good" or "it fills space" THEN cut it. IF the answer names clarity or structure THEN keep it, and write the reason down (in your reasoning, not necessarily the text).
 
@@ -72,6 +75,7 @@ Before using one, answer: **what does this serve?** IF the only answer is "it lo
 - **THEN:** allowed only when the metaphor clarifies. IF removing the metaphor loses nothing THEN it was decoration: cut it.
 
 ## Quality Locks -- consistency
+> Why: Consistency is what survives after the flashy flaws are fixed — readers trust text that behaves the same way twice.
 
 ### Q-01 -- One idea per paragraph
 
@@ -94,6 +98,7 @@ Before using one, answer: **what does this serve?** IF the only answer is "it lo
 - **THEN:** every claim gets a number, a name, a date, or an example -- or it gets cut. "Significant improvement" becomes "23% faster" or disappears.
 
 ## Before/after (the rules in action)
+> Why: Abstract rules stay abstract — one concrete rewrite teaches more than a page of definitions.
 
 Slop: "In today's fast-paced digital landscape, it's important to note
 that leveraging cutting-edge tools can truly revolutionize your

@@ -8,6 +8,7 @@
 # Supply-chain security
 
 ## Algorithm
+> Why: Your release pipeline is a more valuable target than your code -- compromising it ships malware under your name to every user at once.
 
 INPUT: the repo's release pipeline and release assets.
 
@@ -19,6 +20,7 @@ INPUT: the repo's release pipeline and release assets.
 6. **SBOM (NTIA minimum elements).** Generate with Syft; attach to the release. Format: IF strongest license metadata is the priority THEN SPDX 3.0.1 (current, Dec 2024). ELSE IF strongest vulnerability/VEX integration is the priority THEN CycloneDX 1.6 / 1.7 (1.7 = ECMA-424 2nd ed., Dec 2025). Note: ISO/IEC 5962:2021 transposes SPDX 2.2.1, not 2.3 -- anyone citing "SPDX is an ISO standard" is citing 2.2.1 (flagged for revision); SPDX 2.3 (Nov 2022) remains acceptable where tooling has not moved yet. EU Cyber Resilience Act (Regulation (EU) 2024/2847), Annex I Part II(1), requires manufacturers to document components "by drawing up a software bill of materials in a commonly used and machine-readable format covering at the very least the top-level dependencies" -- applies 11 Dec 2027 (reporting duties under Art. 14 apply from 11 Sep 2026). Pure open-source software supplied outside a commercial activity is out of scope.
 
 ## Priority order for a small project (strict)
+> Why: Doing supply-chain security out of order produces theater -- a signed SBOM on a release with no checksum proves nothing about what was actually shipped.
 
 Apply in this order; NEVER start a later item while an earlier one is missing:
 

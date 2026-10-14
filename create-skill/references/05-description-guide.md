@@ -12,6 +12,8 @@ means it triggers exactly when it should. This is the highest-leverage field.
 
 ## Description construction algorithm
 
+> Why: The description is the entire selection surface the model sees, so a vague description is how a good skill never gets invoked.
+
 INPUT: the skill's capabilities and the user's task vocabulary. OUTPUT: one
 `description` string. Follow the formula:
 
@@ -38,6 +40,8 @@ Verification checks (PASS/FAIL):
 
 ## Good vs bad (mechanical comparison)
 
+> Why: Authors cannot feel the difference between specific and vague in their own writing until they see both side by side.
+
 | Verdict | Description | Why it fails/passes the checks |
 |---|---|---|
 | Bad | "Helps with documents." | FAIL: vague verb, no artifacts, no trigger clause. |
@@ -46,6 +50,8 @@ Verification checks (PASS/FAIL):
 | Good | "Drafts conventional-commit messages from staged diffs and validates message format. Use when committing, or when the user mentions commit messages, changelogs, or release notes." | PASS: third person, concrete input (staged diffs), trigger terms. |
 
 ## Rules
+
+> Why: A missing description does not cause an error — it causes silence, the hardest failure to notice.
 
 - A missing description still loads the skill but hides it from the model -- ALWAYS write one.
 - Aim for 1-3 sentences; every word should help selection.

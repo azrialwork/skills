@@ -8,6 +8,7 @@
 # Licensing and compliance
 
 ## Algorithm
+> Why: Licensing is the only part of your project a company's lawyers read, and they read it before anyone is allowed to touch the code.
 
 INPUT: the repo's license files, README, and contributor setup.
 
@@ -18,6 +19,7 @@ INPUT: the repo's license files, README, and contributor setup.
 5. **Attribution.** IF the license is Apache-2.0 THEN section 4(d) requires preserving `NOTICE` attributions in redistributions. Practice: ship `NOTICE`, `THIRD_PARTY`, or `THIRD-PARTY-NOTICES` listing bundled dependencies with their licenses.
 
 ## FLAG on sight (FAIL)
+> Why: A project with no license file is not open source -- it is proprietary by default, and corporate users are forbidden from touching it.
 
 - No LICENSE file (project is legally unusable).
 - Custom "do what you want" license text instead of an OSI-approved one.

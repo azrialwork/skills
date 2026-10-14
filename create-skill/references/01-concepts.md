@@ -18,6 +18,8 @@ the agent calls the `skill` tool. See `06-progressive-disclosure.md`.
 
 ## Mechanism selection algorithm
 
+> Why: Building a skill when a command would do is how you spend a week maintaining something the user could have typed in three seconds.
+
 INPUT: the capability you want to add.
 
 | IF you need... | THEN build... | Invoked by | Lives in |

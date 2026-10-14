@@ -9,6 +9,7 @@
 # Security process
 
 ## Algorithm
+> Why: A vulnerability report handled badly -- ignored, leaked, or fixed silently -- costs more trust than the vulnerability itself ever could.
 
 INPUT: the repo (new or existing).
 
@@ -18,6 +19,7 @@ INPUT: the repo (new or existing).
 4. **Assign a CVE.** Request via a CVE Numbering Authority (CNA); MITRE is the root. IF the project is small THEN use GitHub Security Advisory -> "Request CVE" (GitHub is a CNA); no separate MITRE request needed.
 
 ## FLAG on sight (FAIL)
+> Why: Users cannot protect themselves from a vulnerability they were never told about, so a silent fix leaves every existing installation exposed.
 
 - "Report security issues via public GitHub issues."
 - No SECURITY.md (Scorecard `Security-Policy` check fails; researchers have no private channel).

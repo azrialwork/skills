@@ -8,6 +8,7 @@
 # install.sh testing
 
 ## Algorithm
+> Why: The author's machine is the one environment the installer was never going to fail in -- shipping without independent verification makes a stranger your first tester.
 
 INPUT: the installer script and its CI workflow.
 
@@ -20,6 +21,7 @@ INPUT: the installer script and its CI workflow.
 4. **CI shape.** Every PR runs: shellcheck, `shfmt -d`, `sh -n`, bats. A matrix job runs `docker run <image> ./install.sh && tool --version`. mise's pattern (jdx/mise#10882): the installer is generated from a template and shellcheck-tested AFTER rendering.
 
 ## FLAG on sight (FAIL)
+> Why: Happy-path-only tests pass on the day you write them and fail on the day a user depends on them.
 
 - Shipping an installer that was only ever run on the author's machine.
 - Testing only the happy path (no bad-checksum, no retry, no re-run).

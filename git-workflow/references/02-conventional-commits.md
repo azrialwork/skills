@@ -14,6 +14,7 @@ Spec: v1.0.0 (conventionalcommits.org). The commit message becomes
 machine-readable, which makes changelogs and version bumps automatable.
 
 ## Format
+> Why: Machine-readable history is the only thing that lets changelogs and version bumps compute themselves instead of being hand-written fiction.
 
 ```
 <type>[optional scope][!]: <description>
@@ -24,6 +25,7 @@ machine-readable, which makes changelogs and version bumps automatable.
 ```
 
 ## Spec-mandated rules (from the spec's 16 rules)
+> Why: Tools across the ecosystem parse the same two types, so drifting from the spec silently breaks every downstream consumer.
 
 These hold for any tool claiming Conventional Commits compliance:
 
@@ -53,6 +55,7 @@ These hold for any tool claiming Conventional Commits compliance:
     `docs`, `style`, `refactor`, `perf`, `test`, `revert`.
 
 ## Skill-strict rules (narrower than the spec; enforced by the linter)
+> Why: The stricter house rules exist because linted consistency is what makes a hundred commits scannable in one sitting.
 
 `scripts/commit-lint.sh` adds house rules the spec does not require.
 They narrow the spec; they do not conflict with it:
@@ -68,6 +71,7 @@ They narrow the spec; they do not conflict with it:
 A commit is "conventional" for this skill IFF `commit-lint.sh` exits 0.
 
 ## SemVer mapping (the point of the types; defined inline)
+> Why: When types map to versions automatically, nobody argues about numbers and releases stop depending on someone's memory.
 
 - `fix:` -> PATCH bump.
 - `feat:` -> MINOR bump.
@@ -82,6 +86,7 @@ release-please), the next version is derived purely from commit types
 since the last tag. No human picks the number.
 
 ## Spec FAQ notes (load-bearing for the workflow)
+> Why: Linting the wrong place in a squash workflow rejects good work and trains contributors to ignore the linter entirely.
 
 - **Squash workflows:** IF the repo uses squash-merge THEN lint the PR
   title / squash message, NOT the branch commits. Maintainers may clean
@@ -92,6 +97,7 @@ since the last tag. No human picks the number.
   e.g. `Refs: 676104e, a215868`.
 
 ## Working-loop hygiene
+> Why: A dirty main is where merge conflicts are born; syncing first is cheaper than untangling them later.
 
 - IF main is dirty THEN sync BEFORE starting work: `git pull --rebase`
   (or fetch, then rebase onto the integration branch). NEVER commit on

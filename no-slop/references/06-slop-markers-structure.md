@@ -10,6 +10,7 @@
 # Slop patterns -- structure, extended
 
 ## Detection algorithm
+> Why: The portability test comes first because a sentence that could belong to anyone belongs to no one — filler is the root, patterns are the branches.
 
 INPUT: the draft text.
 
@@ -18,6 +19,7 @@ INPUT: the draft text.
 3. Tool fingerprints (last entry) are mechanical: strip first, then flag the citation gap.
 
 ## False agency
+> Why: Verbs without actors dissolve accountability — when nobody decided, nobody can be asked why.
 
 - **Pattern:** "The decision emerged after the offsite."; "A bet lives
   or dies on distribution."; "Complaints become fixes."
@@ -27,6 +29,7 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## Narrator-from-a-distance
+> Why: Floating above the scene keeps the reader outside it — distance is where specifics go to die.
 
 - **Pattern:** "Nobody designed this."; "This happens because...";
   "People tend to...".
@@ -36,6 +39,7 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## Wh- openers and lazy extremes
+> Why: An opener that becomes a crutch and an extreme that borrows authority both substitute formula for thought.
 
 - **Pattern:** sentences starting "What makes this hard is...",
   "Why this matters..."; sweeping "every", "always", "never",
@@ -46,6 +50,7 @@ INPUT: the draft text.
 - **Rule:** Q-02, Q-05.
 
 ## Bullet lists of bare noun phrases
+> Why: Perfect symmetry with no checkable claim is packaging, not information — the reader gets a brochure, not facts.
 
 - **Pattern:** 5+ consecutive bullets, each a short adjective-noun
   phrase with no verb ("Stable mining efficiency", "Reliable pool
@@ -56,6 +61,7 @@ INPUT: the draft text.
 - **Rule:** P-01.
 
 ## Unfilled placeholders
+> Why: A placeholder in published text is a promise broken in public — the gap the author meant to fill, shipped as-is.
 
 - **Pattern:** `[Your Name]`, `[INSERT SOURCE URL]`, `2025-XX-XX`,
   `<!-- Add citation if available -->` in publication-ready prose.
@@ -65,6 +71,7 @@ INPUT: the draft text.
 - **Rule:** H-01.
 
 ## AI-tool fingerprints
+> Why: A leaked citation token is proof of paste-without-cleanup — it tells the reader the text was never truly finished.
 
 - **Pattern:** citation tokens leaked from chat UIs (`citeturn0search0`,
   `[oaicite:0]`, `[attached_file:1]`); AI-referrer URL params

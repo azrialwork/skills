@@ -10,6 +10,7 @@
 # Adoption roadmap
 
 ## Ordering rules
+> Why: Standards applied in the wrong order produce a repo that looks mature while the foundations -- license, checksums, CI -- are still missing.
 
 INPUT: the repo's current state (from `scripts/repo-audit.sh`).
 
@@ -20,6 +21,7 @@ INPUT: the repo's current state (from `scripts/repo-audit.sh`).
 5. NEVER start a LATER item while a NOW item is missing -- a signed SBOM on a repo with no LICENSE is theater, not professionalism.
 
 ## NOW (before first public release -- hours of work, foundational trust)
+> Why: These ten items are what a stranger checks before deciding your project is safe to install, and they cost hours, not weeks.
 
 1. **POSIX `sh` + `set -eu` installer** -- maximal installable population across Unix-like platforms; strictness turns silent corruption into loud failure.
 2. **SHA256SUMS verification in install.sh (fail-closed)** -- the single highest-value security line; publish SHA256SUMS next to the tarball.
@@ -33,6 +35,7 @@ INPUT: the repo's current state (from `scripts/repo-audit.sh`).
 10. **Dependabot** (`github-actions` ecosystem) from day 1.
 
 ## SOON (first month -- visible maturity)
+> Why: Visible maturity signals -- signatures, provenance, badges -- only persuade anyone after the NOW foundations already hold.
 
 11. **minisign-sign SHA256SUMS**; embed/ship `minisign.pub`.
 12. **GitHub Artifact Attestations / SLSA provenance** on releases (~10 lines of YAML, approx SLSA Build L2/L3).
@@ -44,6 +47,7 @@ INPUT: the repo's current state (from `scripts/repo-audit.sh`).
 18. **docs/adr/ habit** -- record the big decisions while fresh.
 
 ## LATER (as the project grows)
+> Why: These pay off as the project grows, but adopting them on day one burns weeks on problems a tiny project does not have yet.
 
 19. **SBOM per release** (Syft -> CycloneDX/SPDX, attached to release).
 20. **Reproducible builds** (pinned toolchain + `SOURCE_DATE_EPOCH`).
@@ -54,6 +58,7 @@ INPUT: the repo's current state (from `scripts/repo-audit.sh`).
 25. **Deprecation/EOL policy** written down when v2 looms.
 
 ## SKIP (for this repo shape)
+> Why: Every standard has a cost, and adopting a disproportionate one signals that the maintainer cannot tell important from impressive.
 
 - **CLA infrastructure** -- no relicensing plans; DCO-if-anything.
 - **Full l10n** (gettext catalogs) -- UTF-8 + NO_COLOR readiness is enough.
@@ -62,6 +67,7 @@ INPUT: the repo's current state (from `scripts/repo-audit.sh`).
 - **Multi-platform CI matrix beyond the target set** -- test what you ship, not the world.
 
 ## How to use this roadmap
+> Why: A roadmap nobody follows is a wish list -- the audit-first loop is what turns the list into actual progress.
 
 1. Audit the repo: run `scripts/repo-audit.sh <repo-dir>`.
 2. List every missing NOW item; fix them in the listed order (ordering rule 1).

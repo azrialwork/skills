@@ -15,6 +15,7 @@ The method is fixed; the topic is flexible. A topic adapter is a written declara
 3. **Deliverable tweaks** -- what the default template (`07-deliverable-template.md`) needs for this domain.
 
 ## Build algorithm
+> Why: An undeclared hierarchy lets the researcher cherry-pick whichever source agrees with the answer they already want.
 
 INPUT: the domain phrase from the brief. OUTPUT: a one-page adapter.
 
@@ -25,6 +26,7 @@ INPUT: the domain phrase from the brief. OUTPUT: a one-page adapter.
 5. Keep it to one page. An adapter is a page, not a thesis.
 
 ## Default adapter: technical standards and tools
+> Why: A shared default stops each task from quietly redefining "authoritative" to fit the conclusion at hand.
 
 USE WHEN the domain is specs, protocols, libraries, frameworks, dev tools, or platforms.
 
@@ -56,6 +58,7 @@ Deliverable tweaks: <...>
 ```
 
 ## Worked sketch: product comparison
+> Why: A sketch copied blindly becomes a conclusion in search of evidence — the adapter must describe this domain, not the last one.
 
 Domain: "team chat tools for a 20-person remote team".
 

@@ -8,6 +8,7 @@ description: Guides selection and application of international standard git work
 Git workflows are team coordination protocols, not personal habits. This skill picks the right protocol for the project, applies it end to end -- branching model, commit discipline, review loop, release -- and scores how mature the result is on a 0-100 rubric.
 
 ## Trigger
+> Why: Applying this skill outside its trigger zones produces cargo-cult ceremony where a plain workflow would do.
 
 USE WHEN:
 - Choosing a branching model for a project.
@@ -21,6 +22,7 @@ DO NOT USE WHEN:
 - The task is a repo-wide standards audit or an installer-script checklist (use oss-standards).
 
 ## Algorithm
+> Why: A wrong branching model silently taxes every commit, review, and release until the team pays it off in rework.
 
 INPUT: the project (team size, release shape, current repo state) and the task.
 
@@ -76,6 +78,7 @@ Run the rubric in `references/05-maturity-scoring-rubric.md`, then interpret per
 Bands: 90-100 Exemplary, 70-89 Disciplined, 40-69 Developing, 0-39 Ad-hoc. IF an item is inapplicable (solo-dev, no releases yet) THEN exclude it and renormalize the score over what applies. A fully disciplined repo scores exactly 100.
 
 ## Verify
+> Why: Unverified workflows drift back into ad-hoc habits the first week nobody is watching.
 
 - [ ] PASS: a branching model is stated with its reason, and GitFlow (if chosen) is justified by parallel maintained versions.
 - [ ] PASS: `scripts/commit-lint.sh` rejects vague subjects (`fix bug`, `update`) and accepts valid conventional messages.
@@ -84,6 +87,7 @@ Bands: 90-100 Exemplary, 70-89 Disciplined, 40-69 Developing, 0-39 Ad-hoc. IF an
 - [ ] PASS: maturity score computed; inapplicable items excluded and renormalized.
 
 ## Guardrails
+> Why: Each prohibition here exists because a single violation costs more to repair than the whole workflow saves.
 
 - NEVER rewrite public history (`push --force` on shared branches). Rebase is for private branches only.
 - NEVER pick GitFlow by default; justify it with parallel maintained versions or do not use it.

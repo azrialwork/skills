@@ -8,6 +8,7 @@
 # README anatomy
 
 ## Algorithm
+> Why: The README is the project's sixty-second interview -- a stranger decides whether to install, contribute, or leave, and they will not scroll past confusion.
 
 INPUT: the README.md under review.
 
@@ -29,6 +30,7 @@ INPUT: the README.md under review.
 4. **Tone.** Write direct, second person, imperative ("Install with...", "Run..."). NEVER use marketing adjectives. IF the README exceeds 100 lines THEN add a TOC; use H2 per section, `sh`/`console` code fences with `$` prompts, collapsible `<details>` for long output. EVERY command MUST be copy-pasteable; EVERY claim MUST be verifiable (badges, links).
 
 ## FLAG on sight (FAIL)
+> Why: A wall of text before the install command tells the reader you care more about describing the tool than letting them use it.
 
 - Wall of text before the first install command.
 - "Features" marketing list with no quickstart.

@@ -11,12 +11,14 @@ obvious, stiff, loud. This module filters the comments; the code
 stays exactly as it is.
 
 ## Scope guardrail
+> Why: The filter touches comments only because the code is the user's working asset — breaking it to fix a comment is the worst possible trade.
 
 NEVER modify executable code, identifiers, imports, formatting,
 indentation, whitespace, control flow, or logic -- comments only.
 IF in doubt THEN leave the code untouched.
 
 ## Detection algorithm
+> Why: Comments are scanned in order so pattern priority holds — a misleading doc outranks a decorative banner.
 
 INPUT: the code's comments.
 
@@ -29,6 +31,7 @@ INPUT: the code's comments.
 4. Re-run the checklist at the end.
 
 ## Comments that add nothing
+> Why: A comment that adds nothing still costs the reader a context switch — silence is cheaper than noise.
 
 ### Decorative separators
 
@@ -83,6 +86,7 @@ INPUT: the code's comments.
 - **Rule:** Q-04, Q-01.
 
 ## How it should read
+> Why: Deletion alone teaches what to avoid — the target shape teaches what to write.
 
 ### The over-explained comment
 
@@ -106,6 +110,7 @@ INPUT: the code's comments.
 - **Rule:** H-03.
 
 ## Preserve these -- never remove
+> Why: Aggressive filtering has its own failure mode — deleting the one comment that explained the trap.
 
 A comment earns its place when it explains something the code does not
 already show: the reason, the constraint, the non-obvious behavior.
@@ -113,6 +118,7 @@ Value is not length -- a workaround note is one line about the
 workaround, not a paragraph about it.
 
 ## Code comment checklist
+> Why: A checklist is the filter's memory — it catches on the second pass what the patterns missed on the first.
 
 Run alongside the Delivery Gate (`references/09-self-audit.md`) when
 the task touches comments. Verdict = PASS only when every answer is

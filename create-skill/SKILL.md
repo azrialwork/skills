@@ -9,6 +9,8 @@ You design, write, and validate professional Agent Skills per the Agent Skills o
 
 ## Trigger
 
+> Why: A skill that cannot say when it does not apply will be invoked for the wrong jobs and blamed for the results.
+
 USE WHEN:
 - The user wants to create, scaffold, review, validate, score, or improve a skill.
 
@@ -16,6 +18,8 @@ DO NOT USE WHEN:
 - The request is a one-off prompt shortcut that will never be reused.
 
 ## Algorithm
+
+> Why: Without a fixed order of operations, every author improvises their own — and every improvisation is a new way for the skill to break silently.
 
 INPUT: the user's task statement.
 
@@ -33,6 +37,8 @@ INPUT: the user's task statement.
 
 ## Verify
 
+> Why: Checks you run before publishing are the only thing standing between a broken skill and every agent that installs it.
+
 - [ ] PASS: `---` is at byte 0 of SKILL.md.
 - [ ] PASS: name matches `^[a-z0-9]+(-[a-z0-9]+)*$`, 1-64 chars, and equals the directory name.
 - [ ] PASS: description is third person, 1-1024 chars, 1-3 sentences, names capabilities and trigger keywords.
@@ -41,6 +47,8 @@ INPUT: the user's task statement.
 - [ ] PASS: a trigger-matching task loads the skill without the user naming it.
 
 ## Guardrails
+
+> Why: Guardrails exist because the most expensive mistakes are the ones that look reasonable in the moment.
 
 - NEVER use `disable-model-invocation`.
 - NEVER let SKILL.md exceed ~500 lines / 5000 tokens; move detail to `references/`.

@@ -9,6 +9,7 @@
 # UI slop -- app screens, UI copy, checklist
 
 ## Detection algorithm
+> Why: App screens and copy are judged together because a dashboard can be structurally clean and still lie with its numbers.
 
 INPUT: the app screens and UI copy.
 
@@ -17,6 +18,7 @@ INPUT: the app screens and UI copy.
 3. Run the accessibility floor and the UI checklist at the end. Verdict = PASS only when every check passes.
 
 ## The default dashboard shell
+> Why: A layout picked from memory instead of from the user's decision builds the wrong hierarchy with great confidence.
 
 - **Tell:** left sidebar, top bar, four stat cards, a chart, a table --
   chosen before anyone asked what the screen is for, identical whether
@@ -26,6 +28,7 @@ INPUT: the app screens and UI copy.
 - **Rule:** Q-02.
 
 ## Invented numbers and filler content
+> Why: A trend line with no series behind it is a lie with a chart — decoration that actively misleads.
 
 - **Tell:** stat cards reading 12,483 / 94.2% / $48.2K with green
   "+12% this week" deltas on no data; activity feeds with invented
@@ -37,6 +40,7 @@ INPUT: the app screens and UI copy.
 - **Rule:** H-01.
 
 ## Broken and placeholder states
+> Why: The visual shipped but the behavior did not — the interface promises what the code cannot deliver.
 
 - **Tell:** `<img>` with empty or placeholder src; scripts throwing on
   load; content stuck at opacity 0 after reveals ran; text painted
@@ -47,6 +51,7 @@ INPUT: the app screens and UI copy.
 - **Rule:** H-01.
 
 ## Empty, loading, and error states
+> Why: A state that names no cause and no action abandons the user at the exact moment they need guidance.
 
 - **Tell:** "No data available" with a stock illustration; a bare
   spinner; a skeleton mimicking a layout the data never fills.
@@ -55,6 +60,7 @@ INPUT: the app screens and UI copy.
 - **Rule:** Q-01.
 
 ## Accessibility floor
+> Why: Shipped-but-broken excludes people — accessibility is the floor because below it the interface simply does not work for everyone.
 
 Shipped-but-broken is slop. Check at every breakpoint; every item is PASS/FAIL:
 
@@ -66,6 +72,7 @@ Shipped-but-broken is slop. Check at every breakpoint; every item is PASS/FAIL:
 - **Rule:** Q-01 (broken), H-01 (fake controls).
 
 ## UI copy
+> Why: Interface text is read in fragments under time pressure — buzzwords there cost comprehension, not just style points.
 
 Interface text follows the same H/P/Q rules as prose, with these UI-specific tells:
 
@@ -75,12 +82,14 @@ Interface text follows the same H/P/Q rules as prose, with these UI-specific tel
 - **Em-dash saturation** in UI copy -- same H-02 rule as prose: **THEN:** remove every em dash.
 
 ## Honesty
+> Why: A dead link or fake control is a small betrayal — each one teaches the user to trust the product a little less.
 
 - **Dead navigation and non-functional controls:** every link has a destination; every button does something, or is removed, or carries a visible "Coming soon". (H-01)
 - **Sections that fill a template:** every section earns its place from the product's content. (Q-01)
 - **Sterile default:** flat white, thin grey borders, generic font, no identity. This is not slop, but it is not design either -- and it is a direction problem, not a filter problem. **THEN:** add the brief or DESIGN.md; NEVER fix it with more bans. (Liveliness bar)
 
 ## UI checklist
+> Why: The checklist is the last line before the user — it exists because no single pattern catches a dishonest screen.
 
 Run alongside the Delivery Gate (`references/09-self-audit.md`) when
 the task is UI work. Verdict = PASS only when every answer is **yes**:

@@ -9,6 +9,7 @@
 # install.sh fundamentals
 
 ## Algorithm
+> Why: An installer is the first code a user runs from you, sight unseen -- every shortcut here executes on someone else's machine before they have any reason to trust you.
 
 INPUT: the installer script (or a blank page for a new one).
 
@@ -32,6 +33,7 @@ INPUT: the installer script (or a blank page for a new one).
 | uv install.sh | `#!/bin/sh`, `set -u`, shellcheck'd | `verify_checksum` when known; glibc-version check with musl fallback; **env-file pattern** (`$HOME/.local/bin/env` sourced from rc files); shadowed-binary detection; install receipts |
 
 ## FLAG on sight (FAIL)
+> Why: These patterns are how experienced reviewers judge a project in under a minute, and each one has caused real silent failures in the wild.
 
 - No strict mode at all -- the #1 amateur tell.
 - `#!/bin/sh` shebang with bashisms.

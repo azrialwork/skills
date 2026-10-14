@@ -8,6 +8,7 @@
 # UI slop -- typography, icons, motion
 
 ## Detection algorithm
+> Why: Type, icons, and motion carry the interface's voice — defaults here make every product sound like the same product.
 
 INPUT: the interface (screenshot or code).
 
@@ -16,6 +17,7 @@ INPUT: the interface (screenshot or code).
 3. Legibility failures (second entry) are absolute: fix regardless of aesthetic intent.
 
 ## The default type roster
+> Why: A typeface wave is a timestamp — the interface dates itself to the month it was generated.
 
 - **Tell:** Inter / Geist / Space Grotesk for everything because they
   were the default; oversized italic serif hero headlines; large
@@ -26,6 +28,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** P-05.
 
 ## Hierarchy and legibility failures
+> Why: These are not style choices — unreadable text excludes real people, which is a failure, not a preference.
 
 - **Tell:** heading and body separated by less than 1.25x at every
   step (flat hierarchy); gray text on colored backgrounds; body text
@@ -38,6 +41,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-01.
 
 ## Typography as decoration
+> Why: Type used as ornament stops being read — decoration that destroys its own function.
 
 - **Tell:** gradient text; crushed letter-spacing; wide tracking on
   body copy; tiny numbered labels as editorial scaffolding.
@@ -45,6 +49,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** P-02.
 
 ## Icons and small decoration
+> Why: The generic 'AI product' icon set tells the user the interface was assembled, not designed.
 
 - **Tell:** sparkle / magic-wand / lightning / robot-orb as feature
   icons; every icon from one thin-stroke library so all sites share
@@ -56,6 +61,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-04, Q-01.
 
 ## Eyebrow badges and kickers
+> Why: A badge duplicating the headline is a line of reading with no fact in it — pure friction.
 
 - **Tell:** a small pill or tracked-uppercase kicker sitting directly
   above the headline, holding a label the headline already says
@@ -66,6 +72,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-01.
 
 ## Decorative status dots and cursors
+> Why: System-status vocabulary used as decoration borrows meaning it does not spend — the dot marks nothing, so it means nothing.
 
 - **Tell:** a glowing, endlessly pulsing dot beside a heading that
   marks nothing; a blinking text cursor animated into a hero where no
@@ -75,6 +82,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-01.
 
 ## Fake terminal window
+> Why: A fake terminal is a placeholder for a real screenshot — it promises a product view and delivers theater.
 
 - **Tell:** a styled terminal with traffic-light dots and typed-out
   commands used as the hero visual for a product that is not a CLI.
@@ -83,6 +91,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** H-01.
 
 ## Illustrations with no connection
+> Why: Decoration disconnected from the product is visual noise the user must look past to find anything real.
 
 - **Tell:** generic blob characters, shape-assembled SVG scenes,
   stock illustrations unrelated to the product; raster images buried
@@ -92,6 +101,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-01.
 
 ## Motion
+> Why: Perpetual motion never lets the user rest — it competes with the content it was meant to serve.
 
 - **Tell:** elements pulsing, bouncing, or floating forever with no
   user trigger; every element running fade-up + float + scale at once;

@@ -10,6 +10,8 @@ happens in three stages, and each stage has a token budget you must respect.
 
 ## The three stages
 
+> Why: Every token spent at startup is spent by every skill at once, which is why the shared budget is the first thing to protect.
+
 | Stage | What loads | Budget | Trigger |
 |---|---|---|---|
 | 1. Metadata | `name` + `description` for every discovered skill, as an `<available_skills>` block | ~100 tokens/skill; ~15 max-length skills ~= 1.5k tokens. Keep descriptions <= 1024 chars -- this is the shared budget all skills draw from. | Startup |
@@ -17,6 +19,8 @@ happens in three stages, and each stage has a token budget you must respect.
 | 3. Resources | `scripts/`, `references/`, `assets/` | As needed: pay per file opened or executed | Skill instructions call for them -- NEVER preloaded |
 
 ## Authoring algorithm (respect the budgets)
+
+> Why: Duplicated content is paid twice in tokens and then drifts, so the two copies eventually contradict each other.
 
 INPUT: the draft skill content. Run every rule; ANY violation means restructure.
 

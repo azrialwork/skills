@@ -16,12 +16,16 @@
 
 ## Hard gate
 
+> Why: Without the hard gate, a skill that cannot even load could still score points for style — grading the ungradable.
+
 IF any of **B1, B2, B3, B4** FAILS (frontmatter missing/malformed, name
 invalid, name != directory, description missing) THEN the score is **0**,
 regardless of everything else. Without these, the skill does not load or is
 invisible to the model -- there is nothing to grade.
 
 ## B: binary checks (55 pts, fully automated)
+
+> Why: Binary checks are the foundation the graded judgments stand on; if the structure is broken, taste does not matter.
 
 Each item is pass (full points) or fail (0). Vacuous truth: no `scripts/`
 passes B9; no `metadata` passes B10.
@@ -42,6 +46,8 @@ passes B9; no `metadata` passes B10.
 **Total: 55.** Implemented in `scripts/validate.py`.
 
 ## G: graded quality aspects (45 pts, heuristic + human rubric)
+
+> Why: The heuristic measures presence, but only a human who has watched the skill succeed or fail can judge fit.
 
 Each item scores full / partial / none per the exact levels below. The
 automated heuristic in `validate.py --score` computes a first pass; a human

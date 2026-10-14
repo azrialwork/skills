@@ -17,6 +17,7 @@ DO NOT USE WHEN:
 - Day-to-day branching decisions or commit-message style (use git-workflow).
 
 ## Algorithm
+> Why: Without a fixed sequence, reviewers gold-plate the easy parts and miss the foundational ones, so the repo looks professional while remaining untrustworthy.
 
 INPUT: the target (installer, repo layout, README, release process, or full audit) and the repo directory.
 
@@ -29,6 +30,7 @@ INPUT: the target (installer, repo layout, README, release process, or full audi
 7. **Verify and score.** Re-run the audit script. IF any NOW item fails THEN return to step 5. For a complete 0-100 compliance score, apply `references/15-scoring-algorithm.md` (every requirement maps to an automated probe or an explicit human-rubric input).
 
 ## Verify
+> Why: Unverifiable standards are just opinions -- these checks are what turn "we follow best practices" into something a stranger can confirm.
 
 - [ ] PASS: exactly one target was named before work started.
 - [ ] PASS: `scripts/repo-audit.sh <repo-dir>` ran and every result is logged PASS/FAIL.
@@ -37,6 +39,7 @@ INPUT: the target (installer, repo layout, README, release process, or full audi
 - [ ] PASS: every standard named in the output cites its name and source (e.g. "SemVer 2.0.0 -- semver.org").
 
 ## Guardrails
+> Why: Each prohibition here has a real-world failure behind it -- a breached user, a hijacked install, a lawsuit -- not a desire for tidy rules.
 
 - NEVER weaken a security standard to simplify: no skipping checksums, no `curl | sudo bash`, no blind shell-rc edits.
 - NEVER recommend a standard on the roadmap's SKIP list for the project's size.
