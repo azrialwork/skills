@@ -51,7 +51,7 @@ INPUT: the target (installer, repo layout, README, release process, or full audi
 | `references/02-install-sh-security.md` | Checksum/signature verification, TLS hardening, trust model |
 | `references/03-install-sh-robustness.md` | Platform matrix, curl/wget fallback, retry, temp hygiene, idempotency |
 | `references/04-install-sh-ux.md` | Progress bars, spinners, colors, PATH handling, messages |
-| `references/05-install-sh-testing.md` | shellcheck, shfmt, bats, CI distro matrix |
+| `references/05-install-sh-testing.md` | shellcheck, shfmt, bats, CI platform matrix |
 | `references/06-repo-structure.md` | Root layout, workflows, licensing files, hygiene |
 | `references/07-readme.md` | Section order, badges, installation section, tone |
 | `references/08-versioning-releases.md` | SemVer, Conventional Commits, changelog, release automation |
