@@ -9,8 +9,19 @@
     # @density:<group>      -- following patterns are pooled per <group> and
                               scored by density per 1000 words:
                               >=12 -> +8, >=6 -> +5, >=2 -> +2, else +0.
+    # @cluster:<group>      -- following patterns are checked per paragraph:
+                              2+ DISTINCT patterns of the group in one
+                              paragraph scores +3 (Tier 2 cluster rule).
   Lines starting with # (other than the markers above), blank lines, and
   the < > comment lines of this header are ignored.
+
+  Word tiers: the @shots additions marked Tier 1A/1B, the @cluster:tier2
+  group, and the @density:vague-praise / @density:boilerplate groups adapt
+  the tiered vocabulary system from conorbronsdon/avoid-ai-writing
+  (MIT) -- see SOURCES.md. Tier 1A = AI frequency markers (flag on
+  sight); Tier 1B = clarity edits (always worth fixing, not authorship
+  evidence); Tier 2 = fine alone, flag in clusters; Tier 3 = flag by
+  density only.
 
   Extend when new markers are found. Prefer empirically grounded additions:
   Kobak et al., "Delving into LLM-assisted writing in biomedical
@@ -32,19 +43,63 @@ certainly!
 
 # cliche metaphors and AI-vocabulary
 delve
+delving
 tapestry
 bustling
 vibrant
 testament to
 embark on
-nuanced
-multifaceted
 underscore
+underscoring
 meticulous
 holistic
 robust
 revolutionary
 next level
+realm
+paradigm
+beacon
+nestled
+thriving
+intricate
+intricacies
+ever-evolving
+enduring
+daunting
+actionable
+impactful
+learnings
+thought leader
+best practices
+synergy
+interplay
+symphony
+embrace
+deep dive
+dive into
+unpack
+unpacking
+leverage
+leverages
+leveraging
+leveraged
+comprehensive
+hit differently
+hits different
+watershed moment
+only time will tell
+at its core
+showcasing
+
+# clarity edits (Tier 1B): wordiness worth fixing wherever it appears
+utilize
+in order to
+due to the fact that
+serves as
+boasts
+commence
+ascertain
+endeavor
 
 # hollow transitions
 furthermore
@@ -65,8 +120,6 @@ cutting-edge
 cutting edge
 unlock the power
 unlock
-elevate
-empower
 showcase
 seamless
 seamlessly
@@ -75,6 +128,10 @@ seamlessly
 pivotal moment
 new era of
 the future of
+pivotal
+crucial
+marking a pivotal
+a testament to
 
 # empty claims and social proof
 trusted by
@@ -89,6 +146,18 @@ experts say
 industry observers
 people report
 analysts believe
+experts believe
+studies show
+research suggests
+associated with the leadership of
+
+# sales language
+breathtaking
+must-visit
+stunning
+nestled within
+in the heart of
+groundbreaking
 
 # chatbot closers and fake-candid openers
 hope this helps
@@ -100,6 +169,59 @@ to be real with you
 you're absolutely right
 that's a fantastic point
 great point!
+
+# knowledge-limit disclaimers and speculative gap-filling
+as of my last update
+based on available information
+not widely documented
+is believed to have
+likely began
+maintains a low profile
+
+# @cluster:tier2
+# Tier 2 (avoid-ai-writing): legitimate alone; 2+ DISTINCT words in one
+# paragraph = rewrite signal. Scored per paragraph by slop-scan.sh (+3).
+# (nuanced, multifaceted, elevate, empower, streamline moved here from
+# @shots: flagging them on sight caused false positives.)
+harness
+navigate
+navigating
+foster
+fosters
+elevate
+unleash
+streamline
+empower
+bolster
+spearhead
+resonate
+facilitate
+underpin
+nuanced
+multifaceted
+ecosystem
+myriad
+plethora
+encompass
+catalyze
+reimagine
+galvanize
+augment
+cultivate
+illuminate
+elucidate
+juxtapose
+transformative
+cornerstone
+paramount
+poised
+burgeoning
+nascent
+quintessential
+overarching
+quietly
+underpinning
+underpinnings
 
 # @density:intensifiers
 # P-04: stacked intensifiers are padding. Scored by density per 1000 words.
@@ -116,3 +238,38 @@ could
 may
 potentially
 possibly
+
+# @density:vague-praise
+# Tier 3 (avoid-ai-writing): normal words AI overuses as vague praise.
+# Flag only at high density; fix by replacing with specifics.
+significant
+significantly
+innovative
+innovation
+effective
+effectively
+dynamic
+scalable
+scalability
+compelling
+unprecedented
+exceptional
+exceptionally
+remarkable
+remarkably
+sophisticated
+instrumental
+
+# @density:boilerplate
+# Tier 3 phrases (avoid-ai-writing): individually unobjectionable
+# multi-word boilerplate that stacks in AI-generated content.
+# Same density ramp as an approximation of the "2+ uses" rule.
+the integration of
+the intersection of
+community-driven
+long-term sustainability
+user engagement
+designed for long-term
+emerging space
+emerging sector
+reward emissions

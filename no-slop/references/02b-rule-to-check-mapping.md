@@ -56,9 +56,28 @@ Deduction caps at 8 per rule. W = word count.
 - **P-04** -- `intensifier_density`, list: `very, really, truly,
   incredibly, extremely`. Same ramp as P-03.
 - **P-05** -- `aivocab_density`, list: the cliche-metaphor, hype-verb,
-  and significance-inflation patterns in `assets/slop-phrases.txt`
-  (delve, tapestry, robust, seamless, cutting-edge, pivotal moment,
-  ...). Density >= 15 -> 8; >= 5 -> 4; below 5 -> 0.
+  significance-inflation, Tier 1A, and Tier 1B patterns in
+  `assets/slop-phrases.txt` (@shots section). Density >= 15 -> 8;
+  >= 5 -> 4; below 5 -> 0. The `vague-praise` and `boilerplate`
+  density groups (`@density:vague-praise`, `@density:boilerplate`)
+  use the standard density ramp (>= 12 -> 8; >= 6 -> 5; >= 2 -> 2)
+  and feed the same P-05 deduction, capped at 8 combined.
+- **P-05 cluster probe (mechanical, scanner-level)** -- Tier 2 rule
+  (adapted from avoid-ai-writing): 2+ DISTINCT `@cluster:tier2`
+  words inside one paragraph -> +3 per paragraph in `slop-scan.sh`.
+  Reported as a floor signal; the Delivery Gate decides.
+
+### Extension modules -- checklist probes
+
+Modules 05 and 06 carry their own checklists instead of numeric
+rules. For the 0-100 algorithm they map to judge inputs:
+
+- **05 code comments** -- judge: count of checklist items failing.
+  0 -> 0; 1-2 -> 2; 3+ -> 4 (same band as a Quality Lock).
+- **06 UI patterns** -- judge: count of checklist items failing.
+  0 -> 0; 1-3 -> 2; 4+ -> 4. UI-copy tells (buzzwords, aphoristic
+  cadence, theater framing, em-dash saturation) score under P-05,
+  Q-02, Q-01, H-02 respectively.
 
 ### Quality Locks -- mixed probes and judge rubrics
 

@@ -1,6 +1,6 @@
 ---
 name: no-slop
-description: Keeps AI-generated content free of AI slop through a tiered rule system and a generate-then-audit workflow. Enforces Hard Gate rules (no fabricated specifics, no em dash, no sycophancy, no invented sources), Purpose-Gate rules (bullets, bold, hedges, intensifiers, metaphors allowed only with a stated reason), and Quality Locks, plus a liveliness bar that rejects sterile-but-clean text; ships with the density-aware heuristic scanner `scripts/slop-scan.sh` (phrase list `assets/slop-phrases.txt`) and a complete standalone 0-100 scoring algorithm in `references/`. Use when writing, reviewing, or polishing any AI-generated text (DURING generation or AFTER as an audit), or when the user mentions slop, low-quality AI content, or wants human-grade output; not for detecting authorship or accusing writers, only for scoring your own draft.
+description: Keeps AI-generated content free of AI slop through a tiered rule system and a generate-then-audit workflow. Enforces Hard Gate rules (no fabricated specifics, no em dash, no sycophancy, no invented sources), Purpose-Gate rules (bullets, bold, hedges, intensifiers, metaphors allowed only with a stated reason), and Quality Locks, plus a liveliness bar that rejects sterile-but-clean text; ships with the density-aware heuristic scanner `scripts/slop-scan.sh` (tiered vocabulary, paragraph-cluster detection) and a standalone 0-100 scoring algorithm in `references/`. Covers code-comment hygiene (`references/05`) and UI/visual slop (`references/06a-c`) when the task touches code or interfaces; use when writing, reviewing, or polishing AI-generated text (DURING generation or AFTER as an audit), or when the user mentions slop or wants human-grade output -- not for detecting authorship, only for scoring your own draft.
 ---
 
 <!--
@@ -42,6 +42,42 @@ Resolve the mode before starting. Ask the user if it is not clear.
   list citing the violated rule (H-01, P-02, ...); the user picks which
   numbers to fix; fix them and re-run the Delivery Gate. Use when
   reviewing or polishing.
+
+Both modes apply to the extension modules as well: their checklists
+run as supplements to the Delivery Gate, not replacements.
+
+## Module loading
+
+Load only the modules the task needs:
+
+- Prose work: the core references (01a, 01b, 02a, 02b, 03, 04x).
+- The task writes or edits code: also load
+  `references/05-code-comment-hygiene.md`. It filters comments only;
+  the scope guardrail (comments, never code) always holds.
+- The task builds or edits an interface: also load
+  `references/06a-ui-color-layout.md`, `06b-ui-type-motion.md`, and
+  `06c-ui-app-copy.md`. They are a filter, not a style guide;
+  direction comes from the brief or DESIGN.md.
+
+## Editing principles
+
+- **Minimum effective edit.** Fix slop patterns, errors, repetition,
+  and unclear passages. Leave strong human sentences alone. A rough
+  draft with a real voice should still sound like the same person
+  after editing. Do not rewrite distinctive lines merely for
+  consistency, and do not smooth every paragraph to the same polish.
+- **Preserve the writer's voice.** Notice the draft's vocabulary,
+  cadence, bluntness, humor, uncertainty, and digressions before
+  editing. Keep the traits that feel personal.
+- **Voice sample overrides patterns.** If the user provides a sample
+  of their writing, match its sentence length, word choice,
+  punctuation, and openings first; the sample overrides pattern rules
+  (including H-02's em-dash ban -- if the sample uses dashes, match
+  its rate).
+- **Show its work (optional).** For pasted text, return the draft, a
+  short list of remaining patterns, then the final rewrite -- so the
+  user can see what changed and why. Default is final text plus a
+  short summary; use the full trail when the user asks for it.
 
 ## The tiered rules
 
@@ -103,8 +139,18 @@ generic -- rewrite until only this topic could have produced it.
 | `references/04b-scoring-pseudocode.md` | Pseudocode implementing the five scoring steps |
 | `references/04c-scoring-worked-example.md` | Worked example: a sample text scored end to end |
 | `references/04d-scoring-limits.md` | What cannot be automated; calibration and reliability notes |
+| `references/05-code-comment-hygiene.md` | Code comments: remove AI-slop comments, keep the valuable ones, never touch the code. Load only for code tasks |
+| `references/06a-ui-color-layout.md` | UI slop: color, decoration, layout, components |
+| `references/06b-ui-type-motion.md` | UI slop: typography, icons, motion |
+| `references/06c-ui-app-copy.md` | UI slop: app screens, UI copy, honesty, UI checklist. Load 06a-c only for interface tasks |
 
 Read a reference only when its phase is active.
+
+## Sources
+
+Pattern taxonomies adapted from third-party skills under permissive
+licenses; see `SOURCES.md` for the full attribution table (repo,
+pinned version, license, what was taken).
 
 ## Scripts and assets
 

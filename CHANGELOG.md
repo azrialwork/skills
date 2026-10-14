@@ -44,6 +44,23 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   SECURITY.md, CODEOWNERS, issue/PR templates.
 
 ### Changed
+- `no-slop`: full merge with six researched anti-slop skills (see
+  `no-slop/SOURCES.md` for pinned versions and licenses). New
+  `references/05-code-comment-hygiene.md` (AI-slop comment cleanup,
+  comments-only scope guardrail) and
+  `references/06-ui-slop-patterns.md` (visual slop: color, layout,
+  typography, decoration, motion, app screens, UI copy, checklist).
+  Markers enriched: Not-X-but-Y family, staged run-ups, forced triads,
+  passive voice, -ing riders, sales language, knowledge-limit
+  disclaimers, AI-tool fingerprints, false agency, portability test
+  (from humanizer, avoid-ai-writing, no-ai-slop, stop-slop). Tiered
+  vocabulary (1A/1B shots, Tier-2 paragraph clusters, Tier-3 density
+  groups) in `assets/slop-phrases.txt`; `scripts/slop-scan.sh` gains
+  `# @cluster:<group>` mode and generic density groups. SKILL.md gains
+  module loading, minimum-effective-edit, voice-sample override, and
+  show-its-work principles. Tier-2 words (nuanced, multifaceted,
+  elevate, empower, streamline) moved from shots to cluster mode to
+  cut false positives.
 - All four skills rewritten against their official documentation as
   source of truth (verified 2026-10-13): SPDX spec 3.0.1, CycloneDX
   1.6/1.7, SLSA v1.2, REUSE 3.3, Scorecard v5.5.0, Conventional Commits
