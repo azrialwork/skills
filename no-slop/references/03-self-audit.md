@@ -43,6 +43,10 @@ must be added, not assumed. A sterile result is a failure to fix.
 - [ ] **Voice test:** read it aloud. It should sound like a competent
       human who knows the subject and respects the reader's time -- not
       a press release, not a template.
+- [ ] **Dial check (UI tasks):** the work honors the declared
+      ENERGY/RHYTHM/MOTION dials. Decoration, variation, and motion
+      beyond the declared level is a FAIL against the dial, whatever
+      its own merits.
 
 ## Block 4 -- Quality Locks and substance
 

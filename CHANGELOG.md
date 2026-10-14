@@ -44,6 +44,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   SECURITY.md, CODEOWNERS, issue/PR templates.
 
 ### Changed
+- `no-slop`: second merge pass -- remaining advantages from the
+  research. New `references/06d-ui-direction.md` (Design Read, product
+  truth, art direction, real credited imagery, browser self-check at
+  three widths; from antislop, impeccable, taste-skill). Liveliness
+  dials ENERGY/RHYTHM/MOTION declared per UI task and checked at the
+  Delivery Gate (new SKILL.md section + 03-self-audit dial check).
+  Voice preset profiles (casual/professional/technical/warm/blunt)
+  alongside voice-sample override. SOURCES.md gains the taste-skill
+  row (pinned `a60a36d`, MIT).
 - `no-slop`: full merge with six researched anti-slop skills (see
   `no-slop/SOURCES.md` for pinned versions and licenses). New
   `references/05-code-comment-hygiene.md` (AI-slop comment cleanup,

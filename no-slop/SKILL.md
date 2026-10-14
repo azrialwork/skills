@@ -55,9 +55,10 @@ Load only the modules the task needs:
   `references/05-code-comment-hygiene.md`. It filters comments only;
   the scope guardrail (comments, never code) always holds.
 - The task builds or edits an interface: also load
-  `references/06a-ui-color-layout.md`, `06b-ui-type-motion.md`, and
-  `06c-ui-app-copy.md`. They are a filter, not a style guide;
-  direction comes from the brief or DESIGN.md.
+  `references/06a-ui-color-layout.md`, `06b-ui-type-motion.md`,
+  `06c-ui-app-copy.md`, and `06d-ui-direction.md` (direction first).
+  They are a filter, not a style guide; direction comes from the
+  brief or DESIGN.md.
 
 ## Editing principles
 
@@ -73,11 +74,31 @@ Load only the modules the task needs:
   of their writing, match its sentence length, word choice,
   punctuation, and openings first; the sample overrides pattern rules
   (including H-02's em-dash ban -- if the sample uses dashes, match
-  its rate).
+  its rate). Without a sample, the user may pick a preset profile --
+  casual, professional, technical, warm, or blunt -- which sets the
+  target voice independent of the audience.
 - **Show its work (optional).** For pasted text, return the draft, a
   short list of remaining patterns, then the final rewrite -- so the
   user can see what changed and why. Default is final text plus a
   short summary; use the full trail when the user asks for it.
+
+## Liveliness dials
+
+Adapted from miqdadbadjuber/anti-slop (MIT) -- see SOURCES.md. The
+liveliness bar says *whether* the result is alive; the dials say *how*
+alive. Declare them at the start of a UI task (default 2 when unstated):
+
+- **ENERGY (1-3):** 1 calm and restrained, 2 balanced, 3 bold and
+  expressive. Governs color intensity, type scale, decoration density.
+- **RHYTHM (1-3):** 1 uniform calm sections, 2 some variation,
+  3 visibly varied composition. Governs section-to-section change.
+- **MOTION (1-3):** 1 hover states only, 2 restrained transitions,
+  3 rich animation. Governs what is allowed to move.
+
+The Delivery Gate checks the work against the declared dials: an
+endless pulse animation with MOTION=1 is a FAIL, not a style choice.
+For prose tasks, RHYTHM maps to Q-02 (vary the structure); ENERGY and
+MOTION stay UI-only.
 
 ## The tiered rules
 
@@ -142,7 +163,8 @@ generic -- rewrite until only this topic could have produced it.
 | `references/05-code-comment-hygiene.md` | Code comments: remove AI-slop comments, keep the valuable ones, never touch the code. Load only for code tasks |
 | `references/06a-ui-color-layout.md` | UI slop: color, decoration, layout, components |
 | `references/06b-ui-type-motion.md` | UI slop: typography, icons, motion |
-| `references/06c-ui-app-copy.md` | UI slop: app screens, UI copy, honesty, UI checklist. Load 06a-c only for interface tasks |
+| `references/06c-ui-app-copy.md` | UI slop: app screens, UI copy, honesty, UI checklist |
+| `references/06d-ui-direction.md` | UI direction: Design Read, product truth, art direction, real imagery, browser self-check. Load 06a-d only for interface tasks |
 
 Read a reference only when its phase is active.
 
