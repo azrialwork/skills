@@ -6,9 +6,11 @@
 
 # Research brief
 
+Fill rule: IF any field is empty THEN ask the user and WAIT. Research MUST NOT start until all fields are filled.
+
 ## The real question
 
-<as asked, then sharpened and confirmed>
+<as asked, then sharpened and confirmed; IF it is a lookup THEN stop and answer directly>
 
 ## The decision it informs
 

@@ -10,9 +10,11 @@
 
 # Branching models
 
-## The decision tree (evaluate in order; first match wins)
+## Selection algorithm
 
-Answer five questions about the project:
+INPUT: the five inputs below. OUTPUT: one of the four models.
+
+1. Answer the five inputs:
 
 | Input | Type | Meaning |
 |---|---|---|
@@ -22,6 +24,8 @@ Answer five questions about the project:
 | `continuous_deployment` | boolean | Every integration-branch commit is a candidate for immediate production release. |
 | `ci_maturity` | none / basic / mature | none: no CI. basic: CI exists but not on every push, or main is not kept green. mature: CI on every push to the integration branch, green-main discipline, feature flags available. |
 
+2. Evaluate in order; the first match wins:
+
 ```
 if parallel_versions:                                          -> GITFLOW
 elif staged_envs:                                              -> GITLAB_FLOW
@@ -30,9 +34,11 @@ elif continuous_deployment and ci_maturity == "mature":        -> TRUNK_BASED
 else:                                                          -> GITHUB_FLOW
 ```
 
-Default for a new project without special needs: GitHub Flow. It is the
-simplest model that still gives review and CI a place to live. Upgrade
-only when a concrete pain appears, never in anticipation of one.
+3. IF no row matched THEN select GITHUB_FLOW (the default for a new
+   project without special needs: the simplest model that still gives
+   review and CI a place to live).
+4. IF considering upgrading the model later THEN require a concrete
+   pain; NEVER upgrade in anticipation of one.
 
 ## GitFlow (Vincent Driessen, 2010; note of reflection added 2020-03-05)
 
@@ -45,21 +51,21 @@ Primary source: nvie.com/posts/a-successful-git-branching-model/
   `main` (tagged) and `develop`; `hotfix/*` branches from `main` and
   merges to both `main` (tagged) and `develop`.
 - **Naming:** feature branches may be anything except `main`, `develop`,
-  `release-*`, `hotfix-*`; release and hotfix branches use the
+  `release-*`, `hotfix-*`. Release and hotfix branches MUST use the
   `release-*` / `hotfix-*` prefixes.
-- **Key rule:** merge with `--no-ff` so every merge creates a commit
-  object. This records that the feature branch existed, groups the
-  commits that implemented the feature, and makes whole-feature reverts
-  possible. Fast-forwarding loses that information.
-- **Tagging:** Driessen tags releases with annotated tags and suggests
-  signing them (`-s`/`-u`).
+- **Key rule:** ALWAYS merge with `--no-ff` so every merge creates a
+  commit object. This records that the feature branch existed, groups
+  the commits that implemented the feature, and makes whole-feature
+  reverts possible. Fast-forwarding loses that information.
+- **Tagging:** tag releases with annotated tags; signing them
+  (`-s`/`-u`) is suggested by Driessen.
 - **Shines:** versioned software with multiple releases maintained in
-  parallel.
-- **Fails:** continuous delivery -- the ceremony slows every release.
+  parallel. **Fails:** continuous delivery -- the ceremony slows every
+  release.
 - **Status:** in 2020 Driessen wrote that the model had become dogma for
   some teams and recommended a simpler workflow (like GitHub Flow) for
-  teams doing continuous delivery. Use GitFlow only when parallel
-  maintained versions are a real requirement.
+  teams doing continuous delivery. IF the model choice is GitFlow THEN
+  the justification MUST be parallel maintained versions.
 
 ## GitHub Flow (Scott Chacon, 2011)
 
@@ -74,14 +80,14 @@ Primary source: scottchacon.com/2011/08/31/github-flow
   (4) open a pull request when you need feedback or the branch is ready;
   (5) merge after someone else reviews and signs off; (6) deploy
   immediately after merging.
-- **`main` is almost never rewound.** Problems are fixed by revert
-  commits or new commits, never by moving the branch backward. Pushing
-  something untested to `main` breaks the team's social contract.
-- **Resyncing:** if a long-running branch drifts from `main`, merging
-  `main` into the topic branch to catch up is explicitly acceptable in
+- **Main:** NEVER rewind `main`. Fix problems with revert commits or
+  new commits, never by moving the branch backward. Pushing something
+  untested to `main` breaks the team's social contract.
+- **Resyncing:** IF a long-running branch drifts from `main` THEN
+  merging `main` into the topic branch to catch up is acceptable in
   this flow.
-- **Shines:** small teams doing continuous delivery.
-- **Fails:** staged environments and parallel maintained versions.
+- **Shines:** small teams doing continuous delivery. **Fails:** staged
+  environments and parallel maintained versions.
 - **Note:** with disciplined short branches (hours to a day), GitHub
   Flow converges with trunk-based development. The models are closer
   than the debates suggest.
@@ -92,20 +98,22 @@ Primary source: GitLab's "Introduction to GitLab Flow"
 (docs.gitlab.com). Core rule: `main` is the single source of truth.
 Every change reaches `main` through a merge request from a short-lived
 feature branch. Deployments flow *out* of `main`, never back into it.
-Three documented variants:
+
+Three documented variants; pick exactly one per project:
 
 1. **Environment branches:** `main` -> `staging` -> `production`. Code
    moves downstream only, each hop via merge (or merge request). Fixes
-   land in `main` first, then flow down -- never patched directly into
+   land in `main` first, then flow down -- NEVER patched directly into
    `production`.
 2. **Release branches:** `release/*` sustains a version with patches
    while `main` moves on; merged back to `main` and deployed.
 3. **Main + tags:** tags on `main` trigger deployment (closest to
    GitHub Flow).
+
 - **Shines:** staged environments, regulated releases, batched deploys,
   manual QA gates, release trains -- continuous *delivery* as opposed
-  to continuous deployment.
-- **Fails:** adds branch bookkeeping a small team will not use.
+  to continuous deployment. **Fails:** adds branch bookkeeping a small
+  team will not use.
 
 ## Trunk-based development (Paul Hammant; trunkbaseddevelopment.com)
 

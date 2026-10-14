@@ -7,48 +7,20 @@
 
 # install.sh user experience
 
-## Progress feedback
+## Algorithm
 
-- **Download progress bar is the industry standard:** `curl -#fLo`
-  (mise) or `curl --progress-bar` (deno, flyctl). It is free, honest,
-  and works everywhere.
-- **Spinners are NOT the industry standard.** Top-tier installers use
-  per-step log lines plus curl's progress bar. A spinner is acceptable
-  only when TTY-gated with a plain-text fallback and `NO_COLOR` support;
-  never spin when output is piped.
-- **Per-step log lines:** nvm's `=>` lines, Homebrew's `ohai`/`warn`,
-  mise's `info()`/`warn()` to stderr. One line per step; silent steps
-  look hung.
-- Env-var knobs: `MISE_QUIET=1` silences info, `MISE_DEBUG=1` enables
-  debug lines.
+INPUT: the installer script's user-facing output.
 
-## Colors
+1. **Progress feedback.** Use `curl -#fLo` (mise) or `curl --progress-bar` (deno, flyctl) for downloads -- it is the industry standard: free, honest, works everywhere. Print one log line per step (`=>` lines like nvm, `ohai`/`warn` like Homebrew, `info()`/`warn()` to stderr like mise); a silent step looks hung. IF a spinner is used THEN it MUST be TTY-gated with a plain-text fallback and `NO_COLOR` support; NEVER spin when output is piped. Support `MISE_QUIET=1` (silence info) and `MISE_DEBUG=1` (debug lines).
+2. **Colors.** IF colors are emitted THEN gate them on `[ -t 2 ]` and `$TERM` (rustup pattern) AND respect `NO_COLOR`. NEVER emit color codes into pipes or log files.
+3. **PATH handling.** NEVER blind-edit rc files. Select the first applicable method, in this order:
+   1. IF the user can act THEN print "Next steps" and stop (Homebrew prints `eval "$(.../brew shellenv)"` per detected shell).
+   2. ELSE IF drop-in dirs exist THEN write `~/.bashrc.d/` / `~/.zshrc.d/` files (flyctl): ask first via `/dev/tty`; IF non-interactive THEN print manual steps instead.
+   3. ELSE IF an env-file fits THEN write `$HOME/.local/bin/env` and tell the user to source it from their rc file (uv pattern).
+   4. ELSE append to the rc file directly ONLY with grep-before-append idempotency (nvm) AND an opt-out (`PROFILE=/dev/null`).
+4. **Messages.** On success, print `"tool: installed successfully to $install_path"` PLUS the exact next command to run (flyctl: "Run 'flyctl --help' to get started"). On failure, state what failed, what was tried, and the next step (flyctl prints `%{http_code} %{url_effective}` on download failure). EVERY error MUST exit nonzero with the failing step named.
 
-- Gate colors on `[ -t 2 ]` and `$TERM` (rustup); respect `NO_COLOR`.
-- Never emit color codes into pipes or log files.
-
-## PATH handling (never blind-edit rc files)
-
-Ranked from best to worst, per the dissections:
-
-1. **Print "Next steps"** and let the user act (Homebrew: prints
-   `eval "$(.../brew shellenv)"` per detected shell).
-2. **Drop-in files** in `~/.bashrc.d/` / `~/.zshrc.d/` (flyctl) -- asks
-   first via `/dev/tty`, prints manual steps when non-interactive.
-3. **Env-file pattern:** write `$HOME/.local/bin/env`, tell the user to
-   source it from their rc file (uv).
-4. Direct rc-file append -- only with grep-before-append idempotency
-   (nvm) and an opt-out (`PROFILE=/dev/null`).
-
-## Messages
-
-- Success: `"tool: installed successfully to $install_path"` + the exact
-  next command to run (flyctl: "Run 'flyctl --help' to get started").
-- Failure: state what failed, what was tried, and the next step
-  (flyctl prints `%{http_code} %{url_effective}` on download failure).
-- Every error exits nonzero with the failing step named.
-
-## Anti-patterns
+## FLAG on sight (FAIL)
 
 - Editing `~/.bashrc` blindly with no idempotency check.
 - Spinner or colors when piped / non-tty.

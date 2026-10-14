@@ -7,36 +7,19 @@
 
 # install.sh testing
 
-## Static analysis (the professional floor)
+## Algorithm
 
-- **shellcheck** on every installer script, enforced in CI. Ship a
-  `.shellcheckrc` (mise does) and add `# shellcheck shell=dash`
-  directives where the dialect matters.
-- **shfmt** for formatting (`shfmt -d` zero-diff check in CI).
-- `sh -n script.sh` syntax check as the cheapest gate.
+INPUT: the installer script and its CI workflow.
 
-## Runtime testing
+1. **Static analysis (the professional floor).** Run ALL three; IF any fails THEN the PR is blocked:
+   - `shellcheck install.sh` exit 0 (ship a `.shellcheckrc`; add `# shellcheck shell=dash` directives where the dialect matters).
+   - `shfmt -d install.sh` zero diff.
+   - `sh -n install.sh` syntax check (the cheapest gate).
+2. **Runtime tests.** Write bats (or shunit2) tests covering: platform detection, checksum verification with a GOOD checksum, checksum verification with a BAD checksum (MUST fail), and an idempotent re-run. IF a test covers only the happy path THEN add the failure cases.
+3. **Distro matrix.** Run the installer on docker containers for ubuntu, debian, alpine, and fedora at minimum. IF Android is a target THEN add a Termux-ish check (busybox `tar` and `mksh`-derived `sh` behave differently). The installer MUST succeed end to end on every matrix entry.
+4. **CI shape.** Every PR runs: shellcheck, `shfmt -d`, `sh -n`, bats. A matrix job runs `docker run <distro> ./install.sh && tool --version`. mise's pattern (jdx/mise#10882): the installer is generated from a template and shellcheck-tested AFTER rendering.
 
-- **bats** (or shunit2) for installer logic: platform detection,
-  checksum verification (good and bad checksums), idempotent re-runs.
-- **Docker distro matrix:** run the installer on ubuntu, debian, alpine,
-  and fedora containers at minimum; add a Termux-ish check when Android
-  is a target (busybox `tar` and `mksh`-derived `sh` behave differently).
-- mise shellcheck-tests its install.sh in CI (jdx/mise#10882 pattern):
-  the installer is generated from a template and tested after rendering.
-
-## CI shape
-
-```yaml
-# every PR: lint + format + smoke test
-- shellcheck install.sh
-- shfmt -d install.sh
-- sh -n install.sh
-- bats tests/install.bats
-# matrix job: docker run <distro> ./install.sh && tool --version
-```
-
-## Anti-patterns
+## FLAG on sight (FAIL)
 
 - Shipping an installer that was only ever run on the author's machine.
 - Testing only the happy path (no bad-checksum, no retry, no re-run).

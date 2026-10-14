@@ -11,11 +11,17 @@
 
 # Workflow maturity scoring (0-100)
 
-A fully disciplined repo scores exactly 100. Nothing the skill teaches
-is left unscored: each practice below maps to one checkable item, either
-a machine probe (exact command given) or an explicit human attestation
-(marked HUMAN). Items that cannot be automated are labeled as such
-instead of being silently omitted.
+Scoring procedure:
+
+1. Run Step 0, then score every item in Step 1.
+2. Continue with `05b-maturity-scoring-interpretation.md` (Steps 2-4:
+   renormalize N/A items, apply edge cases, combine per the
+   pseudocode) before reporting.
+
+Every practice below maps to one checkable item: a machine probe
+(exact command given) or an explicit human attestation (marked HUMAN).
+Items that cannot be automated are labeled as such -- nothing is
+silently omitted. A fully disciplined repo scores exactly 100.
 
 ## Band legend
 
@@ -30,11 +36,12 @@ Bands are tunable. The 100-point arithmetic is the stable part.
 
 ## Step 0 - Select the model
 
-Use the decision tree in `references/01-branching-models.md` (five
+Run the decision tree in `references/01-branching-models.md` (five
 inputs: `parallel_versions`, `staged_envs`, `team_size`,
 `continuous_deployment`, `ci_maturity`). Every item below is scored
 against the chosen model's parameters (branch lifetimes, merge method,
-integration branches).
+integration branches). IF no model was selected THEN STOP -- the
+rubric has no baseline.
 
 ## Step 1 - Score the six categories
 

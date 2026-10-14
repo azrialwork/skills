@@ -13,6 +13,14 @@ Part B of the marker catalog: structural markers, substance markers, the
 one-line test, and empirical grounding. Part A
 (`01a-slop-markers-lexical.md`) covers the lexical markers.
 
+## Detection algorithm
+
+INPUT: the draft text.
+
+1. Run the structural checks in order; record each finding with marker name and Rule ID.
+2. IF the Rule ID is an H-rule THEN FAIL immediately.
+3. ELSE apply the marker's THEN line. One-line test and empirical grounding below are judge inputs, not auto-fails.
+
 ## Structural markers
 
 ### Bullet-list everything
@@ -21,14 +29,14 @@ one-line test, and empirical grounding. Part A
 - **Why it reads as AI:** bullets hide thin content behind structure.
 - **Before:** five bullets restating "it is fast" five ways.
 - **After:** "It runs in 400ms." (Or real parallel items as bullets.)
+- **THEN:** IF the items are genuinely parallel THEN keep the list; ELSE rewrite as prose.
 - **Rule:** P-01.
 
 ### Bold spam
 
 - **Pattern:** every other phrase wrapped in `**bold**`.
 - **Why it reads as AI:** when everything is emphasized, nothing is.
-- **Fix:** at most one bolded phrase per paragraph -- the thing the
-  reader must not miss.
+- **THEN:** keep at most one bolded phrase per paragraph -- the single thing the reader must not miss; cut the rest.
 - **Rule:** P-02.
 
 ### Chatbot closers and fake-candid openers
@@ -36,7 +44,7 @@ one-line test, and empirical grounding. Part A
 - **Pattern:** "Hope this helps!", "Let me know if you need anything
   else!", "Honestly,", "To be real with you,".
 - **Why it reads as AI:** canned warmth and performed candor.
-- **Fix:** end when the content ends. Cut the closer.
+- **THEN:** end when the content ends; cut the closer.
 - **Rule:** Q-03, H-03.
 
 ### Template skeletons
@@ -44,7 +52,7 @@ one-line test, and empirical grounding. Part A
 - **Pattern:** identical section shapes repeated mechanically -- every
   section opens the same way, lists three bullets, closes the same way.
 - **Why it reads as AI:** the shape was templated, not written.
-- **Fix:** break the pattern deliberately.
+- **THEN:** break the pattern deliberately until no two sections share the same shape.
 - **Rule:** Q-02.
 
 ## Substance markers (what scanners cannot see)
@@ -54,39 +62,39 @@ one-line test, and empirical grounding. Part A
 - **Pattern:** precise numbers, names, or quotes with no source.
 - **Why it reads as AI:** precision without provenance is the most
   dangerous slop -- it looks verified and is not.
-- **Rule:** H-01. Empty is better than deceptive: no numbers at all
-  beats invented numbers.
+- **THEN:** IF no real source exists THEN remove the numbers entirely; empty beats deceptive.
+- **Rule:** H-01.
 
 ### Verbose nothing-burgers
 
 - **Pattern:** long passages that survive deletion without loss.
-- **Test:** delete the sentence. If nothing is lost, it was slop.
+- **THEN:** delete the sentence; IF nothing is lost THEN it was slop -- keep it deleted.
 - **Rule:** Q-01.
 
 ### Repetition in disguise
 
 - **Pattern:** the same point reworded across three paragraphs.
-- **Fix:** say it once, in the sharpest form. Cut the other two.
+- **THEN:** say it once, in the sharpest form; cut the other two.
 - **Rule:** Q-01.
 
 ## The one-line test
 
-Read the passage aloud. If it sounds like a press release, a LinkedIn
-influencer, or a model completing a prompt -- it is slop. Rewrite it
+Read the passage aloud. IF it sounds like a press release, a LinkedIn
+influencer, or a model completing a prompt THEN it is slop: rewrite it
 until it sounds like a competent human who knows the subject.
 
 ## Empirical grounding (why these markers, and their limits)
 
-The marker list above is not folk wisdom. Kobak et al., "Delving into
+The marker list is not folk wisdom. Kobak et al., "Delving into
 LLM-assisted writing in biomedical publications through excess
 vocabulary", *Science Advances* 11, eadt3813 (2025), analyzed 15M+
 PubMed abstracts (2010-2024) with an excess-word method: words whose
 frequency jumped abruptly after ChatGPT's release, beyond their
 pre-2023 trend. They estimate at least 13.5% of 2024 abstracts were
-processed with LLMs (up to 40% in some subcorpora), and the excess
-shifted from content nouns to style words -- verbs and adjectives like
-*delve, showcase, pivotal, underscore, meticulous, intricate*. A 2026
-follow-up confirmed the markers persisted into 2025 full texts.
+processed with LLMs (up to 40% in some subcorpora); the excess shifted
+from content nouns to style words -- *delve, showcase, pivotal,
+underscore, meticulous, intricate*. A 2026 follow-up confirmed the
+markers persisted into 2025 full texts.
 
 Limits you must respect (current as of 2026-10-13):
 
@@ -100,10 +108,9 @@ Limits you must respect (current as of 2026-10-13):
   4(7):100779 (2023), found seven widely-used detectors misclassified
   an average of 61.2% of TOEFL essays by non-native writers as
   AI-generated (97.8% flagged by at least one detector), versus ~5% on
-  native-speaker essays -- careful, constrained writing trips the same
-  statistical signals. Independent 2026 evaluations continue to show
+  native-speaker essays. Independent 2026 evaluations continue to show
   large vendor-vs-independent accuracy gaps and near-zero reliability
   against lightly humanized text.
-- **Never accuse on statistics alone.** This skill scores *your own
+- **NEVER accuse on statistics alone.** This skill scores *your own
   draft* against its rules. It is not a detector for other people's
   writing, and its score is a rubric -- not proof of authorship.

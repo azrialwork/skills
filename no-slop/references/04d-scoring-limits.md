@@ -51,5 +51,5 @@ LLM-judge; the script will never do them:
   lightly humanized text. Treat every external detector number as
   contested.
 - **This score is a rubric for your own draft, not a detector for other
-  people's writing and not proof of authorship.** Never accuse on
+  people's writing and not proof of authorship.** NEVER accuse on
   statistics alone.

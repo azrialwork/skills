@@ -57,14 +57,15 @@ These hold for any tool claiming Conventional Commits compliance:
 `scripts/commit-lint.sh` adds house rules the spec does not require.
 They narrow the spec; they do not conflict with it:
 
-- Type must be one of the 11 known types above, lowercase.
-- Description starts lowercase, never ends with a period, max 72 chars.
-- Scope, when present, must be non-empty.
-- Body lines wrap at 72 chars.
+- Type MUST be one of the 11 known types above, lowercase.
+- Description MUST start lowercase, MUST NOT end with a period, and
+  MUST be at most 72 chars.
+- Scope, when present, MUST be non-empty.
+- Body lines MUST wrap at 72 chars.
 - `!` without a `BREAKING CHANGE` footer anywhere in the message is a
   warning (not a failure).
 
-A commit is "conventional" for this skill iff `commit-lint.sh` exits 0.
+A commit is "conventional" for this skill IFF `commit-lint.sh` exits 0.
 
 ## SemVer mapping (the point of the types; defined inline)
 
@@ -74,28 +75,27 @@ A commit is "conventional" for this skill iff `commit-lint.sh` exits 0.
   MAJOR bump.
 - Any other type without a breaking change -> no version change.
 
-With tooling (semantic-release, release-please), the next version is
-derived purely from commit types since the last tag. No human picks the
-number. The computable rule: scan commits since the last tag; any
-breaking change -> MAJOR; else any `feat` -> MINOR; else any `fix` ->
-PATCH; else no release.
+Computable rule: scan commits since the last tag; IF any breaking
+change THEN MAJOR; ELSE IF any `feat` THEN MINOR; ELSE IF any `fix`
+THEN PATCH; ELSE no release. With tooling (semantic-release,
+release-please), the next version is derived purely from commit types
+since the last tag. No human picks the number.
 
 ## Spec FAQ notes (load-bearing for the workflow)
 
-- **Squash workflows:** when maintainers squash-merge, they may clean up
-  the commit message at merge time -- casual contributors are not
-  required to write perfect messages on every branch commit. Consequence:
-  in squash-merge repos, lint the PR title / squash message, not the
-  branch commits.
-- **Reverts:** the spec defines no revert semantics; the recommendation
-  is the `revert` type plus a footer referencing the reverted SHAs,
+- **Squash workflows:** IF the repo uses squash-merge THEN lint the PR
+  title / squash message, NOT the branch commits. Maintainers may clean
+  up the commit message at merge time -- casual contributors are not
+  required to write perfect messages on every branch commit.
+- **Reverts:** the spec defines no revert semantics. IF reverting THEN
+  use the `revert` type plus a footer referencing the reverted SHAs,
   e.g. `Refs: 676104e, a215868`.
 
 ## Working-loop hygiene
 
-- **Never commit on a dirty main.** Sync before starting work:
-  `git pull --rebase` (or fetch, then rebase onto the integration
-  branch). Push promptly after the commit lands.
+- IF main is dirty THEN sync BEFORE starting work: `git pull --rebase`
+  (or fetch, then rebase onto the integration branch). NEVER commit on
+  a dirty main. ALWAYS push promptly after the commit lands.
 - A commit message is a contract with future readers: vague subjects
   (`fix bug`, `update`, `WIP`) are rejected by the linter for a reason.
 

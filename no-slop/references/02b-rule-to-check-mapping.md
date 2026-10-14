@@ -13,9 +13,9 @@ algorithm. The rules themselves are part A (`02a-anti-slop-rules.md`).
 
 ## Rule-to-check mapping (for the 0-100 algorithm)
 
-Every rule below maps to exactly one check: a **mechanical probe**
-(exact regex, count, or density formula with threshold) or an explicit
-**judge input** (human or LLM-judge rubric -- never silently omitted).
+Reading rule: every rule below maps to exactly one check. Run the check;
+IF it is a mechanical probe THEN apply the formula; IF it is a judge
+input THEN supply the named input -- never silently omit it.
 Full algorithm: `references/04a-scoring-algorithm.md`.
 
 ### Hard Gate -- mechanical probes + required attestations

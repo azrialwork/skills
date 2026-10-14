@@ -7,13 +7,18 @@
 # SOON items are reported as INFO only.
 #
 # This script covers the fast, fully-automated subset of
-# references/15a-scoring-algorithm.md:
-#   I1, I2, I3, I5, I6 (installer), R1, R2, R4, R5 (repo layout),
-#   V3 (tag/changelog consistency), L2 (SPDX identifier),
-#   C2, C3, C4 (CI/CD hardening).
-# Items needing human judgment (I4 fail-closed trace, I7, R3, V1, V2,
-# V4-V6, L1, L3, L4, P1-P3, C1, C5, S1-S5) are rubric inputs -- see the
-# algorithm reference. A fully compliant repo scores 100 there.
+# references/15a-scoring-algorithm.md as NOW checks:
+#   I1, I2, I3, I4-presence (installer: strict mode, no bashisms,
+#   TLS hardening, SHA256 checksum present -- fail-closed tracing is
+#   a human rubric, see below), R1, R2, R4 (required files, no
+#   binaries, workflows dir), V3 (tag/changelog consistency),
+#   L2 (SPDX identifier), C2, C3, C4 (CI/CD hardening).
+# SOON items (CONTRIBUTING, CoC, dependabot, CODEOWNERS, shellcheckrc,
+# editorconfig, scorecard workflow) are reported as INFO only.
+# Items needing human judgment (I4 fail-closed trace, I6, I7, I8, R3,
+# R5, R6, V1, V2, V4, V5, V6, L1, L3, L4, P1, P2, P3, C1, C5, S1-S5)
+# are rubric inputs -- see the algorithm reference. A fully compliant
+# repo scores 100 there.
 set -eu
 
 dir=${1:?usage: repo-audit.sh <repo-dir>}

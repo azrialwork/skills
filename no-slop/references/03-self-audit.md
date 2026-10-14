@@ -7,8 +7,12 @@
 
 # Self-audit and Delivery Gate
 
-Run the scanner first (`scripts/slop-scan.sh`). Then walk this audit.
-Nothing ships until every block passes.
+INPUT: the draft text, after `scripts/slop-scan.sh` has run.
+
+1. Walk Blocks 1-4 in order. Every checkbox is a PASS/FAIL gate.
+2. IF any Block 1 item fails THEN verdict = FAIL: fix it, no exceptions, then restart at Block 1.
+3. IF any Block 2-4 item fails THEN fix it and re-walk from Block 1 (fixes often smuggle in new unverified claims).
+4. Ship only when all four blocks pass.
 
 ## Block 1 -- Hard Gate (absolute)
 
@@ -60,9 +64,7 @@ must be added, not assumed. A sterile result is a failure to fix.
 
 ## Sign-off
 
-Ship only when all four blocks pass. If a block cannot be satisfied
-honestly, say so in the text rather than faking it. A fix that adds
-new unverified claims restarts the audit at Block 1.
+IF all four blocks pass THEN ship. IF a block cannot be satisfied honestly THEN say so in the text rather than faking it. IF a fix adds new unverified claims THEN restart the audit at Block 1.
 
 ## Scoring the audit (0-100)
 

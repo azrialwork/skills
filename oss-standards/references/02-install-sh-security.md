@@ -7,28 +7,17 @@
 
 # install.sh security
 
-## The standard
+## Algorithm
 
-1. **Verify the PAYLOAD, not just the transport.** HTTPS only proves who
-   you talked to; a checksum proves what you downloaded.
-   - **SHA256SUMS (fail-closed):** the single highest-value security line.
-     Publish `SHA256SUMS` next to the tarball; the installer downloads it
-     and verifies before extracting. mise embeds the SHA256 for the pinned
-     release and fetches `SHASUMS256.txt` for others; uv runs
-     `verify_checksum` when the checksum is known and honestly reports
-     "no checksums to verify" when it is not.
-   - **Signatures (authenticity):** minisign (`SHASUMS256.txt.minisig`,
-     shipped by mise) or GPG (`.asc`). Keyless: Sigstore/cosign
-     (see `10-supply-chain-security.md`).
-2. **TLS hardening on every curl call:**
-   `curl --proto '=https' --tlsv1.2 -fsSL` (rustup, mise pattern).
-3. **Partial-download guard:** nvm wraps the whole script in `{ }` so a
-   truncated pipe never executes half a script.
-4. **Frame the trust ask honestly.** oh-my-zsh documents "Manual
-   Inspection": download the script, read it, then run it. mise's docs
-   state exactly what is verified (SHA256SUMS + key location).
-5. **Never `curl | sudo bash`.** Install to user-writable locations
-   (`$PREFIX`, `~/.local/bin`) instead of demanding root.
+INPUT: the installer script plus the release assets it downloads.
+
+1. **Verify the PAYLOAD, not just the transport.** HTTPS proves who you talked to; a checksum proves what you downloaded.
+2. **Integrity (mandatory).** The installer MUST download `SHA256SUMS` published next to the tarball and verify before extracting. IF verification fails OR the checksum file is missing THEN exit nonzero (fail-closed). This is the single highest-value security line.
+3. **Authenticity.** IF the project has users THEN add signatures: minisign (`SHASUMS256.txt.minisig`, shipped by mise) or GPG (`.asc`); keyless via Sigstore/cosign (see `10-supply-chain-security.md`). Integrity without authenticity is the professional floor; signatures are the SOON item.
+4. **TLS hardening.** EVERY curl call MUST use `curl --proto '=https' --tlsv1.2 -fsSL` (rustup, mise pattern).
+5. **Partial-download guard.** Wrap the whole script in `{ }` (nvm pattern) so a truncated pipe never executes half a script.
+6. **Frame the trust ask honestly.** Document the "Manual Inspection" alternative (download, read, run -- oh-my-zsh pattern). State exactly what is verified and where the key lives (mise pattern).
+7. **Privilege.** NEVER `curl | sudo bash`. Install to user-writable locations (`$PREFIX`, `~/.local/bin`) instead of demanding root.
 
 ## Verification matrix
 
@@ -38,12 +27,8 @@
 | Integrity | SHA256SUMS verified fail-closed | Corrupt/compromised mirror |
 | Authenticity | minisign / GPG / Sigstore | Compromised release pipeline |
 
-Integrity without authenticity is the common professional floor; add
-signatures as soon as the project has users (roadmap SOON item).
-
-## Anti-patterns
+## FLAG on sight (FAIL)
 
 - No checksum anywhere; "the CDN is trustworthy" as a security argument.
 - Piping an installer into a root shell, or any sudo requirement for a user-space tool.
-- Verifying with a checksum fetched over the same channel with no
-  signature (better than nothing, but say so honestly).
+- Checksum fetched over the same channel with no signature and no honest disclosure (better than nothing, but say so).

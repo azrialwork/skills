@@ -5,9 +5,10 @@
 
 # Discovery: Where Skills Are Found
 
-## Discovery locations
+## Install-location algorithm
 
-Per the official OpenCode docs (opencode.ai/docs/skills):
+INPUT: who the skill serves. Per the official OpenCode docs
+(opencode.ai/docs/skills):
 
 | # | Location | Scope |
 |---|---|---|
@@ -18,9 +19,11 @@ Per the official OpenCode docs (opencode.ai/docs/skills):
 | 5 | `.agents/skills/<name>/SKILL.md` | Project, agent-compatible (walk-up) |
 | 6 | `~/.agents/skills/<name>/SKILL.md` | Global |
 
-Because locations 3-6 are shared with Claude Code and other spec adopters, one
-skill install serves multiple agents. Put personal skills in `~/.config/opencode/skills/`
-or `~/.claude/skills/`; put project skills in the project's `.opencode/skills/`.
+Selection rules:
+
+- IF the skill is personal THEN install to `~/.config/opencode/skills/` or `~/.claude/skills/`.
+- ELSE IF the skill belongs to a project THEN install to that project's `.opencode/skills/`.
+- Locations 3-6 are shared with Claude Code and other spec adopters: one skill install serves multiple agents.
 
 ## Config-driven sources (`opencode.json`)
 
@@ -39,18 +42,12 @@ and cached under `~/.cache/opencode/skills/<name>/` with atomic updates
 
 OpenCode also ships one **built-in skill**, `customize-opencode` (location
 `"<built-in>"`), restricted to editing OpenCode's own config/agents/skills/
-plugins/MCP/permissions. A user skill with the same name overrides it. Plugins
-can register skills through the plugin API as well.
+plugins/MCP/permissions. IF a user skill has the same name THEN the user skill
+overrides it. Plugins can register skills through the plugin API as well.
 
-## Precedence and caching
+## Precedence, caching, and diagnostics algorithm
 
-- **Duplicate names:** a warning is logged and the **later-scanned copy wins**.
-  Do not rely on shadowing order -- keep skill names unique across all locations.
-- **Startup scan:** discovery (glob + frontmatter parse of name/description) runs
-  once at startup and is **cached per instance**. Restart OpenCode after
-  adding, renaming, or changing skills.
-- **Kill switches:** `OPENCODE_DISABLE_EXTERNAL_SKILLS=1` drops the `.agents`
-  compat dirs; `OPENCODE_DISABLE_CLAUDE_CODE_SKILLS=1` (or
-  `OPENCODE_DISABLE_CLAUDE_CODE`) drops the `.claude` dirs.
-- **Diagnostic:** `opencode debug skill` prints the parsed skills actually loaded
-  (community-verified; useful when a skill does not appear).
+1. **Duplicate names.** IF two locations contain the same skill name THEN a warning is logged and the **later-scanned copy wins**. NEVER rely on shadowing order -- keep skill names unique across all locations.
+2. **Startup scan.** Discovery (glob + frontmatter parse of name/description) runs once at startup and is cached per instance. IF you add, rename, or change a skill THEN restart OpenCode.
+3. **Kill switches.** IF `OPENCODE_DISABLE_EXTERNAL_SKILLS=1` THEN the `.agents` compat dirs are dropped. IF `OPENCODE_DISABLE_CLAUDE_CODE_SKILLS=1` (or `OPENCODE_DISABLE_CLAUDE_CODE`) THEN the `.claude` dirs are dropped.
+4. **Diagnostic.** IF a skill does not appear THEN run `opencode debug skill`: it prints the parsed skills actually loaded (community-verified).

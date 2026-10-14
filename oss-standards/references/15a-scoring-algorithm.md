@@ -21,16 +21,15 @@
 | 40-69 | Berkembang (developing) | Usable but visibly incomplete |
 | 0-39 | Kritis (critical) | Foundational trust missing; do not promote yet |
 
-Bands are tunable; the NOW-gate below is not.
+Bands are tunable: adjust the legend to the repo. The NOW-gate (procedure step 4) is NOT tunable -- it always applies.
 
 ## Inputs
 
+INPUT: the repository under audit.
+
 1. Repository directory (or `owner/repo`) + default branch.
-2. Tool outputs: `shellcheck`, `shfmt -d`, `sh -n`, `bats`, `reuse lint`,
-   `git`/`gh` data (tags, releases + asset lists, workflows,
-   advisories), one OpenSSF Scorecard v5.5.0 run.
-3. Human-rubric answers for items marked `[rubric]` (each has a fixed
-   0-k scale; no free-form partial credit).
+2. Tool outputs: `shellcheck`, `shfmt -d`, `sh -n`, `bats`, `reuse lint`, `git`/`gh` data (tags, releases + asset lists, workflows, advisories), one OpenSSF Scorecard v5.5.0 run.
+3. Human-rubric answers for items marked `[rubric]`: score 0-k per the stated scale; no free-form partial credit. IF an item has no fixed scale THEN it cannot be a `[rubric]` item -- FAIL the rubric design.
 
 ## Procedure
 

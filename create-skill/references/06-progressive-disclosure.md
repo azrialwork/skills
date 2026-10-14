@@ -10,30 +10,18 @@ happens in three stages, and each stage has a token budget you must respect.
 
 ## The three stages
 
-1. **Metadata (~100 tokens per skill).** At startup, only `name` + `description`
-   are loaded for every discovered skill, embedded as an
-   `<available_skills>` block. Token cost scales linearly: ~15 skills with
-   max-length descriptions ~= 1.5k tokens. Keep descriptions tight and bounded
-   (<=1024 chars) -- this is the shared budget all your skills draw from.
-2. **Instructions (<5000 tokens recommended).** The full `SKILL.md` body loads
-   only when the agent calls `skill({name})`, and arrives as a tool result.
-   This is why the body must stay under ~500 lines: every line is paid on
-   every activation.
-3. **Resources (as needed).** `scripts/`, `references/`, and `assets/` are
-   read or executed only when the skill's instructions call for them -- never
-   preloaded.
+| Stage | What loads | Budget | Trigger |
+|---|---|---|---|
+| 1. Metadata | `name` + `description` for every discovered skill, as an `<available_skills>` block | ~100 tokens/skill; ~15 max-length skills ~= 1.5k tokens. Keep descriptions <= 1024 chars -- this is the shared budget all skills draw from. | Startup |
+| 2. Instructions | Full `SKILL.md` body, as a tool result | < 5000 tokens recommended: every body line is paid on every activation | Agent calls `skill({name})` |
+| 3. Resources | `scripts/`, `references/`, `assets/` | As needed: pay per file opened or executed | Skill instructions call for them -- NEVER preloaded |
 
-## Consequences for authors
+## Authoring algorithm (respect the budgets)
 
-- The body is the *working* document, not the encyclopedia. If a section is
-  only needed for rare edge cases, move it to `references/` and point at it.
-- `references/` files should each cover one topic and stay small: when the agent
-  opens one, it pays for the whole file.
-- Scripts are the cheapest form of knowledge: they execute deterministically
-  without loading their code into context at all. Prefer `scripts/` over prose
-  for anything repeatable and exact (parsing, validating, converting).
-- `opencode/autoinvoke: "false"` (metadata) keeps a rarely-needed or
-  sensitive skill out of the model's selection surface without unloading it --
-  use it to protect the stage-1 budget and to gate risky skills.
-- Never duplicate content between SKILL.md and `references/`: duplication is
-  paid twice and drifts.
+INPUT: the draft skill content. Run every rule; ANY violation means restructure.
+
+1. IF a section is needed only for rare edge cases THEN move it to `references/` and point at it. The body is the *working* document, not the encyclopedia.
+2. IF a reference file covers more than one topic THEN split it by topic. When the agent opens a file, it pays for the whole file.
+3. IF logic is repeatable and exact (parsing, validating, converting) THEN implement it in `scripts/`, NEVER as prose. Scripts execute deterministically without loading their code into context at all -- the cheapest knowledge form.
+4. IF a skill is rarely needed or sensitive THEN set `metadata: {"opencode/autoinvoke": "false"}`: keeps it out of the stage-1 selection surface without unloading it. This protects the shared budget and gates risky skills.
+5. NEVER duplicate content between SKILL.md and `references/`: duplication is paid twice and drifts.

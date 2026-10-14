@@ -74,7 +74,7 @@ while IFS= read -r pat || [ -n "$pat" ]; do
         continue
     fi
     # shellcheck disable=SC2086
-    matches=$(grep -inF $wopt "$pat" "$file" || true)
+    matches=$(grep -inF $wopt -- "$pat" "$file" || true)
     [ -n "$matches" ] || continue
     n=$(printf '%s\n' "$matches" | wc -l)
     lines=$(printf '%s\n' "$matches" | cut -d: -f1 | tr '\n' ',' | sed 's/,$//')

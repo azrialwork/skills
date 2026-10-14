@@ -7,25 +7,33 @@
   Companion: 05a-maturity-scoring-rubric.md (Steps 0-1: the rubric).
   Read after scoring, before reporting.
 -->
+
 # Maturity scoring - interpretation (Steps 2-4)
 
-Continuation of `05a-maturity-scoring-rubric.md`: apply the rubric first, then renormalize, handle edge cases, and combine per the pseudocode before reporting.
+INPUT: the per-item scores from `05a-maturity-scoring-rubric.md`
+(Steps 0-1). OUTPUT: the final score, band, and an auditable report.
+
+Run Step 2, then Step 3, then Step 4, in order. Read this file after
+scoring, before reporting.
+
 ## Step 2 - Renormalize N/A items
 
-Any item whose precondition does not exist is marked N/A and excluded
-from both numerator and denominator:
+Rule: any item whose precondition does not exist is marked N/A and
+excluded from BOTH numerator and denominator. Evaluate each:
 
-- Solo-dev repos: 3.3 (required approvals) and 3.6 (CODEOWNERS) are N/A.
-- Solo direct-to-main trunk-based: PR-gated items 3.1-3.5 and 3.7-3.8 are
-  N/A (there are no PRs); 2.2 is satisfied by the `commit-msg` hook.
-- Repos with no releases yet: all of Category 5 is N/A.
-- Non-GitHub hosts: use the GitLab mappings in the table (protected
-  branches, MR approval rules, project merge-method setting, MR changes
-  API, GitLab Releases).
+- IF the repo is solo-dev THEN mark 3.3 (required approvals) and 3.6
+  (CODEOWNERS) as N/A.
+- IF the repo is solo direct-to-main trunk-based THEN mark 3.1-3.5 and
+  3.7-3.8 as N/A (there are no PRs); 2.2 is satisfied by the
+  `commit-msg` hook.
+- IF the repo has no releases yet THEN mark all of Category 5 as N/A.
+- IF the host is not GitHub THEN use the GitLab mappings in the
+  rubric table (protected branches, MR approval rules, project
+  merge-method setting, MR changes API, GitLab Releases).
 
 Final score: `100 x earned_points / applicable_points`, rounded to the
-nearest integer. List every N/A item in the report so the score stays
-auditable.
+nearest integer. ALWAYS list every N/A item in the report -- the list
+is what keeps the score auditable.
 
 ## Step 3 - Edge cases (encoded, not footnoted)
 
@@ -40,7 +48,8 @@ auditable.
    preserves feature boundaries per Driessen); 1.4 expects `develop` to
    exist.
 4. **Vague-subject false positives:** 2.3's probe is intentionally narrow
-   (exact known-vague subjects). A human may override a flag with a reason.
+   (exact known-vague subjects). A human MAY override a flag with a
+   stated reason.
 
 ## Step 4 - Pseudocode
 
@@ -60,12 +69,20 @@ report(score, band, per-item evidence, N/A list)
 
 ## What remains human-judged (stated openly)
 
-- 1.1 (the documented *rationale* for the model choice), 2.4 (no silent
-  breaking change), 2.5 (sync habit), 3.6 (CODEOWNERS currency), 4.1
-  (strategy rationale), 5.5 (tag immutability): these are attestations,
-  because they describe team behavior and intent, not repo state. The
-  algorithm treats an attestation as a checkable input (a named person
-  confirms it), never as an assumption.
-- Tone of release notes, quality of review comments, and whether a
-  chosen model still fits a changed team: judgment calls outside the
-  100 points, surfaced as review notes, not scored.
+The following are attestations, because they describe team behavior
+and intent, not repo state. The algorithm treats each attestation as a
+checkable input: a named person confirms it. NEVER treat an
+attestation as an assumption.
+
+| Item | What the person confirms |
+|---|---|
+| 1.1 | The documented rationale for the model choice exists and is sound. |
+| 2.4 | No silent breaking changes in the window. |
+| 2.5 | Contributors sync before starting work and never start on a dirty main. |
+| 3.6 | CODEOWNERS entries map to active contributors. |
+| 4.1 | The merge-strategy rationale is documented and sound. |
+| 5.5 | Release tags are never moved, deleted, or recreated. |
+
+Out of scope for the 100 points (surface as review notes, never
+scored): tone of release notes, quality of review comments, whether a
+chosen model still fits a changed team.

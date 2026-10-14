@@ -16,36 +16,29 @@ Skills are cheap extensibility: at startup the model sees only each skill's
 `name` + `description` (~100 tokens per skill). The full body loads only when
 the agent calls the `skill` tool. See `06-progressive-disclosure.md`.
 
-## Skill vs neighboring mechanisms
+## Mechanism selection algorithm
 
-| Mechanism | What it is | Who invokes it | Where it lives |
+INPUT: the capability you want to add.
+
+| IF you need... | THEN build... | Invoked by | Lives in |
 |---|---|---|---|
-| **Skill** (`SKILL.md`) | Instruction package loaded into context on demand | **Agent decides**, via the `skill` tool | skill directories (see `04-discovery.md`) |
-| **Command** (`/name`) | User-invoked prompt template; the system renders it, the agent receives the result | **User**, by typing `/name` | `.opencode/command/<name>.md`, MCP prompts, or skills |
-| **Agent / subagent** | Autonomous executor with its own model, tools, and permissions, spawned via the `task` tool | User (`@mention`, `/agents`) or a parent agent | `.opencode/agents/` |
-| **MCP server** | Gives the agent *tools and data access* to external APIs/services | Agent calls its tools | `opencode.json` -> `mcp` |
-| **Tool injection** (custom tools) | New callable functions registered by plugins | Agent calls them directly | plugin `tool` definitions |
+| Recurring multi-step procedure, domain knowledge, or conventions | **Skill** (`SKILL.md`) | Agent, via the `skill` tool (matches task against `description`) | skill directories (see `04-discovery.md`) |
+| A prompt template the user fires manually | **Command** (`/name`) | User, by typing `/name` | `.opencode/command/<name>.md`, MCP prompts, or a skill |
+| An autonomous executor with its own model and permissions | **Agent / subagent** | User (`@mention`, `/agents`) or a parent agent | `.opencode/agents/` |
+| Tool/data access to external APIs and services | **MCP server** | Agent, by calling its tools | `opencode.json` -> `mcp` |
+| A new callable function (a capability no tool covers) | **Custom tool** (tool injection) | Agent, called directly | plugin `tool` definitions |
 
-Key distinctions:
+Decision rules (evaluate in order, first match wins):
 
-- **Skill vs command.** Skills are loaded *by* the agent (it infers relevance from
-  the description). Commands are shortcuts *for* the user (`/init`). A skill can
-  additionally be exposed as a user-invoked `/name` command via
-  `metadata: {"opencode/slash": "true"}`. See `07-invocation-permissions.md`.
-- **Skill vs MCP.** MCP gives the agent *tool access* to external systems. A
-  skill provides the *judgment* for when to use those tools and what to do with
-  them. Skills often *use* MCP tools for execution. Skills are not tools --
-  there is exactly one tool, `skill`, and skills are the content it returns.
-- **Skill vs agent.** Skills are instruction payloads; agents are executors. A
-  subagent can itself call the `skill` tool, subject to its own permissions.
-- **Skill vs tool injection.** A custom tool adds a new *capability* (a function
-  the model can call). A skill adds *knowledge* (how to approach a task, often
-  by combining existing tools).
+1. IF the user triggers it manually every time THEN build a **command**, not a skill.
+2. ELSE IF no existing tool can perform the operation THEN build a **custom tool or MCP server**, not a skill.
+3. ELSE IF the procedure runs once and is never repeated THEN do the task directly; NEVER build a skill for a one-off.
+4. ELSE IF the same procedure, knowledge, or conventions are needed repeatedly AND are currently re-explained every session THEN build a **skill**.
+5. ELSE do not build anything.
 
-## When to build a skill
+Key distinctions (mechanical tests):
 
-Build a skill when the same multi-step procedure, domain knowledge, or set of
-conventions is needed repeatedly and is currently re-explained every session.
-Do NOT build a skill for: a one-off task (just do it), a new capability no
-existing tool covers (write a custom tool or MCP server instead), or a pure
-prompt shortcut the user triggers manually (write a command).
+- **Skill vs command.** IF the agent must infer relevance from the task THEN skill. IF the user types a shortcut THEN command. A skill MAY additionally expose `/name` via `metadata: {"opencode/slash": "true"}` (see `07-invocation-permissions.md`).
+- **Skill vs MCP.** MCP = tool access to external systems; skill = judgment for *when* to use those tools and what to do with them. Skills often *call* MCP tools. There is exactly one tool, `skill`; skills are the content it returns.
+- **Skill vs agent.** Skills are instruction payloads; agents are executors. A subagent MAY call the `skill` tool, subject to its own permissions.
+- **Skill vs tool injection.** A custom tool adds a *capability* (a callable function). A skill adds *knowledge* (how to approach a task, usually by combining existing tools).

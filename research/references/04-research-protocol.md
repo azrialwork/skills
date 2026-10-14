@@ -7,36 +7,21 @@
 
 # Research protocol
 
-## Collect (top-down)
+## Phase 1 -- Collect (top-down)
 
-- Work the hierarchy from Tier 1 down. Stop descending when the
-  question is answered; note where you stopped.
-- Log every source with URL and access date from the first touch.
-  A source without a logged date is an unverified source.
-- Weak sources are allowed only when labeled weak in the deliverable
-  ("single forum anecdote", "undated blog post").
-- Prefer the primary document over a summary of it. If you found it
-  via a secondary source, still cite the primary.
+1. Work the hierarchy from Tier 1 down. IF the question is answered THEN stop descending; note the tier where you stopped.
+2. Log EVERY source with URL and access date from the first touch. IF a source has no logged date THEN treat it as unverified.
+3. IF a source is weak THEN label it weak in the deliverable ("single forum anecdote", "undated blog post"). An unlabeled weak source MUST NOT be used.
+4. Prefer the primary document over a summary of it. IF you found it via a secondary source THEN still cite the primary.
 
-## Verify currency
+## Phase 2 -- Verify currency
 
-- Every claim about versions, release dates, prices, legal status, or
-  anything worded "current" / "latest" / "now" gets a "verified as of
-  <date>" stamp, checked against a live source on or after the date
-  anchor.
-- A dated source (e.g. "v3.2 released 2026-03-01") supports a claim
-  *about that date*, not a claim about today.
-- If a claim cannot be re-verified (source gone, paywalled, no
-  primary exists), downgrade its confidence instead of dropping it
-  silently -- see `05-confidence-grading.md`.
+1. IF a claim is about versions, release dates, prices, legal status, or is worded "current" / "latest" / "now" THEN check it against a live source on or after the date anchor and stamp "verified as of <date>".
+2. A dated source (e.g. "v3.2 released 2026-03-01") supports a claim ABOUT THAT DATE, not a claim about today. NEVER present it as current.
+3. IF a claim cannot be re-verified (source gone, paywalled, no primary exists) THEN downgrade its confidence per `05-confidence-grading.md`. NEVER drop it silently.
 
-## Triangulate
+## Phase 3 -- Triangulate
 
-- Important or contested claims need 2+ *independent* sources.
-  Independent means: not the same document quoted twice, not a vendor
-  quoting its own marketing, not two pages scraping the same feed.
-- When sources disagree, record the disagreement in the deliverable
-  with both sides cited. Do not average them away or pick the one
-  you like without saying why.
-- Trivial or purely descriptive claims (definitions, arithmetic) do
-  not need triangulation -- note the exemption briefly.
+1. IF a claim is important or contested THEN it requires 2+ INDEPENDENT sources. Independent means: NOT the same document quoted twice, NOT a vendor quoting its own marketing, NOT two pages scraping the same feed.
+2. IF sources disagree THEN record the disagreement with both sides cited. NEVER average them away; NEVER pick a side without saying why.
+3. Trivial or purely descriptive claims (definitions, arithmetic) are exempt from triangulation. Note the exemption in one line.

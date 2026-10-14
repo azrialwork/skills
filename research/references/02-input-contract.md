@@ -7,42 +7,19 @@
 
 # The input contract
 
-Fill `assets/research-brief-template.md` with the user before collecting
-anything. Five fields:
+INPUT: the user's raw request. OUTPUT: a filled brief (see `assets/research-brief-template.md`).
 
-## 1. The real question
+Algorithm -- fill all five fields BEFORE collecting anything:
 
-The question as asked, then the question as meant. "Is X good?" usually
-means "should we adopt X for purpose P under constraints C?" -- write
-the sharpened version down and confirm it.
+1. **The real question.** Write the question as asked, then the sharpened version ("Is X good?" -> "should we adopt X for purpose P under constraints C?"). IF the question is really a lookup THEN STOP: answer directly, do not research.
+2. **The decision it informs.** Name the decision and its stakes. IF there is no decision THEN write "exploratory -- no decision": the deliverable is exploratory and scored accordingly. IF the decision is unclear AND the stakes seem high THEN ask before proceeding.
+3. **The topic domain.** Write one phrase (e.g. "JavaScript build tools"). This selects the topic adapter (see `03-topic-adapters.md`).
+4. **The date anchor.** Write "Per <YYYY-MM-DD>" (usually today). Every currency-sensitive claim is verified against this date, never against training-data memory.
+5. **Deliverable shape and language.** Default: structured writeup in the user's language (executive summary, findings, disagreements, limitations, sources -- see `07-deliverable-template.md`). IF the user wants anything else (slides, table-only, a different language) THEN agree on it now.
 
-## 2. The decision it informs
+Gate: IF any field is empty THEN ask the user and WAIT. Do not start collecting until all five are filled.
 
-Name the decision and its stakes. This sets the depth: a casual
-curiosity gets a light pass; a production adoption decision gets full
-triangulation. If there is no decision, say so -- the deliverable is
-then exploratory and scored accordingly.
+## Pushback rules
 
-## 3. The topic domain
-
-One phrase, e.g. "JavaScript build tools" or "EU product regulation".
-This selects the topic adapter (see `03-topic-adapters.md`).
-
-## 4. The date anchor
-
-"Per <date>" -- usually today. Every currency-sensitive claim is
-verified against this date, not against training-data memory.
-
-## 5. Deliverable shape and language
-
-Default: a structured writeup in the user's language (executive
-summary, findings, disagreements, limitations, sources -- see
-`07-deliverable-template.md`). Agree on anything else up front
-(slides, table-only, a different language).
-
-## Push back when
-
-- The question is really a lookup -- say so and answer directly.
-- The decision is unclear and the stakes seem high -- ask.
-- The domain has no identifiable authoritative sources -- warn that
-  confidence will cap at Medium and confirm before proceeding.
+- IF the domain has no identifiable authoritative sources THEN warn that confidence caps at Medium and confirm before proceeding.
+- IF the decision is unclear and the stakes seem high THEN ask.

@@ -8,24 +8,15 @@
 
 # install.sh fundamentals
 
-## Shell choice
+## Algorithm
 
-- **Default to POSIX `sh` (`#!/bin/sh`)** for piped installers. `/bin/sh`
-  exists on every Unix (Termux ships `sh`; minimal containers ship dash).
-  rustup, oh-my-zsh, mise, Deno, flyctl, and uv all use `#!/bin/sh`.
-- **Use bash only when you genuinely need bash features**, then enforce it:
-  nvm uses `#!/usr/bin/env bash` (relies on bash throughout); Homebrew uses
-  `#!/bin/bash` and hard-errors on other shells.
+INPUT: the installer script (or a blank page for a new one).
 
-## Strict mode
-
-- **POSIX sh:** `set -eu` (mise uses exactly this; uv uses `set -u`).
-  POSIX sh has **no `pipefail`** -- compensate with explicit checks like
-  rustup's `ensure` / `need_cmd` / `assert_nz` wrappers
-  (e.g. `ensure curl "$url" -o "$file"` catches a failed download).
-- **Bash:** `set -euo pipefail`.
-- `set -u` catches typo'd variable names (the #1 installer bug source);
-  `set -e` turns silent corruption into a loud early exit.
+1. **Pick the shell.** IF the script needs bash-only features (`[[ ]]`, arrays, `pipefail`) THEN use `#!/usr/bin/env bash` or `#!/bin/bash` and hard-error on other shells. ELSE use `#!/bin/sh` -- it exists on every Unix (Termux ships `sh`; minimal containers ship dash).
+2. **Set strict mode.** IF shebang is `#!/bin/sh` THEN the script MUST contain `set -eu` on its own line. IF bash THEN it MUST contain `set -euo pipefail`. (`set -u` catches typo'd variable names; `set -e` turns silent corruption into a loud early exit.)
+3. **Compensate for missing pipefail.** POSIX sh has no `pipefail`. IF `#!/bin/sh` THEN wrap fallible pipelines in explicit checks (rustup's `ensure` / `need_cmd` / `assert_nz`, e.g. `ensure curl "$url" -o "$file"`).
+4. **Verify dialect consistency.** IF shebang is `#!/bin/sh` AND the body contains bashisms (`[[ ]]`, `function`, `source`, arrays, `pipefail`) THEN FAIL. IF shebang is `#!/bin/sh` AND the body contains `set -euo pipefail` THEN FAIL.
+5. **Cross-check idioms** against the dissections below (verified 2026-10-12): TLS hardening, partial-download guard, Termux detection, rc-file policy, retry, atomic install.
 
 ## Reference implementations (dissected 2026-10-12)
 
@@ -40,8 +31,8 @@
 | flyctl install.sh | `#!/bin/sh`, `set -e` | `curl --progress-bar --retry 5`; **atomic install** (extract to tmp dir, `mv` into place); best-in-class PATH handling: drop-in `~/.bashrc.d/` files, asks via `/dev/tty`, prints manual steps when non-interactive |
 | uv install.sh | `#!/bin/sh`, `set -u`, shellcheck'd | `verify_checksum` when known; glibc-version check with musl fallback; **env-file pattern** (`$HOME/.local/bin/env` sourced from rc files); shadowed-binary detection; install receipts |
 
-## Anti-patterns
+## FLAG on sight (FAIL)
 
-- `#!/bin/sh` shebang with bashisms (`[[ ]]`, arrays, `source`).
 - No strict mode at all -- the #1 amateur tell.
-- `set -euo pipefail` under `#!/bin/sh` (`pipefail` is a bashism).
+- `#!/bin/sh` shebang with bashisms.
+- `set -euo pipefail` under `#!/bin/sh`.

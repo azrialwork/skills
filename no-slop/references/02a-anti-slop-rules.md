@@ -11,98 +11,87 @@
 Part A: the rules themselves. The rule-to-check mapping (mechanical probes
 and judge inputs per rule) is part B (`02b-rule-to-check-mapping.md`).
 
-## Hard Gate -- absolute, no exceptions
+## Verdict algorithm
 
-Breaking any Hard Gate rule is a FAIL regardless of purpose.
+INPUT: the draft text.
+
+1. Check every H-rule below. IF any H-rule is violated THEN verdict = FAIL, STOP. No exceptions, regardless of purpose.
+2. For each P-technique used: IF you can state what it serves (clarity, structure, honesty -- written in your reasoning) THEN keep it; ELSE cut it.
+3. Check every Q-lock below. IF a lock fails THEN apply its THEN line.
+4. Verdict = PASS only when all three steps pass.
+
+## Hard Gate -- absolute, no exceptions
 
 ### H-01 -- No fabricated specifics
 
 - **FORBIDDEN:** numbers, statistics, names, dates, or quotes without
-  a real source. If real data is not available, show no numbers at all.
-- **Empty is better than deceptive.** A missing number is honest; an
-  invented number is a lie that looks verified.
+  a real source.
+- **THEN:** IF real data is not available THEN show no numbers at all. A missing number is honest; an invented number is a lie that looks verified.
 - Precision without provenance is the most dangerous slop.
 
 ### H-02 -- No em dash in generated text
 
 - **FORBIDDEN:** the em dash character (`—`) in any generated text.
-- Use a comma (`,`), period (`.`), colon (`:`), or parentheses instead.
-- Text must feel natural and human; the em dash is the fastest
-  lexical tell of synthetic prose.
+- **THEN:** use a comma (`,`), period (`.`), colon (`:`), or parentheses instead.
 
 ### H-03 -- No sycophancy or throat-clearing
 
 - **FORBIDDEN:** opening with agreement or filler: "Great question!",
   "You're absolutely right!", "As an AI", "Certainly!".
-- Do not agree with the user as filler. If they are right, build on
-  the point; if wrong, say so directly. Start with the answer.
+- **THEN:** start with the answer. IF the user is right THEN build on the point; IF wrong THEN say so directly.
 
 ### H-04 -- No invented sources
 
 - **FORBIDDEN:** citing a source you did not actually read or open.
-- Every factual claim must trace to something you can point at: a file
-  you read, a tool result, a URL you opened. If you cannot name it, do
-  not state it as fact.
+- **THEN:** every factual claim must trace to something you can point at: a file you read, a tool result, a URL you opened. IF you cannot name it THEN do not state it as fact.
 
 ## Purpose-Gate -- technique allowed, reason required
 
-These techniques are tools, not crimes. Before using one, answer: **what
-does this serve?** If the only answer is "it looks good" or "it fills
-space", cut it. If the answer names clarity or structure, keep it and
-the reason is written down (in your reasoning, not necessarily the text).
+Before using one, answer: **what does this serve?** IF the only answer is "it looks good" or "it fills space" THEN cut it. IF the answer names clarity or structure THEN keep it, and write the reason down (in your reasoning, not necessarily the text).
 
 ### P-01 -- Bullet lists
 
 - Allowed for genuinely parallel items (steps, options, named lists).
-- **Reason required** when the content would work as prose. Two
-  sentences beat five thin bullets.
+- **THEN:** IF the content would work as prose THEN use prose. Two sentences beat five thin bullets.
 
 ### P-02 -- Bold
 
-- At most one bolded phrase per paragraph.
-- It must mark the single thing the reader must not miss. If everything
-  is emphasized, nothing is.
+- **THEN:** at most one bolded phrase per paragraph, marking the single thing the reader must not miss. IF everything is emphasized THEN nothing is: cut until one remains.
 
 ### P-03 -- Hedges (might, could, may, potentially)
 
-- Allowed for genuine uncertainty. **FORBIDDEN** as evasion: a paragraph
-  of hedges that avoids taking any position.
+- Allowed for genuine uncertainty.
+- **FORBIDDEN** as evasion: **THEN:** IF a paragraph of hedges avoids taking any position THEN cut it or take the position the source supports.
 
 ### P-04 -- Intensifiers (very, really, deeply, incredibly)
 
-- Allowed only when the degree carries information ("deeply nested"
-  tells you something; "very good" tells you nothing).
+- **THEN:** allowed only when the degree carries information ("deeply nested" tells you something; "very good" tells you nothing). IF it tells nothing THEN cut it.
 
 ### P-05 -- Metaphors (landscape, navigate, journey, tapestry)
 
-- Allowed only when the metaphor clarifies. **FORBIDDEN** as decoration:
-  if removing the metaphor loses nothing, it was decoration.
+- **THEN:** allowed only when the metaphor clarifies. IF removing the metaphor loses nothing THEN it was decoration: cut it.
 
 ## Quality Locks -- consistency
 
 ### Q-01 -- One idea per paragraph
 
-- If a paragraph has no point, delete it. Deletion test: remove the
-  sentence; if nothing is lost, it was slop.
+- **THEN:** run the deletion test on every sentence: remove it; IF nothing is lost THEN it was slop -- keep it deleted.
 
 ### Q-02 -- Vary the structure
 
-- No templated section shapes. If every section looks the same, break
-  the pattern deliberately.
+- **THEN:** IF every section shares the same shape THEN break the pattern deliberately.
 
 ### Q-03 -- No decorative conclusion
 
-- End when the content ends. Never restate everything under
-  "In conclusion" or close with "Hope this helps!".
+- **THEN:** end when the content ends. NEVER restate everything under "In conclusion" or close with "Hope this helps!".
 
 ### Q-04 -- No emoji in professional text
 
-- None. Not in headings, not as bullets, not for emphasis.
+- **THEN:** none. Not in headings, not as bullets, not for emphasis.
 
 ### Q-05 -- Specifics or silence
 
-- Every claim gets a number, a name, a date, or an example -- or it
-  gets cut. "Significant improvement" becomes "23% faster" or disappears.
+- **THEN:** every claim gets a number, a name, a date, or an example -- or it gets cut. "Significant improvement" becomes "23% faster" or disappears.
 
 ## Before/after (the rules in action)
 
@@ -115,4 +104,3 @@ Q-01 says nothing twice.)
 
 Clean: "The new linter runs in 400ms instead of 3s, so it can run on
 every save."
-

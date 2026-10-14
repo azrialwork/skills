@@ -11,6 +11,14 @@
 The strongest single tell in current model prose: the sentence signals
 importance instead of adding a fact. Act on one sighting.
 
+## Detection algorithm
+
+INPUT: the draft text.
+
+1. Scan each sentence against the patterns below.
+2. IF a pattern is observed THEN record a finding with pattern name and Rule ID, and apply the THEN line.
+3. IF the sentence adds no fact after the THEN rewrite THEN cut it.
+
 ## Staged contrasts (the Not-X-but-Y family)
 
 - **Pattern:** "It's not X, it's Y"; "not just X, but Y"; "X rather
@@ -22,8 +30,7 @@ importance instead of adding a fact. Act on one sighting.
 - **Before:** "It's not just about the beat; it's part of the
   aggression and atmosphere."
 - **After:** "The heavy beat adds to the aggressive tone."
-- **Keep it only when** the negative half corrects a belief the reader
-  actually holds, or both halves carry information.
+- **THEN:** IF the negative half corrects a belief the reader actually holds, or both halves carry information THEN keep it; ELSE rewrite as a direct statement.
 - **Rule:** Q-02.
 
 ## One-line closers and dramatic fragments
@@ -32,8 +39,8 @@ importance instead of adding a fact. Act on one sighting.
   it ("That is the real win.", "Let that sink in."); rows of fragments
   ("No prior. No nostalgia."); "X. And Y. And Z."
 - **Why it reads as AI:** the line asks the reader to pause on a claim
-  instead of adding to it. Merge fragments into a sentence with a
-  specific claim; cut closers that repeat the example above them.
+  instead of adding to it.
+- **THEN:** merge fragments into a sentence with a specific claim; cut closers that repeat the paragraph above them.
 - **Rule:** Q-03.
 
 ## Sayings that sound deep
@@ -45,6 +52,7 @@ importance instead of adding a fact. Act on one sighting.
   The formula does the persuading instead of the evidence.
 - **Before:** "Symmetry is the language of trust."
 - **After:** "Symmetric layouts feel more predictable to users."
+- **THEN:** replace with the plain claim the evidence supports.
 - **Rule:** P-05.
 
 ## Staged run-up before the point
@@ -52,8 +60,8 @@ importance instead of adding a fact. Act on one sighting.
 - **Pattern:** "Let's dive in", "Here's the thing", "Honestly?",
   "Look,", "Here's what you need to know", "Real talk".
 - **Why it reads as AI:** the writer announces the point or stages
-  candor instead of making the point. Remove the run-up, not just
-  its tone.
+  candor instead of making the point.
+- **THEN:** remove the run-up, not just its tone; start at the point.
 - **Rule:** H-03.
 
 ## Arguing with no one
@@ -61,6 +69,6 @@ importance instead of adding a fact. Act on one sighting.
 - **Pattern:** "This isn't mainly about X", "I'm not saying...",
   "Don't get me wrong", "A tempting approach would be... but".
 - **Why it reads as AI:** answers an objection that appears nowhere
-  else -- usually a leftover from an earlier draft. Remove the defense;
-  if it holds a real claim, state the claim.
+  else -- usually a leftover from an earlier draft.
+- **THEN:** remove the defense; IF it holds a real claim THEN state the claim directly.
 - **Rule:** Q-01.

@@ -8,16 +8,21 @@
 
 # UI slop -- app screens, UI copy, checklist
 
+## Detection algorithm
+
+INPUT: the app screens and UI copy.
+
+1. Check screens against the patterns below; check copy against the UI-copy tells.
+2. IF a pattern is observed THEN record a finding with pattern name and Rule ID, and apply the THEN line.
+3. Run the accessibility floor and the UI checklist at the end. Verdict = PASS only when every check passes.
+
 ## The default dashboard shell
 
 - **Tell:** left sidebar, top bar, four stat cards, a chart, a table --
   chosen before anyone asked what the screen is for, identical whether
   it manages invoices, patients, or servers.
-- **Why:** a layout picked from memory instead of from the work the
-  screen supports.
-- **Fix:** name the screen's job and the one decision the user makes
-  on it, then build the hierarchy around that. Cut sections that
-  survive only because dashboards usually have them.
+- **Why:** a layout picked from memory instead of from the work the screen supports.
+- **THEN:** name the screen's job and the one decision the user makes on it, then build the hierarchy around that. Cut sections that survive only because dashboards usually have them.
 - **Rule:** Q-02.
 
 ## Invented numbers and filler content
@@ -27,13 +32,8 @@
   people ("Sarah Chen updated a document"); charts titled "Overview"
   answering no question; form fields prefilled with "John Doe" /
   "johndoe@example.com".
-- **Why:** the numbers are decoration and the deltas are worse -- a
-  trend claim with no series behind it. Fabricated content disguised
-  as real.
-- **Fix:** show real numbers or none; a delta appears only when the
-  comparison period is real and named. Empty cells stay empty or carry
-  honest placeholders ("Your Name", "email@example.com"). Prototype
-  values are labelled as placeholder where the user can see it.
+- **Why:** the numbers are decoration and the deltas are worse -- a trend claim with no series behind it.
+- **THEN:** show real numbers or none; a delta appears only when the comparison period is real and named. Empty cells stay empty or carry honest placeholders ("Your Name", "email@example.com"). Prototype values are labelled as placeholder where the user can see it.
 - **Rule:** H-01.
 
 ## Broken and placeholder states
@@ -42,74 +42,48 @@
   load; content stuck at opacity 0 after reveals ran; text painted
   under overlapping elements; tooltips clipped by overflow hidden;
   one column stretching far past the fold while its sibling fits.
-- **Why:** the visual shipped but the behavior did not -- the
-  difference between a mockup and a product.
-- **Fix:** real images or remove the tag; every interactive element
-  has real behavior or a visible "Coming soon"; every nav item has a
-  real destination.
+- **Why:** the visual shipped but the behavior did not.
+- **THEN:** real images or remove the tag; every interactive element has real behavior or a visible "Coming soon"; every nav item has a real destination.
 - **Rule:** H-01.
 
 ## Empty, loading, and error states
 
 - **Tell:** "No data available" with a stock illustration; a bare
   spinner; a skeleton mimicking a layout the data never fills.
-- **Why:** technically present, telling the user nothing: no cause,
-  no next action.
-- **Fix:** an empty state says why it is empty and gives the one
-  action that fills it ("No jobs yet. Run a sync to see results").
-  A loading state says what it is loading; an error state says what
-  failed and what to do next.
+- **Why:** technically present, telling the user nothing: no cause, no next action.
+- **THEN:** an empty state says why it is empty and gives the one action that fills it ("No jobs yet. Run a sync to see results"). A loading state says what it is loading; an error state says what failed and what to do next.
 - **Rule:** Q-01.
 
 ## Accessibility floor
 
-Shipped-but-broken is slop. The minimum, checked at every breakpoint:
+Shipped-but-broken is slop. Check at every breakpoint; every item is PASS/FAIL:
 
-- **Keyboard:** every interactive element reachable and operable by
-  keyboard; visible focus state on all of them. If it only works with
-  a mouse, it does not work.
-- **Semantics:** real buttons, links, inputs, and landmarks -- not
-  divs with click handlers. Screen readers get the structure the
-  sighted user sees.
-- **Contrast and text:** body text meets WCAG AA (4.5:1, 3:1 large);
-  no information carried by color alone.
-- **Motion:** honor `prefers-reduced-motion` -- endless or large
-  animations switch off when the user asks.
-- **Touch and small screens:** touch targets at least 44px; no
-  horizontal scrolling on phones; the layout is re-thought per
-  breakpoint, not the desktop version shrunk.
+- **Keyboard:** IF an interactive element is not reachable and operable by keyboard THEN FAIL. Every one needs a visible focus state.
+- **Semantics:** IF a button, link, input, or landmark is a div with a click handler THEN FAIL. Use real elements.
+- **Contrast and text:** body text MUST meet WCAG AA (4.5:1, 3:1 large); IF information is carried by color alone THEN FAIL.
+- **Motion:** IF `prefers-reduced-motion` is not honored THEN FAIL: endless or large animations switch off when the user asks.
+- **Touch and small screens:** touch targets MUST be at least 44px; IF horizontal scrolling occurs on phones THEN FAIL; the layout is re-thought per breakpoint, not the desktop version shrunk.
 - **Rule:** Q-01 (broken), H-01 (fake controls).
 
 ## UI copy
 
-Interface text follows the same H/P/Q rules as prose, with these
-UI-specific tells:
+Interface text follows the same H/P/Q rules as prose, with these UI-specific tells:
 
-- **Marketing buzzwords** ("streamline", "empower", "supercharge",
-  "world-class", "cutting-edge") -- pick a specific verb and noun.
-  (P-05)
-- **Aphoristic cadence** ("Not a feature. A platform." repeated across
-  sections) -- manufactured contrast, not voice. (Q-02)
-- **Theater framing** ("security theater", "process theater") --
-  say plainly what the thing does or does not do. (Q-01)
-- **Em-dash saturation** in UI copy -- same H-02 rule as prose.
+- **Marketing buzzwords** ("streamline", "empower", "supercharge", "world-class", "cutting-edge") -- **THEN:** pick a specific verb and noun. (P-05)
+- **Aphoristic cadence** ("Not a feature. A platform." repeated across sections) -- **THEN:** cut it; manufactured contrast is not voice. (Q-02)
+- **Theater framing** ("security theater", "process theater") -- **THEN:** say plainly what the thing does or does not do. (Q-01)
+- **Em-dash saturation** in UI copy -- same H-02 rule as prose: **THEN:** remove every em dash.
 
 ## Honesty
 
-- **Dead navigation and non-functional controls:** every link has a
-  destination; every button does something, or is removed, or carries
-  a visible "Coming soon". (H-01)
-- **Sections that fill a template:** every section earns its place
-  from the product's content. (Q-01)
-- **Sterile default:** flat white, thin grey borders, generic font, no
-  identity. This is not slop, but it is not design either -- and it is
-  a direction problem, not a filter problem. Add the brief or
-  DESIGN.md; never fix it with more bans. (Liveliness bar)
+- **Dead navigation and non-functional controls:** every link has a destination; every button does something, or is removed, or carries a visible "Coming soon". (H-01)
+- **Sections that fill a template:** every section earns its place from the product's content. (Q-01)
+- **Sterile default:** flat white, thin grey borders, generic font, no identity. This is not slop, but it is not design either -- and it is a direction problem, not a filter problem. **THEN:** add the brief or DESIGN.md; NEVER fix it with more bans. (Liveliness bar)
 
 ## UI checklist
 
 Run alongside the Delivery Gate (`references/03-self-audit.md`) when
-the task is UI work. All answers must be **yes**:
+the task is UI work. Verdict = PASS only when every answer is **yes**:
 
 - [ ] Palette from brand identity, not the default gradient set?
 - [ ] Accent at the key moment only, not spread everywhere?

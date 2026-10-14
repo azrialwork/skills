@@ -9,13 +9,12 @@
 
 Write in the user's language unless the brief says otherwise.
 
-## Structure
+## Assembly algorithm
 
-1. **Executive summary** (3-6 sentences): the answer, the confidence,
-   and what would change it.
-2. **Findings**: one block per sub-question.
-3. **Disagreements**: where sources conflict, both sides cited.
-4. **Limitations and unknowns**: what could not be verified and why.
+1. **Executive summary** (3-6 sentences): the answer, the confidence, and what would change it. IF the answer is "unknown" THEN the first sentence says "unknown".
+2. **Findings**: one block per sub-question, using the per-finding format below.
+3. **Disagreements**: where sources conflict, both sides cited. IF no disagreements exist THEN write "none recorded".
+4. **Limitations and unknowns**: what could not be verified and why. Never leave this section empty: IF everything was verified THEN write "none".
 5. **Sources**: every source with URL and access date.
 
 ## Per-finding format
@@ -41,5 +40,7 @@ last release was 2026-07-15.
 **Verified as of:** 2026-10-14
 ```
 
-Keep the summary honest: if the answer is "unknown", the summary
-says "unknown" in the first sentence.
+## Honesty gates
+
+- IF the answer is "unknown" THEN the summary's first sentence says "unknown".
+- NEVER bury a Low-confidence finding in confident prose; its grade travels with it.
