@@ -7,8 +7,21 @@
 
 # UI slop -- typography, icons, motion
 
+## Contents
+
+- [Detection algorithm](#detection-algorithm)
+- [The default type roster](#the-default-type-roster)
+- [Hierarchy and legibility failures](#hierarchy-and-legibility-failures)
+- [Typography as decoration](#typography-as-decoration)
+- [Icons and small decoration](#icons-and-small-decoration)
+- [Eyebrow badges and kickers](#eyebrow-badges-and-kickers)
+- [Decorative status dots and cursors](#decorative-status-dots-and-cursors)
+- [Fake terminal window](#fake-terminal-window)
+- [Illustrations with no connection](#illustrations-with-no-connection)
+- [Motion](#motion)
+
 ## Detection algorithm
-> Why: Type, icons, and motion carry the interface's voice — defaults here make every product sound like the same product.
+> Why: Type, icons, and motion carry the interface's voice. Defaults here make every product sound like the same product.
 
 INPUT: the interface (screenshot or code).
 
@@ -17,7 +30,7 @@ INPUT: the interface (screenshot or code).
 3. Legibility failures (second entry) are absolute: fix regardless of aesthetic intent.
 
 ## The default type roster
-> Why: A typeface wave is a timestamp — the interface dates itself to the month it was generated.
+> Why: A typeface wave is a timestamp. The interface dates itself to the month it was generated.
 
 - **Tell:** Inter / Geist / Space Grotesk for everything because they
   were the default; oversized italic serif hero headlines; large
@@ -28,7 +41,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** P-05.
 
 ## Hierarchy and legibility failures
-> Why: These are not style choices — unreadable text excludes real people, which is a failure, not a preference.
+> Why: These are not style choices. Unreadable text excludes real people, which is a failure, not a preference.
 
 - **Tell:** heading and body separated by less than 1.25x at every
   step (flat hierarchy); gray text on colored backgrounds; body text
@@ -41,7 +54,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-01.
 
 ## Typography as decoration
-> Why: Type used as ornament stops being read — decoration that destroys its own function.
+> Why: Type used as ornament stops being read, decoration that destroys its own function.
 
 - **Tell:** gradient text; crushed letter-spacing; wide tracking on
   body copy; tiny numbered labels as editorial scaffolding.
@@ -61,7 +74,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-04, Q-01.
 
 ## Eyebrow badges and kickers
-> Why: A badge duplicating the headline is a line of reading with no fact in it — pure friction.
+> Why: A badge duplicating the headline is a line of reading with no fact in it. Pure friction.
 
 - **Tell:** a small pill or tracked-uppercase kicker sitting directly
   above the headline, holding a label the headline already says
@@ -72,7 +85,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-01.
 
 ## Decorative status dots and cursors
-> Why: System-status vocabulary used as decoration borrows meaning it does not spend — the dot marks nothing, so it means nothing.
+> Why: System-status vocabulary used as decoration borrows meaning it does not spend. The dot marks nothing, so it means nothing.
 
 - **Tell:** a glowing, endlessly pulsing dot beside a heading that
   marks nothing; a blinking text cursor animated into a hero where no
@@ -82,7 +95,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-01.
 
 ## Fake terminal window
-> Why: A fake terminal is a placeholder for a real screenshot — it promises a product view and delivers theater.
+> Why: A fake terminal is a placeholder for a real screenshot. It promises a product view and delivers theater.
 
 - **Tell:** a styled terminal with traffic-light dots and typed-out
   commands used as the hero visual for a product that is not a CLI.
@@ -101,7 +114,7 @@ INPUT: the interface (screenshot or code).
 - **Rule:** Q-01.
 
 ## Motion
-> Why: Perpetual motion never lets the user rest — it competes with the content it was meant to serve.
+> Why: Perpetual motion never lets the user rest. It competes with the content it was meant to serve.
 
 - **Tell:** elements pulsing, bouncing, or floating forever with no
   user trigger; every element running fade-up + float + scale at once;

@@ -11,6 +11,18 @@
 
 # Workflow maturity scoring (0-100)
 
+## Contents
+
+- [Band legend](#band-legend)
+- [Step 0 - Select the model](#step-0---select-the-model)
+- [Step 1 - Score the six categories](#step-1---score-the-six-categories)
+  - [Category 1 - Branching model (14 pts)](#category-1---branching-model-14-pts)
+  - [Category 2 - Commit discipline (24 pts)](#category-2---commit-discipline-24-pts)
+  - [Category 3 - Review loop (24 pts)](#category-3---review-loop-24-pts)
+  - [Category 4 - Merge discipline (10 pts)](#category-4---merge-discipline-10-pts)
+  - [Category 5 - Release discipline (20 pts)](#category-5---release-discipline-20-pts)
+  - [Category 6 - Automation (8 pts)](#category-6---automation-8-pts)
+
 Scoring procedure:
 
 1. Run Step 0, then score every item in Step 1.

@@ -12,6 +12,20 @@
 -->
 # Compliance scoring algorithm (0-100)
 
+## Contents
+
+- [Band legend](#band-legend)
+- [Inputs](#inputs)
+- [Procedure](#procedure)
+- [Criteria](#criteria)
+  - [1. Installer script (20 pts)](#1-installer-script-20-pts)
+  - [2. Repository and README (15 pts)](#2-repository-and-readme-15-pts)
+  - [3. Versioning and releases (15 pts)](#3-versioning-and-releases-15-pts)
+  - [4. Licensing and compliance (10 pts)](#4-licensing-and-compliance-10-pts)
+  - [5. Supply-chain security (15 pts)](#5-supply-chain-security-15-pts)
+  - [6. Security process (10 pts)](#6-security-process-10-pts)
+  - [7. CI/CD (15 pts)](#7-cicd-15-pts)
+
 ## Band legend
 
 | Score | Band | Meaning |

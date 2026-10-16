@@ -13,7 +13,7 @@ Part A of the marker catalog: the lexical markers. Part B
 (`02-slop-markers-structural.md`) covers structural and substance markers.
 
 ## Detection algorithm
-> Why: Order matters because fatal flaws must fire before cosmetic ones — otherwise the hard fails get negotiated away.
+> Why: Order matters because fatal flaws must fire before cosmetic ones. Otherwise the hard fails get negotiated away.
 
 INPUT: the draft text.
 
@@ -24,7 +24,7 @@ INPUT: the draft text.
 5. Findings feed Mode 2's numbered list (`SKILL.md` Step 3b).
 
 ## Lexical markers
-> Why: A vocabulary shared by millions of model outputs is a confession of authorship — readers clock it before the first paragraph ends.
+> Why: A vocabulary shared by millions of model outputs is a confession of authorship. Readers clock it before the first paragraph ends.
 
 ### Empty AI vocabulary
 

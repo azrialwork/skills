@@ -58,7 +58,7 @@ Deliverable tweaks: <...>
 ```
 
 ## Worked sketch: product comparison
-> Why: A sketch copied blindly becomes a conclusion in search of evidence — the adapter must describe this domain, not the last one.
+> Why: A sketch copied blindly becomes a conclusion in search of evidence. The adapter must describe this domain, not the last one.
 
 Domain: "team chat tools for a 20-person remote team".
 

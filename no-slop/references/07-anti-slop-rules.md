@@ -8,11 +8,33 @@
 -->
 # Anti-slop rules -- the tiered rule set (part A)
 
+## Contents
+
+- [Verdict algorithm](#verdict-algorithm)
+- [Hard Gate -- absolute, no exceptions](#hard-gate----absolute-no-exceptions)
+  - [H-01 -- No fabricated specifics](#h-01----no-fabricated-specifics)
+  - [H-02 -- No em dash in generated text](#h-02----no-em-dash-in-generated-text)
+  - [H-03 -- No sycophancy or throat-clearing](#h-03----no-sycophancy-or-throat-clearing)
+  - [H-04 -- No invented sources](#h-04----no-invented-sources)
+- [Purpose-Gate -- technique allowed, reason required](#purpose-gate----technique-allowed-reason-required)
+  - [P-01 -- Bullet lists](#p-01----bullet-lists)
+  - [P-02 -- Bold](#p-02----bold)
+  - [P-03 -- Hedges (might, could, may, potentially)](#p-03----hedges-might-could-may-potentially)
+  - [P-04 -- Intensifiers (very, really, deeply, incredibly)](#p-04----intensifiers-very-really-deeply-incredibly)
+  - [P-05 -- Metaphors (landscape, navigate, journey, tapestry)](#p-05----metaphors-landscape-navigate-journey-tapestry)
+- [Quality Locks -- consistency](#quality-locks----consistency)
+  - [Q-01 -- One idea per paragraph](#q-01----one-idea-per-paragraph)
+  - [Q-02 -- Vary the structure](#q-02----vary-the-structure)
+  - [Q-03 -- No decorative conclusion](#q-03----no-decorative-conclusion)
+  - [Q-04 -- No emoji in professional text](#q-04----no-emoji-in-professional-text)
+  - [Q-05 -- Specifics or silence](#q-05----specifics-or-silence)
+- [Before/after (the rules in action)](#beforeafter-the-rules-in-action)
+
 Part A: the rules themselves. The rule-to-check mapping (mechanical probes
 and judge inputs per rule) is part B (`08-rule-to-check-mapping.md`).
 
 ## Verdict algorithm
-> Why: A verdict without an order is a negotiation — the hard gate runs first because a fatal flaw can never be outweighed by polish.
+> Why: A verdict without an order is a negotiation. The hard gate runs first because a fatal flaw can never be outweighed by polish.
 
 INPUT: the draft text.
 
@@ -22,7 +44,7 @@ INPUT: the draft text.
 4. Verdict = PASS only when all three steps pass.
 
 ## Hard Gate -- absolute, no exceptions
-> Why: Absolute lines exist because the alternative is a debate you will lose to your own deadline — some boundaries must be drawn before the work starts.
+> Why: Absolute lines exist because the alternative is a debate you will lose to your own deadline. Some boundaries must be drawn before the work starts.
 
 ### H-01 -- No fabricated specifics
 
@@ -33,7 +55,7 @@ INPUT: the draft text.
 
 ### H-02 -- No em dash in generated text
 
-- **FORBIDDEN:** the em dash character (`—`) in any generated text.
+- **FORBIDDEN:** the em dash character (U+2014) in any generated text.
 - **THEN:** use a comma (`,`), period (`.`), colon (`:`), or parentheses instead.
 
 ### H-03 -- No sycophancy or throat-clearing
@@ -48,7 +70,7 @@ INPUT: the draft text.
 - **THEN:** every factual claim must trace to something you can point at: a file you read, a tool result, a URL you opened. IF you cannot name it THEN do not state it as fact.
 
 ## Purpose-Gate -- technique allowed, reason required
-> Why: Banning every technique would trade one monotony for another — the question is never the tool, it is what the tool serves.
+> Why: Banning every technique would trade one monotony for another. The question is never the tool, it is what the tool serves.
 
 Before using one, answer: **what does this serve?** IF the only answer is "it looks good" or "it fills space" THEN cut it. IF the answer names clarity or structure THEN keep it, and write the reason down (in your reasoning, not necessarily the text).
 
@@ -75,7 +97,7 @@ Before using one, answer: **what does this serve?** IF the only answer is "it lo
 - **THEN:** allowed only when the metaphor clarifies. IF removing the metaphor loses nothing THEN it was decoration: cut it.
 
 ## Quality Locks -- consistency
-> Why: Consistency is what survives after the flashy flaws are fixed — readers trust text that behaves the same way twice.
+> Why: Consistency is what survives after the flashy flaws are fixed. Readers trust text that behaves the same way twice.
 
 ### Q-01 -- One idea per paragraph
 
@@ -98,7 +120,7 @@ Before using one, answer: **what does this serve?** IF the only answer is "it lo
 - **THEN:** every claim gets a number, a name, a date, or an example -- or it gets cut. "Significant improvement" becomes "23% faster" or disappears.
 
 ## Before/after (the rules in action)
-> Why: Abstract rules stay abstract — one concrete rewrite teaches more than a page of definitions.
+> Why: Abstract rules stay abstract. One concrete rewrite teaches more than a page of definitions.
 
 Slop: "In today's fast-paced digital landscape, it's important to note
 that leveraging cutting-edge tools can truly revolutionize your

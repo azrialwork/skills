@@ -47,7 +47,7 @@ git log -1 --format=%B | sh git-workflow/scripts/commit-lint.sh
 
 ### Layout
 
-```
+```text
 <skill-name>/
   SKILL.md        # required: YAML frontmatter (name, description) + instructions
   scripts/        # optional: deterministic helper scripts
@@ -80,7 +80,7 @@ description: <what it does>. Use when <trigger scenarios and keywords>.
 
 - **A skill never triggers:** check that `skills.paths` points at this repo
   and that OpenCode was restarted after the change. The description is the
-  only thing the model sees when choosing — keep it specific and
+  only thing the model sees when choosing. Keep it specific and
   trigger-rich.
 - **CI validation fails:** run the failing check locally first, e.g.
   `python3 create-skill/scripts/validate.py <skill>`,

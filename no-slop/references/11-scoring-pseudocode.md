@@ -13,7 +13,7 @@ Executable-form summary of the five steps. The algorithm spec is part A
 
 ## Pseudocode
 
-```
+```text
 function score_text(T, S, J):            # J = human/judge inputs
     seg = segment(T)                    # W, sentences, paragraphs, lines
 

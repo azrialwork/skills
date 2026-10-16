@@ -9,11 +9,24 @@
 
 # Slop patterns -- rhythm by rule, inflation extended
 
+## Contents
+
+- [Detection algorithm](#detection-algorithm)
+- [Forced triads](#forced-triads)
+- [Repeated sentence openings](#repeated-sentence-openings)
+- [Passive voice and missing subjects](#passive-voice-and-missing-subjects)
+- [Stacked qualifiers](#stacked-qualifiers)
+- [Vague connection](#vague-connection)
+- [Shallow -ing riders](#shallow--ing-riders)
+- [Sales language](#sales-language)
+- [Borrowed authority, extended](#borrowed-authority-extended)
+- [Copula avoidance](#copula-avoidance)
+
 Shapes and punctuation applied everywhere, whether or not the meaning
 asks for them; ordinary facts dressed as pivotal or expert-backed.
 
 ## Detection algorithm
-> Why: Rhythm applied by rule is audible before it is visible — the detector listens paragraph by paragraph, not word by word.
+> Why: Rhythm applied by rule is audible before it is visible. The detector listens paragraph by paragraph, not word by word.
 
 INPUT: the draft text.
 
@@ -41,7 +54,7 @@ INPUT: the draft text.
 - **Rule:** Q-02.
 
 ## Passive voice and missing subjects
-> Why: A sentence with no actor assigns no responsibility — and unaccountable prose is how mistakes hide.
+> Why: A sentence with no actor assigns no responsibility, and unaccountable prose is how mistakes hide.
 
 - **Pattern:** "No configuration file needed."; "The results are
   preserved automatically."; "Mistakes were made."
@@ -50,7 +63,7 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## Stacked qualifiers
-> Why: Hedges that cancel each other leave a sentence asserting nothing while sounding careful — caution as camouflage.
+> Why: Hedges that cancel each other leave a sentence asserting nothing while sounding careful, caution as camouflage.
 
 - **Pattern:** "could potentially possibly be argued"; "may eventually
   unlock"; "might ultimately transform".
@@ -60,7 +73,7 @@ INPUT: the draft text.
 - **Rule:** P-03.
 
 ## Vague connection
-> Why: Vagueness here is not diplomacy, it is evasion — 'associated with' hides whether someone was CEO or bystander.
+> Why: Vagueness here is not diplomacy, it is evasion. 'associated with' hides whether someone was CEO or bystander.
 
 - **Pattern:** "associated with", "in connection with", "linked to",
   "tied to" -- without saying how.
@@ -70,7 +83,7 @@ INPUT: the draft text.
 - **Rule:** H-01.
 
 ## Shallow -ing riders
-> Why: A rider that pretends to explain meaning borrows depth the fact does not have — the reader gets commentary instead of content.
+> Why: A rider that pretends to explain meaning borrows depth the fact does not have. The reader gets commentary instead of content.
 
 - **Pattern:** "highlighting...", "underscoring...", "reflecting...",
   "showcasing..." bolted onto a simple fact to sound deeper.
@@ -82,7 +95,7 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## Sales language
-> Why: Advertisement language in non-advertising text breaks the reader's trust — they came for information, not a pitch.
+> Why: Advertisement language in non-advertising text breaks the reader's trust. They came for information, not a pitch.
 
 - **Pattern:** "nestled within the breathtaking region";
   "a vibrant hub of innovation"; "must-visit"; "stunning".
@@ -94,7 +107,7 @@ INPUT: the draft text.
 - **Rule:** Q-05.
 
 ## Borrowed authority, extended
-> Why: A name or number standing in for what was said is authority as decoration — the claim still has no source.
+> Why: A name or number standing in for what was said is authority as decoration. The claim still has no source.
 
 - **Pattern:** prestige-outlet lists ("cited in NYT, BBC, FT, and The
   Hindu"); follower counts ("over 500,000 followers"); unnamed
@@ -104,7 +117,7 @@ INPUT: the draft text.
 - **Rule:** H-01, H-04.
 
 ## Copula avoidance
-> Why: Longer verbs for simple relations are inflation by syllable — the reader pays in attention for nothing gained.
+> Why: Longer verbs for simple relations are inflation by syllable. The reader pays in attention for nothing gained.
 
 - **Pattern:** "serves as", "stands as", "functions as", "boasts",
   "features", "offers" where "is", "are", or "has" would do.

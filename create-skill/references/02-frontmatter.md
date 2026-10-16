@@ -51,7 +51,7 @@ form; OpenCode also accepts YAML booleans as a convenience.
 
 ## Rules
 
-> Why: Lenient loaders forgive sloppy frontmatter today and break on it tomorrow — authoring to the strict rule is the only version that survives upgrades.
+> Why: Lenient loaders forgive sloppy frontmatter today and break on it tomorrow. Authoring to the strict rule is the only version that survives upgrades.
 
 - IF a top-level field is unknown to the spec THEN parsers tolerate and ignore it -- but NEVER invent one; client-specific behavior belongs in `metadata`.
 - `metadata` values MUST be strings for cross-client portability.

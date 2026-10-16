@@ -19,7 +19,7 @@ DO NOT USE WHEN:
 
 ## Algorithm
 
-> Why: Without a fixed order of operations, every author improvises their own — and every improvisation is a new way for the skill to break silently.
+> Why: Without a fixed order of operations, every author improvises their own, and every improvisation is a new way for the skill to break silently.
 
 INPUT: the user's task statement.
 

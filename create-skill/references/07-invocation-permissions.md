@@ -16,7 +16,7 @@ OpenCode lists available skills in the `skill` tool description as an
 `<available_skills>` block (each entry: `name` + `description`). The agent
 matches the current task against descriptions and calls the tool:
 
-```
+```js
 skill({ name: "git-release" })
 ```
 
@@ -42,7 +42,7 @@ INPUT: whether users should fire the skill manually.
 
 ## Permission-gating algorithm
 
-> Why: A skill without a permission posture inherits the agent's full ambient authority by default — the most dangerous default there is.
+> Why: A skill without a permission posture inherits the agent's full ambient authority by default, the most dangerous default there is.
 
 `permission.skill` in `opencode.json` uses wildcard patterns with three actions:
 

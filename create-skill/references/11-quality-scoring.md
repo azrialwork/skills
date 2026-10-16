@@ -16,7 +16,7 @@
 
 ## Hard gate
 
-> Why: Without the hard gate, a skill that cannot even load could still score points for style — grading the ungradable.
+> Why: Without the hard gate, a skill that cannot even load could still score points for style, grading the ungradable.
 
 IF any of **B1, B2, B3, B4** FAILS (frontmatter missing/malformed, name
 invalid, name != directory, description missing) THEN the score is **0**,
@@ -87,7 +87,7 @@ else is `auto`. The rubric format:
 
 ## Pseudocode
 
-```
+```text
 function score_skill(skill_dir, rubric = {}):
     b = run_binary_checks(skill_dir)          # B1..B10 -> {pass: bool, pts: int}
     results = [b]

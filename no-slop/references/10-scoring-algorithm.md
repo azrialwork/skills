@@ -10,6 +10,16 @@
 -->
 # The no-slop scoring algorithm (0-100) (part A)
 
+## Contents
+
+- [Band legend](#band-legend)
+- [Inputs](#inputs)
+- [Step 1 -- Hard Gate (binary; any failure -> score 0, STOP)](#step-1----hard-gate-binary-any-failure---score-0-stop)
+- [Step 2 -- Purpose-Gate deductions (start at 100, cap 8 per rule)](#step-2----purpose-gate-deductions-start-at-100-cap-8-per-rule)
+- [Step 3 -- Quality Lock deductions (0, 2, or 4 per rule; max 20)](#step-3----quality-lock-deductions-0-2-or-4-per-rule-max-20)
+- [Step 4 -- Liveliness ceiling (not a deduction)](#step-4----liveliness-ceiling-not-a-deduction)
+- [Step 5 -- Verdict](#step-5----verdict)
+
 The algorithm spec: bands, inputs, the five steps. Pseudocode is part B
 (`11-scoring-pseudocode.md`), the worked example part C
 (`12-scoring-worked-example.md`), limits and calibration part D
@@ -90,7 +100,7 @@ topic swapped?), `l2_specific_context` (names, situations, trade-offs
 only this context provides?), `l3_voice` (read aloud: a competent human
 who knows the subject?). If any is false:
 
-```
+```text
 score = min(score, 40)
 ```
 
@@ -99,7 +109,7 @@ sterile-but-clean text is a failure to fix, not a pass.
 
 ## Step 5 -- Verdict
 
-```
+```text
 score = clamp(score, 0, 100)
 PASS  iff score >= 80 and no Hard Gate violation
 ```

@@ -55,7 +55,7 @@ is what keeps the score auditable.
 
 ## Step 4 - Pseudocode
 
-```
+```text
 select model via decision tree (references/01-branching-models.md)
 applicable = []
 for each item in categories 1..6:

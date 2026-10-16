@@ -9,6 +9,21 @@
 -->
 # Slop markers -- structural and substance markers (part B)
 
+## Contents
+
+- [Detection algorithm](#detection-algorithm)
+- [Structural markers](#structural-markers)
+  - [Bullet-list everything](#bullet-list-everything)
+  - [Bold spam](#bold-spam)
+  - [Chatbot closers and fake-candid openers](#chatbot-closers-and-fake-candid-openers)
+  - [Template skeletons](#template-skeletons)
+- [Substance markers (what scanners cannot see)](#substance-markers-what-scanners-cannot-see)
+  - [Fabricated specifics](#fabricated-specifics)
+  - [Verbose nothing-burgers](#verbose-nothing-burgers)
+  - [Repetition in disguise](#repetition-in-disguise)
+- [The one-line test](#the-one-line-test)
+- [Empirical grounding (why these markers, and their limits)](#empirical-grounding-why-these-markers-and-their-limits)
+
 Part B of the marker catalog: structural markers, substance markers, the
 one-line test, and empirical grounding. Part A
 (`01-slop-markers-lexical.md`) covers the lexical markers.
@@ -23,7 +38,7 @@ INPUT: the draft text.
 3. ELSE apply the marker's THEN line. One-line test and empirical grounding below are judge inputs, not auto-fails.
 
 ## Structural markers
-> Why: Structure is where slop hides behind competence — a well-formatted page that says nothing still says nothing.
+> Why: Structure is where slop hides behind competence. A well-formatted page that says nothing still says nothing.
 
 ### Bullet-list everything
 
@@ -58,7 +73,7 @@ INPUT: the draft text.
 - **Rule:** Q-02.
 
 ## Substance markers (what scanners cannot see)
-> Why: The most dangerous slop is invisible to scripts — these markers need a reader, not a regex.
+> Why: The most dangerous slop is invisible to scripts. These markers need a reader, not a regex.
 
 ### Fabricated specifics
 
@@ -81,14 +96,14 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## The one-line test
-> Why: Your ear outranks any script — a sentence that sounds wrong read aloud was wrong on paper too.
+> Why: Your ear outranks any script. A sentence that sounds wrong read aloud was wrong on paper too.
 
 Read the passage aloud. IF it sounds like a press release, a LinkedIn
 influencer, or a model completing a prompt THEN it is slop: rewrite it
 until it sounds like a competent human who knows the subject.
 
 ## Empirical grounding (why these markers, and their limits)
-> Why: A marker list without grounding is superstition — the evidence says what the filter can and cannot claim.
+> Why: A marker list without grounding is superstition. The evidence says what the filter can and cannot claim.
 
 The marker list is not folk wisdom. Kobak et al., "Delving into
 LLM-assisted writing in biomedical publications through excess

@@ -47,7 +47,7 @@ until reviewed.
 
 ## OWASP Agentic Skills Top 10 (v1.0, Mar 2026)
 
-> Why: Your skill inherits every risk on this list the moment someone installs it — checking is cheaper than incident response.
+> Why: Your skill inherits every risk on this list the moment someone installs it. Checking is cheaper than incident response.
 
 The industry's skill-specific risk list
 (owasp.github.io/www-project-agentic-skills-top-10). Check EVERY skill you
@@ -79,7 +79,7 @@ author or install against every row; ANY hit means fix or reject:
 
 ## Installer mitigations (checklist -- document the relevant ones in the skill)
 
-> Why: Installing a skill is granting ambient authority to a stranger's instructions — the checklist is the only due diligence you get.
+> Why: Installing a skill is granting ambient authority to a stranger's instructions. The checklist is the only due diligence you get.
 
 - [ ] Review `SKILL.md` **and** `scripts/` before installing. Read the code; the prose is the social-engineering layer.
 - [ ] Gate with `permission.skill` patterns: `"untrusted-*": "ask"`, `"experimental-*": "deny"`.

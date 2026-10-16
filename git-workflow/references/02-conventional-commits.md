@@ -10,13 +10,23 @@
 
 # Conventional Commits
 
+## Contents
+
+- [Format](#format)
+- [Spec-mandated rules (from the spec's 16 rules)](#spec-mandated-rules-from-the-specs-16-rules)
+- [Skill-strict rules (narrower than the spec; enforced by the linter)](#skill-strict-rules-narrower-than-the-spec-enforced-by-the-linter)
+- [SemVer mapping (the point of the types; defined inline)](#semver-mapping-the-point-of-the-types-defined-inline)
+- [Spec FAQ notes (load-bearing for the workflow)](#spec-faq-notes-load-bearing-for-the-workflow)
+- [Working-loop hygiene](#working-loop-hygiene)
+- [Examples](#examples)
+
 Spec: v1.0.0 (conventionalcommits.org). The commit message becomes
 machine-readable, which makes changelogs and version bumps automatable.
 
 ## Format
 > Why: Machine-readable history is the only thing that lets changelogs and version bumps compute themselves instead of being hand-written fiction.
 
-```
+```text
 <type>[optional scope][!]: <description>
 
 [optional body]

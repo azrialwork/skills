@@ -17,7 +17,7 @@ means it triggers exactly when it should. This is the highest-leverage field.
 INPUT: the skill's capabilities and the user's task vocabulary. OUTPUT: one
 `description` string. Follow the formula:
 
-```
+```text
 <What the skill does -- specific capabilities>. Use when <trigger scenarios and key terms>.
 ```
 
@@ -51,7 +51,7 @@ Verification checks (PASS/FAIL):
 
 ## Rules
 
-> Why: A missing description does not cause an error — it causes silence, the hardest failure to notice.
+> Why: A missing description does not cause an error. It causes silence, the hardest failure to notice.
 
 - A missing description still loads the skill but hides it from the model -- ALWAYS write one.
 - Aim for 1-3 sentences; every word should help selection.

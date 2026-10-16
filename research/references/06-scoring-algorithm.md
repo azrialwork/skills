@@ -56,7 +56,7 @@ citation (URL + access date); a stranger could redo the research.
 not linked to claims. 0: no usable citations.
 
 ## N/A and renormalization
-> Why: Renormalization keeps the score honest for questions where a category genuinely doesn't apply — without it, narrow questions get punished for not being broad ones.
+> Why: Renormalization keeps the score honest for questions where a category genuinely doesn't apply. Without it, narrow questions get punished for not being broad ones.
 
 A category may be marked N/A with a one-line reason (e.g. Currency
 N/A for a purely historical question). Remove its points from the

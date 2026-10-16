@@ -9,6 +9,15 @@
 
 # PR and review workflow
 
+## Contents
+
+- [The loop](#the-loop)
+- [Branch protection (GitHub)](#branch-protection-github)
+- [Merge queues (advanced)](#merge-queues-advanced)
+- [CODEOWNERS](#codeowners)
+- [Merge strategies (pick exactly one per project, stay consistent)](#merge-strategies-pick-exactly-one-per-project-stay-consistent)
+- [Review discipline](#review-discipline)
+
 ## The loop
 > Why: Reviews only work when the PR is the single place where code, discussion, and CI meet; scatter them and context dies.
 
@@ -65,7 +74,7 @@ adopt when rebase churn becomes the bottleneck.
 `.github/CODEOWNERS` maps paths to reviewers so the right people are
 requested automatically:
 
-```
+```text
 # .github/CODEOWNERS
 /scripts/   @security-team
 /docs/      @docs-team

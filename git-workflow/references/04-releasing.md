@@ -59,7 +59,7 @@ not the tool.
 ## The computable pipeline
 > Why: Every hand-written version number is a negotiation; a computed one is a fact nobody can argue with.
 
-```
+```text
 conventional commits -> linter (CI) -> version computed from types
 -> changelog generated -> tag created -> GitHub Release published
 ```

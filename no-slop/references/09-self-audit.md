@@ -15,18 +15,18 @@ INPUT: the draft text, after `scripts/slop-scan.sh` has run.
 4. Ship only when all four blocks pass.
 
 ## Block 1 -- Hard Gate (absolute)
-> Why: The first block guards trust — a single invented fact poisons everything around it.
+> Why: The first block guards trust. A single invented fact poisons everything around it.
 
 Any H-rule violation is a FAIL. Fix it, no exceptions:
 
 - [ ] H-01: every number, name, date, and quote has a real source
        (or no numbers appear at all).
-- [ ] H-02: no em dash (`—`) anywhere in the text.
+- [ ] H-02: no em dash (U+2014) anywhere in the text.
 - [ ] H-03: no sycophancy opener, no throat-clearing.
 - [ ] H-04: every cited source was actually read or opened.
 
 ## Block 2 -- Purpose-Gate (reason required)
-> Why: The second block guards intention — every technique must earn its place or it is decoration pretending to be design.
+> Why: The second block guards intention. Every technique must earn its place or it is decoration pretending to be design.
 
 For each P-technique used (bullets, bold, hedges, intensifiers,
 metaphors):
@@ -36,7 +36,7 @@ metaphors):
 - [ ] Anything without a reason was cut.
 
 ## Block 3 -- Liveliness (alive, not just clean)
-> Why: Clean is not the goal — a sterile page still charges the reader for their time and delivers nothing.
+> Why: Clean is not the goal. A sterile page still charges the reader for their time and delivers nothing.
 
 Removing slop does not produce good text; it leaves a void. Liveliness
 must be added, not assumed. A sterile result is a failure to fix.
@@ -56,7 +56,7 @@ must be added, not assumed. A sterile result is a failure to fix.
       its own merits.
 
 ## Block 4 -- Quality Locks and substance
-> Why: The last block guards stamina — consistency is what keeps a long text trustworthy, not just its opening.
+> Why: The last block guards stamina. Consistency is what keeps a long text trustworthy, not just its opening.
 
 - [ ] Q-01: deletion test -- every surviving paragraph earns its place.
 - [ ] Q-02: structure varies; no templated section shapes.
@@ -67,12 +67,12 @@ must be added, not assumed. A sterile result is a failure to fix.
       fixes often smuggle in new unverified claims).
 
 ## Sign-off
-> Why: Shipping is a decision, not a default — the sign-off exists because 'good enough' is exactly how slop ships.
+> Why: Shipping is a decision, not a default. The sign-off exists because 'good enough' is exactly how slop ships.
 
 IF all four blocks pass THEN ship. IF a block cannot be satisfied honestly THEN say so in the text rather than faking it. IF a fix adds new unverified claims THEN restart the audit at Block 1.
 
 ## Scoring the audit (0-100)
-> Why: A number turns a feeling into a contract — the score makes 'clean enough' argue with evidence instead of instinct.
+> Why: A number turns a feeling into a contract. The score makes 'clean enough' argue with evidence instead of instinct.
 
 The four blocks above are also a scoring algorithm
 (full spec: `references/10-scoring-algorithm.md`):

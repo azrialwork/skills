@@ -23,7 +23,7 @@
 3. IF a claim cannot be re-verified (source gone, paywalled, no primary exists) THEN downgrade its confidence per `05-confidence-grading.md`. NEVER drop it silently.
 
 ## Phase 3 -- Triangulate
-> Why: Averaging two disagreeing sources doesn't produce truth — it produces a third claim that nobody actually made.
+> Why: Averaging two disagreeing sources doesn't produce truth. It produces a third claim that nobody actually made.
 
 1. IF a claim is important or contested THEN it requires 2+ INDEPENDENT sources. Independent means: NOT the same document quoted twice, NOT a vendor quoting its own marketing, NOT two pages scraping the same feed.
 2. IF sources disagree THEN record the disagreement with both sides cited. NEVER average them away; NEVER pick a side without saying why.

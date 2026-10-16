@@ -14,7 +14,7 @@ Grade every finding. Classification rules -- evaluate top-down, first match wins
 - **Low** IF ANY hold: weak or single anecdotal source; unverifiable claim; significant disagreement. Treat as a lead, not a finding.
 
 ## Promotion and demotion algorithm
-> Why: Confidence only ever moves down because evidence degrades with time and doubt, never the reverse — grading upward is how guesses get laundered into findings.
+> Why: Confidence only ever moves down because evidence degrades with time and doubt, never the reverse. Grading upward is how guesses get laundered into findings.
 
 1. Start at the level the WEAKEST load-bearing source supports.
 2. Move DOWN (never up) one level for each of: staleness, disagreement, failed re-verification.

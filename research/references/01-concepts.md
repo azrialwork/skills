@@ -20,7 +20,7 @@ PASS/FAIL acceptance test -- the deliverable passes ONLY IF all four hold:
 4. Every gap is stated, never hidden.
 
 ## Research vs lookup gate
-> Why: Running the full machinery on a lookup doesn't just waste time — it teaches everyone involved to distrust the process itself.
+> Why: Running the full machinery on a lookup doesn't just waste time. It teaches everyone involved to distrust the process itself.
 
 - IF the answer is a single fact a plain web search returns in one step THEN it is a LOOKUP: do not invoke this skill; answer directly.
 - ELSE IF the question needs comparison, evaluation, claim verification, due diligence, or a literature review THEN it is RESEARCH: proceed.

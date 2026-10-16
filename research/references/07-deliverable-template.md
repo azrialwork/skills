@@ -43,7 +43,7 @@ last release was 2026-07-15.
 ```
 
 ## Honesty gates
-> Why: The most dangerous deliverable is not the wrong one — it is the uncertain one written to sound certain.
+> Why: The most dangerous deliverable is not the wrong one. It is the uncertain one written to sound certain.
 
 - IF the answer is "unknown" THEN the summary's first sentence says "unknown".
 - NEVER bury a Low-confidence finding in confident prose; its grade travels with it.

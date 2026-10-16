@@ -7,6 +7,8 @@
   (stated openly), the scoring pseudocode, a worked example, and the
   standard versions pinned by the algorithm (verified 2026-10-13).
 -->
+# Scoring appendix
+
 ## Anti-patterns (each maps to a criterion -- no double counting)
 
 | Anti-pattern | Criterion hit |
@@ -34,7 +36,7 @@ These are `[rubric]` by necessity, or excluded by judgment:
 
 ## Pseudocode
 
-```
+```text
 function score(repo):
     results = {}
     for c in ALL_CRITERIA:                     # 33 criteria above

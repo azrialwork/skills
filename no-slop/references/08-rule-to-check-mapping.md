@@ -8,11 +8,20 @@
 -->
 # Rule-to-check mapping -- mechanical probes and judge inputs (part B)
 
+## Contents
+
+- [Rule-to-check mapping (for the 0-100 algorithm)](#rule-to-check-mapping-for-the-0-100-algorithm)
+  - [Hard Gate -- mechanical probes + required attestations](#hard-gate----mechanical-probes-required-attestations)
+  - [Purpose-Gate -- density probes + reason override](#purpose-gate----density-probes-reason-override)
+  - [Extension modules -- checklist probes](#extension-modules----checklist-probes)
+  - [Quality Locks -- mixed probes and judge rubrics](#quality-locks----mixed-probes-and-judge-rubrics)
+  - [Liveliness -- judge inputs, applied as a ceiling](#liveliness----judge-inputs-applied-as-a-ceiling)
+
 Part B of the tiered rules: how each rule maps to a check for the 0-100
 algorithm. The rules themselves are part A (`07-anti-slop-rules.md`).
 
 ## Rule-to-check mapping (for the 0-100 algorithm)
-> Why: A rule without a check is a wish — the mapping exists so every rule is either measured or explicitly attested, never silently skipped.
+> Why: A rule without a check is a wish. The mapping exists so every rule is either measured or explicitly attested, never silently skipped.
 
 Reading rule: every rule below maps to exactly one check. Run the check;
 IF it is a mechanical probe THEN apply the formula; IF it is a judge

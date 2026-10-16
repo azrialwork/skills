@@ -10,11 +10,25 @@
 
 # Slop patterns -- leftovers and wrong-reader writing
 
+## Contents
+
+- [Detection algorithm](#detection-algorithm)
+- [Knowledge-limit disclaimers and speculative gap-filling](#knowledge-limit-disclaimers-and-speculative-gap-filling)
+- [Writing about the document instead of its subject](#writing-about-the-document-instead-of-its-subject)
+- [A heading repeated in the first sentence](#a-heading-repeated-in-the-first-sentence)
+- [Decorative headings](#decorative-headings)
+- [Re-explaining what the reader knows](#re-explaining-what-the-reader-knows)
+- [Curly quotation marks (weak alone)](#curly-quotation-marks-weak-alone)
+- [Real/actual adjective inflation](#realactual-adjective-inflation)
+- [Speculative scenario openers](#speculative-scenario-openers)
+- [False ranges](#false-ranges)
+- [Generic future-narrative closers](#generic-future-narrative-closers)
+
 Chat wrappers, drafting moves, and model limitations that were never
 meant for the reader; text written for a reader who shares no context.
 
 ## Detection algorithm
-> Why: Leftovers are drafting artifacts the reader was never meant to see — the detector scans in document order because these patterns leak everywhere.
+> Why: Leftovers are drafting artifacts the reader was never meant to see. The detector scans in document order because these patterns leak everywhere.
 
 INPUT: the draft text.
 
@@ -23,7 +37,7 @@ INPUT: the draft text.
 3. The curly-quote marker is informational only: count it solely alongside other tells, never as a lone FAIL.
 
 ## Knowledge-limit disclaimers and speculative gap-filling
-> Why: A gap admitted and then filled with a guess is worse than silence — the disclaimer launders the fabrication.
+> Why: A gap admitted and then filled with a guess is worse than silence. The disclaimer launders the fabrication.
 
 - **Pattern:** "As of my last update", "while details are limited",
   "based on available information", "she likely grew up in...".
@@ -33,7 +47,7 @@ INPUT: the draft text.
 - **Rule:** H-01.
 
 ## Writing about the document instead of its subject
-> Why: Text describing itself instead of its subject makes the reader do the author's job — they came for the thing, not the tour.
+> Why: Text describing itself instead of its subject makes the reader do the author's job. They came for the thing, not the tour.
 
 - **Pattern:** "This function was added to replace..."; "compiled
   from..."; "The table below compares..."; "In this article, we will
@@ -44,7 +58,7 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## A heading repeated in the first sentence
-> Why: Restating the heading wastes the reader's first breath on the section — start where the content starts.
+> Why: Restating the heading wastes the reader's first breath on the section. Start where the content starts.
 
 - **Pattern:** "## Performance" followed by "Speed matters." before
   the real content begins.
@@ -53,7 +67,7 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## Decorative headings
-> Why: Decoration applied by rule signals that every choice was automatic — the reader stops trusting the content too.
+> Why: Decoration applied by rule signals that every choice was automatic. The reader stops trusting the content too.
 
 - **Pattern:** Title Case on every subheading; emojis or arrows in
   headings ("Strategic Negotiations And Partnerships", "Launch Phase:").
@@ -62,7 +76,7 @@ INPUT: the draft text.
 - **Rule:** P-02.
 
 ## Re-explaining what the reader knows
-> Why: In a thread, the reader already has the context — re-explaining it buries the decision they came for.
+> Why: In a thread, the reader already has the context. Re-explaining it buries the decision they came for.
 
 - **Pattern:** in a reply, restating the problem, walking the full
   diagnosis, and burying the decision in the last line.
@@ -72,7 +86,7 @@ INPUT: the draft text.
 - **Rule:** Q-01.
 
 ## Curly quotation marks (weak alone)
-> Why: Weak tells must stay weak — treating them as verdicts is how filters start accusing innocent text.
+> Why: Weak tells must stay weak. Treating them as verdicts is how filters start accusing innocent text.
 
 - **Pattern:** "..." where the format calls for straight quotes.
 - **Why it is weak:** most editors auto-curl, so one curly quote proves
@@ -82,7 +96,7 @@ INPUT: the draft text.
 - **Rule:** Q-04 (informational).
 
 ## Real/actual adjective inflation
-> Why: 'Real' with no named contrast implies everything else is fake — an accusation disguised as praise.
+> Why: 'Real' with no named contrast implies everything else is fake. An accusation disguised as praise.
 
 - **Pattern:** "real on-chain tokenomics", "genuine utility",
   "true product-market fit" -- with no named contrast.
@@ -92,7 +106,7 @@ INPUT: the draft text.
 - **Rule:** Q-05.
 
 ## Speculative scenario openers
-> Why: A hypothetical of desirable outcomes is a wish, not an argument — it spends the reader's imagination on nothing testable.
+> Why: A hypothetical of desirable outcomes is a wish, not an argument. It spends the reader's imagination on nothing testable.
 
 - **Pattern:** "Imagine a world where..."; "Picture a future in
   which...".
@@ -102,7 +116,7 @@ INPUT: the draft text.
 - **Rule:** H-01.
 
 ## False ranges
-> Why: False breadth pairs unrelated extremes to sound comprehensive — the reader gets scope without substance.
+> Why: False breadth pairs unrelated extremes to sound comprehensive. The reader gets scope without substance.
 
 - **Pattern:** "from the Big Bang to dark matter";
   "from ancient civilizations to modern startups".
@@ -111,7 +125,7 @@ INPUT: the draft text.
 - **Rule:** Q-05.
 
 ## Generic future-narrative closers
-> Why: A prediction with no testable content can never be wrong — which is exactly why it says nothing.
+> Why: A prediction with no testable content can never be wrong, which is exactly why it says nothing.
 
 - **Pattern:** "may become one of the most important narratives of the
   next cycle"; "is poised to become the defining trend".

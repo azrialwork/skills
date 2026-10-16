@@ -18,7 +18,7 @@ DO NOT USE WHEN:
 - A quick single-fact lookup that a plain web search answers.
 
 ## Algorithm
-> Why: Every skipped step is a specific way a deliverable quietly lies — an undeclared hierarchy, an unstamped date, a disagreement smoothed away.
+> Why: Every skipped step is a specific way a deliverable quietly lies, an undeclared hierarchy, an unstamped date, a disagreement smoothed away.
 
 INPUT: the user's question.
 

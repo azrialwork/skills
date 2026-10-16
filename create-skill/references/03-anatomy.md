@@ -5,7 +5,7 @@
 
 # Anatomy of a Skill Directory
 
-```
+```text
 <skill-name>/               # must equal frontmatter `name`
 |-- SKILL.md               # required: YAML frontmatter + Markdown body
 |-- scripts/               # optional: executable helpers (Python/Bash/JS)
@@ -30,7 +30,7 @@ Construction rules:
 
 ## scripts/ algorithm
 
-> Why: Prose describing deterministic steps is executed by interpretation; a script is executed by the machine — only one of those is repeatable.
+> Why: Prose describing deterministic steps is executed by interpretation; a script is executed by the machine. Only one of those is repeatable.
 
 IF the agent would otherwise write the same ad-hoc script every session
 THEN bundle it in `scripts/`. Scripts run deterministically **without loading
@@ -60,7 +60,7 @@ by relative path from the skill root, same as `references/`.
 
 ## Hard rules
 
-> Why: These four rules are the load-bearing walls — violate any one and the skill does not degrade gracefully, it fails to load at all.
+> Why: These four rules are the load-bearing walls. Violate any one and the skill does not degrade gracefully, it fails to load at all.
 
 1. Frontmatter `---` block is byte 0 of SKILL.md. Repo header comments go *after* the frontmatter, NEVER before it.
 2. `<skill-name>` directory == frontmatter `name`, exactly.

@@ -27,7 +27,7 @@ INPUT: the five inputs below. OUTPUT: one of the four models.
 
 2. Evaluate in order; the first match wins:
 
-```
+```text
 if parallel_versions:                                          -> GITFLOW
 elif staged_envs:                                              -> GITLAB_FLOW
 elif team_size <= 1:                                           -> TRUNK_BASED

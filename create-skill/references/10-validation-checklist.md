@@ -19,7 +19,7 @@ starting the next phase. NEVER publish with a known failure.
 
 Run from the skill's parent directory:
 
-```
+```sh
 python3 <skill-repo>/create-skill/scripts/validate.py <skill-name>/
 ```
 
@@ -37,9 +37,9 @@ IF any item FAILS THEN fix it and re-run. Only proceed on all-PASS.
 
 ## Phase 2 -- Quality score [A+H]
 
-> Why: A score below 90 does not mean the skill is bad — it means specific, named things are wrong, and named problems get fixed.
+> Why: A score below 90 does not mean the skill is bad. It means specific, named things are wrong, and named problems get fixed.
 
-```
+```sh
 python3 <skill-repo>/create-skill/scripts/validate.py --score <skill-name>/ [--rubric rubric.json]
 ```
 
@@ -69,7 +69,7 @@ the rubric format, and a worked example.
 
 ## Phase 4 -- Live test in OpenCode (algorithm)
 
-> Why: A skill that passes every static check can still fail the only test that matters — whether the agent actually reaches for it.
+> Why: A skill that passes every static check can still fail the only test that matters, whether the agent actually reaches for it.
 
 1. Point `skills.paths` at the skill's parent directory (see `04-discovery.md`) and restart OpenCode.
 2. Run `opencode debug skill` (if available) and confirm the skill is listed with the expected name and description. IF not listed THEN diagnose per `04-discovery.md` step 4.
