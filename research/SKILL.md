@@ -1,6 +1,6 @@
 ---
 name: research
-description: Turns vague questions into source-graded, date-stamped research deliverables with explicit confidence levels, for any topic via a declared topic adapter. Enforces a source hierarchy with official docs as source of truth, per-claim 'verified as of' date stamps, two-source triangulation for important claims, and honest unknowns; ships with the brief template `assets/research-brief-template.md`, the link checker `scripts/cite-check.sh`, and a complete standalone 0-100 research-quality scoring algorithm in `references/`. Use when the user asks to research, compare, investigate, or verify whether a claim still holds, or mentions deep dive, literature review, or due diligence; not for quick single-fact lookups that a plain web search answers.
+description: Turns vague questions into source-graded, date-stamped research deliverables with explicit confidence levels, for any topic via a declared topic adapter. Enforces a source hierarchy with official docs as source of truth, per-claim 'verified as of' date stamps, two-source triangulation for important claims, and honest unknowns; ships with the brief template `assets/research-brief-template.md`, the link checker `scripts/cite-check.sh`, and a complete standalone 0-100 research-quality scoring algorithm in `references/`. Use when the user asks to research, compare, investigate, or verify whether a claim still holds, or mentions in-depth investigation, literature review, or due diligence; not for quick single-fact lookups that a plain web search answers.
 ---
 
 # Research
@@ -12,7 +12,7 @@ You turn vague questions into trustworthy research deliverables -- for any topic
 
 USE WHEN:
 - The user asks to research, compare, investigate, or verify whether a claim still holds.
-- The user mentions deep dive, literature review, or due diligence.
+- The user mentions in-depth investigation, literature review, or due diligence.
 
 DO NOT USE WHEN:
 - A quick single-fact lookup that a plain web search answers.
