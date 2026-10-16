@@ -32,16 +32,17 @@ Evaluate in order; the first matching row wins. IF no row matches THEN select Gi
 
 | IF the situation is | THEN select | Shape |
 |---|---|---|
-| Solo dev or 2-3 people, continuous delivery | Trunk-based (or direct-to-main) | Short-lived branches (hours, max 1-2 days), merge to main constantly |
-| Small team, PR-based review | GitHub Flow | `main` + feature branches + pull requests; deploy from main |
-| Staged environments (staging -> production) | GitLab Flow | Environment branches (`main` -> `staging` -> `production`) or release branches |
 | Versioned software, multiple releases maintained in parallel | GitFlow | `main`, `develop`, `feature/*`, `release/*`, `hotfix/*` |
+| Staged environments (staging -> production) | GitLab Flow | Environment branches (`main` -> `staging` -> `production`) or release branches |
+| Solo dev (one active committer) | Trunk-based (or direct-to-main) | Short-lived branches (hours, max 1-2 days), merge to main constantly |
+| Continuous delivery with mature CI | Trunk-based (or direct-to-main) | Short-lived branches (hours, max 1-2 days), merge to main constantly |
+| Otherwise | GitHub Flow | `main` + feature branches + pull requests; deploy from main |
 
 State the choice and why. IF the choice is GitFlow THEN you MUST justify it with parallel maintained versions; its own creator walked the recommendation back in 2020. (Full decision tree: `references/01-branching-models.md`.)
 
 ### Step 2 -- Apply core practices
 
-1. **Conventional Commits.** Every message MUST match `<type>[scope][!]: <description>` with type in `feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert` (the spec defines only `feat` and `fix`; the rest come from the Angular convention via commitlint). Type lowercase, description starts lowercase, no trailing period, ~50-72 chars. SemVer mapping: `feat` -> minor bump, `fix` -> patch, breaking change (`!`) -> major. (Spec-mandated vs skill-strict rules: `references/02-conventional-commits.md`.)
+1. **Conventional Commits.** Every message MUST match `<type>[scope][!]: <description>` with type in `feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert` (the spec defines only `feat` and `fix`; the rest come from the Angular convention via commitlint). Type lowercase, description starts lowercase, no trailing period, at most 72 chars. SemVer mapping: `feat` -> minor bump, `fix` -> patch, breaking change (`!`) -> major. (Spec-mandated vs skill-strict rules: `references/02-conventional-commits.md`.)
 2. **Main hygiene.** IF main is dirty THEN sync with `pull --rebase` BEFORE starting work. Push immediately after the commit lands.
 3. **Review loop.** IF the project has more than one contributor THEN every change MUST go through a pull request; main is protected: no direct pushes, CI must pass, force pushes blocked. Merge strategy: IF tidy history is the goal THEN squash; ELSE IF faithful history is the goal THEN rebase; ELSE IF the branch topology matters THEN merge commits. (Details: `references/03-pr-review.md`.)
 4. **Release.** Tag with annotated tags (`v1.2.3`), write release notes from the commit history, publish through GitHub Releases, automate the version from commit types. (Details: `references/04-releasing.md`.)
