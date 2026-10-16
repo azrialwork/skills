@@ -3,9 +3,9 @@
 
   Covers: direction before building -- Design Read, product truth,
   art direction, real imagery, browser self-check. Load with the
-  other 06 modules when the task builds an interface. The 06 modules
-  filter slop; this one supplies the direction the filter cannot
-  invent.
+  other UI modules (15-17) when the task builds an interface. The UI
+  modules (15-17) filter slop; this one supplies the direction the
+  filter cannot invent.
 -->
 
 # UI direction -- before building

@@ -79,12 +79,12 @@ Deduction caps at 8 per rule. W = word count.
 
 ### Extension modules -- checklist probes
 
-Modules 05 and 06 carry their own checklists instead of numeric
+Modules 14 and 15-18 carry their own checklists instead of numeric
 rules. For the 0-100 algorithm they map to judge inputs:
 
-- **05 code comments** -- judge: count of checklist items failing.
+- **14 code comments** -- judge: count of checklist items failing.
   0 -> 0; 1-2 -> 2; 3+ -> 4 (same band as a Quality Lock).
-- **06 UI patterns** -- judge: count of checklist items failing.
+- **15-18 UI patterns** -- judge: count of checklist items failing.
   0 -> 0; 1-3 -> 2; 4+ -> 4. UI-copy tells (buzzwords, aphoristic
   cadence, theater framing, em-dash saturation) score under P-05,
   Q-02, Q-01, H-02 respectively.

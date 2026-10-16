@@ -63,7 +63,7 @@ Q-subtotal: 12. Score: 64 - 12 = 52.
 **Step 4 -- Liveliness.** Topic-swap test: swap the topic and the text
 reads the same -- FAIL. Score = min(52, 40) = **40**.
 
-**Step 5 -- Verdict: 40, band Berkembang, FAIL** (below 80).
+**Step 5 -- Verdict: 40, band Developing, FAIL** (below 80).
 
 Mode 2 findings list:
 

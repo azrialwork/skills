@@ -33,10 +33,10 @@ clean, lively text scores exactly 100. Any Hard Gate violation scores 0.
 | Score | Band | Meaning |
 |---|---|---|
 | 0 | FAIL | A Hard Gate rule (H-01..H-04) was violated. Rewrite, do not tune. |
-| 1-39 | Kritis | Heavy slop; needs a rewrite, not edits. |
-| 40-59 | Berkembang | Partially clean; notable findings remain. |
-| 60-79 | Matang | Disciplined; a few findings to fix. |
-| 80-100 | Lulus | Meets the bar. 100 = clean and lively. |
+| 1-39 | Critical | Heavy slop; needs a rewrite, not edits. |
+| 40-59 | Developing | Partially clean; notable findings remain. |
+| 60-79 | Disciplined | Mostly clean; a few findings to fix. |
+| 80-100 | Pass | Meets the bar. 100 = clean and lively. |
 
 PASS threshold: **80**. Thresholds below are defaults and may be tuned,
 but the architecture (binary Hard Gate, capped P/Q deductions, liveliness
