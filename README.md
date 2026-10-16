@@ -56,7 +56,11 @@ git log -1 --format=%B | sh git-workflow/scripts/commit-lint.sh
 ```
 
 Rules: one folder per skill; the folder name must equal the frontmatter `name`
-(lowercase, hyphens, `^[a-z0-9]+(-[a-z0-9]+)*$`).
+(lowercase, hyphens, `^[a-z0-9]+(-[a-z0-9]+)*$`). SKILL.md stays lean;
+detail lives in `references/`, `scripts/`, and `assets/`, loaded on demand
+(progressive disclosure). SKILL.md may point to files in the same skill
+and to authoritative external sources; mandatory rules stay in SKILL.md
+or are clearly referenced from it.
 
 ### Adding a new skill
 

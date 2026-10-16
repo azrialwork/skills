@@ -1,6 +1,6 @@
 # CI validation for the skills collection.
 #
-# Dogfoods all three skills on every push/PR:
+# Dogfoods create-skill, no-slop, and oss-standards on every skill:
 #   create-skill  -> scripts/validate.py on every skill
 #   no-slop       -> scripts/slop-scan.sh on every SKILL.md
 #   oss-standards -> scripts/repo-audit.sh on this repo
@@ -21,13 +21,13 @@ jobs:
 
       - name: create-skill validate.py on every skill
         run: |
-          for s in create-skill oss-standards no-slop git-workflow; do
+          for s in create-skill oss-standards no-slop git-workflow research; do
             python3 create-skill/scripts/validate.py "$s"
           done
 
       - name: no-slop slop-scan on every SKILL.md
         run: |
-          for s in create-skill oss-standards no-slop git-workflow; do
+          for s in create-skill oss-standards no-slop git-workflow research; do
             ./no-slop/scripts/slop-scan.sh "$s/SKILL.md"
           done
 
@@ -36,6 +36,6 @@ jobs:
 
       - name: POSIX syntax check on all shell scripts
         run: |
-          for f in oss-standards/scripts/repo-audit.sh no-slop/scripts/slop-scan.sh; do
+          for f in oss-standards/scripts/repo-audit.sh no-slop/scripts/slop-scan.sh research/scripts/cite-check.sh git-workflow/scripts/commit-lint.sh; do
             sh -n "$f"
           done

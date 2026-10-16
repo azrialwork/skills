@@ -87,3 +87,29 @@ Applied repo-wide in the same refactor, recorded here so the diff is auditable:
   `05-install-sh-testing.md` assumes one exists. The audit reports
   it as INFO [SOON], not NOW. Adding the file is new behavior, so it
   is left as a gap for Boss to approve.
+
+## Slop-scan justification (2026-10-16)
+
+`sh no-slop/scripts/slop-scan.sh` over all 74 `.md` files in the repo:
+64 PASS, 10 FAIL, 0 HARD FAIL. All 5 `SKILL.md` files PASS
+(create-skill 5, git-workflow 0, no-slop 0, oss-standards 0,
+research 0). The 10 FAILs are all `no-slop/references/` files whose
+content IS slop examples. Justification basis: `no-slop/SKILL.md`
+Verify allows "exits 0 (or every nonzero finding was fixed or
+justified)". Removing the examples would delete the skill's catalog;
+the scanner cannot distinguish quoted examples from author voice.
+CI enforces slop-scan only on `SKILL.md` files, which all pass.
+
+| File | Score | Why the hits are justified |
+| --- | --- | --- |
+| `no-slop/references/01-slop-markers-lexical.md` | 90 | Every phrase hit is a quoted marker example (throat-clearing openers, significance inflation, weasel attributions); bold hits are the catalog's pattern labels |
+| `no-slop/references/02-slop-markers-structural.md` | 27 | Phrase hits are quoted examples (chatbot closers, empirical-grounding vocabulary); bold hits are pattern labels |
+| `no-slop/references/04-slop-markers-rhythm.md` | 50 | Phrase hits are quoted before/after example pairs (travel copy, sales language); bullet and bold hits are the catalog's list format |
+| `no-slop/references/05-slop-markers-leftovers.md` | 11 | Phrase hits are quoted leftover examples (knowledge disclaimers); bold hits are pattern labels |
+| `no-slop/references/07-anti-slop-rules.md` | 49 | Phrase hits are quoted forbidden examples (H-03 openers, Q-03 closers, before/after rewrites); density hits count the rule definitions' own hedge/intensifier word lists |
+| `no-slop/references/08-rule-to-check-mapping.md` | 29 | Phrase hits are quoted rule patterns (H-03 opener regex, Q-03 closer list); bold hits are the mapping format |
+| `no-slop/references/10-scoring-algorithm.md` | 23 | Phrase hits are quoted H-03/Q-03 patterns; density hits count the algorithm's own hedge/intensifier lists |
+| `no-slop/references/12-scoring-worked-example.md` | 67 | The sample text is deliberately sloppy (it scores 40 by design); the hits ARE the example |
+| `no-slop/references/15-ui-color-layout.md` | 12 | One quoted UI-copy tell; bullet and bold hits are the pattern catalog format |
+| `no-slop/references/17-ui-app-copy.md` | 17 | Quoted UI-copy tells; bullet and bold hits are the pattern catalog format |
+

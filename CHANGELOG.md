@@ -39,11 +39,23 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   PR/review practices, merge strategies, release automation.
   `scripts/commit-lint.sh` and a standalone 0-100 maturity scoring
   algorithm with a model-selection decision tree.
-- Repo hygiene: CI validation workflow (dogfoods all four skills),
+- Repo hygiene: CI validation workflow (dogfoods all five skills),
   OpenSSF Scorecard workflow, Dependabot for GitHub Actions,
   SECURITY.md, CODEOWNERS, issue/PR templates.
 
 ### Changed
+- 2026-10-16 consistency refactor (branch
+  `refactor/consistency-2026-10-16`): conflict matrix in
+  `CONFLICTS.md` (20 items, all resolved with recorded decisions);
+  all 117 em dash characters removed from `.md` files; all bare code
+  fences tagged; TOCs added to 13 reference files over 100 lines
+  (3 omitted where a TOC would breach the 150-line limit); scoring
+  band labels unified to American English; CI validation now covers
+  all five skills. Policy correction: skills use progressive
+  disclosure with pointers to `references/`, `assets/`, and
+  `scripts/` in the same skill; this supersedes the 2026-10-14
+  "standalone, no pointers" wording below. Validation scores
+  unchanged (4x100, no-slop 93).
 - 2026-10-14 mechanical refactor (commits `d078cf4`, `a09081a`,
   `ca170bb`, `ec38b03`, `ed13d71`): all five `SKILL.md` rewritten to
   one skeleton (Trigger, Algorithm, Verify, Guardrails, Reference
