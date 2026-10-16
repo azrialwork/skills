@@ -5,10 +5,8 @@
   algorithm -- band legend, inputs, procedure (including N/A renormalization
   and the NOW-gate), and all 33 criteria tables with weights and probes.
   Worked example, pseudocode, anti-patterns, and pinned standard versions
-  live in 16-scoring-appendix.md.
-
-  This file is self-contained: it does not depend on any other skill
-  or any other file in this skill to be applied.
+  live in 16-scoring-appendix.md. Apply this file with that appendix:
+  the criteria tables here are the input to the pseudocode there.
 -->
 # Compliance scoring algorithm (0-100)
 
@@ -30,10 +28,10 @@
 
 | Score | Band | Meaning |
 |---|---|---|
-| 90-100 | Teladan (exemplary) | Professional on every axis; publish as an example |
-| 70-89 | Matang (disciplined) | Production-ready; remaining items are hardening |
-| 40-69 | Berkembang (developing) | Usable but visibly incomplete |
-| 0-39 | Kritis (critical) | Foundational trust missing; do not promote yet |
+| 90-100 | Exemplary | Professional on every axis; publish as an example |
+| 70-89 | Disciplined | Production-ready; remaining items are hardening |
+| 40-69 | Developing | Usable but visibly incomplete |
+| 0-39 | Critical | Foundational trust missing; do not promote yet |
 
 Bands are tunable: adjust the legend to the repo. The NOW-gate (procedure step 4) is NOT tunable -- it always applies.
 

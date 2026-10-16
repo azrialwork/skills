@@ -1,7 +1,7 @@
 <!--
   SECURITY-template.md -- Asset for oss-standards.
 
-  Minimal SECURITY.md starter (15 lines). Copy to SECURITY.md at the repo
+  Minimal SECURITY.md starter. Copy to SECURITY.md at the repo
   root and fill in the bracketed values.
 -->
 

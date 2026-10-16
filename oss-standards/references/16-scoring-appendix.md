@@ -39,7 +39,7 @@ These are `[rubric]` by necessity, or excluded by judgment:
 ```text
 function score(repo):
     results = {}
-    for c in ALL_CRITERIA:                     # 33 criteria above
+    for c in ALL_CRITERIA:                     # 33 criteria in 15-scoring-algorithm.md
         if c.phase == LATER and not applicable(c, repo):
             results[c] = EXCLUDED; continue
         results[c] = probe(c, repo)             # auto command or rubric 0..max
@@ -52,9 +52,9 @@ function score(repo):
                   if c.phase == NOW and results[c] == 0]
     final = min(raw, 59) if now_failed else raw
 
-    band = "Teladan"    if final >= 90 else \
-           "Matang"     if final >= 70 else \
-           "Berkembang" if final >= 40 else "Kritis"
+    band = "Exemplary"  if final >= 90 else \
+           "Disciplined" if final >= 70 else \
+           "Developing"  if final >= 40 else "Critical"
     return { score: round(final, 1), band: band,
              now_gate_triggered: now_failed != [],
              findings: [per-criterion evidence + remediation pointer] }
@@ -76,7 +76,7 @@ Repo `widget`, tiny single-binary, v0.3.0, no outside contributors yet
 | 7. CI/CD (15) | 13 | C1 = 2, C5 = 2 |
 
 Earned = 84; applicable max = 95.
-`score = 100 x 84 / 95 = 88.4` -> **88, Matang**.
+`score = 100 x 84 / 95 = 88.4` -> **88, Disciplined**.
 No NOW criterion scored 0, so no gate. Remediation priority:
 S2 (sign checksums -- SOON item 11), I8 (add `shfmt -d`), V4 (fix 2
 vague subjects), S4 (raise Scorecard: cheap zeros first).

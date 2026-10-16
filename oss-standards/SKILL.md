@@ -1,6 +1,6 @@
 ---
 name: oss-standards
-description: Applies international open-source industry standards to a project. Covers professional POSIX-sh installer scripts (`install.sh` shell choice, strict mode, checksum verification, progress UX, PATH handling), repository structure, README anatomy, SemVer, Conventional Commits, SPDX licensing, SLSA and Sigstore supply-chain security, `SECURITY.md`, hardened CI/CD, and documentation standards; not for day-to-day branching decisions or commit-message style. Use when creating, reviewing, auditing, or upgrading an open-source repository, installer script, README, release process, or CI pipeline: run `scripts/repo-audit.sh` for a fast checklist pass, or when the user mentions industry standards, best practices, OpenSSF, SLSA, SBOM, or professionalizing a project.
+description: Applies international open-source industry standards to a project. Covers professional POSIX-sh installer scripts (`install.sh` shell choice, strict mode, checksum verification, progress UX, PATH handling), repository structure, README anatomy, SemVer, Conventional Commits, SPDX licensing, SLSA and Sigstore supply-chain security, `SECURITY.md`, hardened CI/CD, and documentation standards; not for day-to-day branching decisions or commit-message style. Use when creating, reviewing, auditing, or upgrading an open-source repository, installer script, README, release process, or CI pipeline: run `scripts/repo-audit.sh` for a fast checklist pass, or when the user mentions industry standards, established practices, OpenSSF, SLSA, SBOM, or professionalizing a project.
 ---
 
 # oss-standards
@@ -11,7 +11,7 @@ Brings a project up to international open-source industry standards: the install
 
 USE WHEN:
 - Creating, reviewing, auditing, or upgrading an open-source repository, installer script, README, release process, or CI pipeline.
-- The user mentions industry standards, best practices, OpenSSF, SLSA, SBOM, or professionalizing a project.
+- The user mentions industry standards, established practices, OpenSSF, SLSA, SBOM, or professionalizing a project.
 
 DO NOT USE WHEN:
 - Day-to-day branching decisions or commit-message style (use git-workflow).
@@ -30,7 +30,7 @@ INPUT: the target (installer, repo layout, README, release process, or full audi
 7. **Verify and score.** Re-run the audit script. IF any NOW item fails THEN return to step 5. For a complete 0-100 compliance score, apply `references/15-scoring-algorithm.md` (every requirement maps to an automated probe or an explicit human-rubric input).
 
 ## Verify
-> Why: Unverifiable standards are just opinions -- these checks are what turn "we follow best practices" into something a stranger can confirm.
+> Why: Unverifiable standards are just opinions -- these checks are what turn "we follow established practices" into something a stranger can confirm.
 
 - [ ] PASS: exactly one target was named before work started.
 - [ ] PASS: `scripts/repo-audit.sh <repo-dir>` ran and every result is logged PASS/FAIL.
@@ -72,5 +72,5 @@ Read a reference only when its topic is in scope. Do not preload all of them.
 ## Scripts and assets
 
 - `scripts/repo-audit.sh` -- POSIX-sh checklist auditor for a repo directory. Reports PASS/FAIL per standard; exit nonzero on any NOW-item failure.
-- `assets/SECURITY-template.md` -- minimal SECURITY.md starter (15 lines).
+- `assets/SECURITY-template.md` -- minimal SECURITY.md starter.
 - `assets/install-sh-skeleton.sh` -- minimal installer skeleton with the standard idioms (strict mode, checksum, progress bar, trap cleanup).
