@@ -30,7 +30,7 @@ PASS/FAIL criteria (stdlib only, no dependencies):
 - [ ] PASS: `description` present, 1-1024 chars; does NOT start with "I"/"We"/"You". (B4, B5, B6)
 - [ ] PASS: every `metadata` value is a string (portability). (B10)
 - [ ] PASS: no unknown top-level fields -- including `disable-model-invocation`, which is in neither the spec nor OpenCode's official docs (use `metadata: {"opencode/autoinvoke": "false"}` instead).
-- [ ] PASS: no `allowed-tools` (spec-experimental, unsupported by OpenCode).
+- [ ] PASS: `allowed-tools`, if present, is spec-experimental and unsupported by OpenCode (warning only, per `02-frontmatter.md` and `scripts/validate.py`).
 - [ ] PASS: body under ~500 lines; every `references/*.md` link in SKILL.md resolves to an existing file; scripts are executable or have a shebang. (B7, B8, B9)
 
 IF any item FAILS THEN fix it and re-run. Only proceed on all-PASS.

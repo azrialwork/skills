@@ -119,7 +119,7 @@ Run it: `python3 scripts/validate.py --score <skill-dir> [--rubric rubric.json]`
 
 ## Worked example: scoring this skill (`create-skill` itself)
 
-Reproduce: `python3 scripts/validate.py --score ~/workspace/skills/create-skill/`.
+Reproduce from the repo root: `python3 create-skill/scripts/validate.py --score create-skill/`.
 All B-items automated; G-items automated except where noted.
 
 | # | Result | Pts |
@@ -130,7 +130,7 @@ All B-items automated; G-items automated except where noted.
 | B4 | description present, non-empty | 8/8 |
 | B5 | 477 chars, within 1-1024 | 6/6 |
 | B6 | starts "Guides the creation..." (third person) | 5/5 |
-| B7 | body ~64 lines | 5/5 |
+| B7 | body 74 lines | 5/5 |
 | B8 | all `references/*.md` links resolve | 5/5 |
 | B9 | `scripts/validate.py` has shebang + executable bit | 3/3 |
 | B10 | no `metadata` in frontmatter (vacuous pass) | 2/2 |
@@ -139,7 +139,7 @@ All B-items automated; G-items automated except where noted.
 | G3 | trigger terms (create/scaffold/review/validate/score/improve) | 5/5 |
 | G4 | negative trigger present ("not for one-off prompt shortcuts...") | 3/3 |
 | G5 | 3 sentences | 3/3 |
-| G6 | body ~64 lines vs ~800 reference lines (ratio ~0.08) | 8/8 |
+| G6 | body 74 lines vs 774 reference lines (ratio 0.09) | 8/8 |
 | G7 | `references/` flat, all files <= 150 lines | 4/4 |
 | G8 | `validate.py` bundles the deterministic checks | 4/4 |
 | G9 | no `curl\|bash`, no exfiltration patterns; skill is not sensitive | 4/4 |
